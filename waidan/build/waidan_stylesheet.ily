@@ -214,7 +214,7 @@ afterGraceFraction = #(cons 15 16)
         \consists Grob_pq_engraver
         \consists #Interrupt_heads_engraver
 
-        \override Accidental.X-extent = ##f
+        % \override Accidental.X-extent = ##f
 
         \override AccidentalSuggestion.direction = #UP
         \override AccidentalSuggestion.font-size = 0.2
