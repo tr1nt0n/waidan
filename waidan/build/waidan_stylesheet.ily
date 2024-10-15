@@ -40,8 +40,8 @@ afterGraceFraction = #(cons 15 16)
         \override MetronomeMark.stencil = ##f
         \override VerticalAxisGroup.staff-staff-spacing = #'((basic-distance . 0) (minimum-distance . 0) (padding . 0) (stretchability . 0))
         \override TimeSignature.break-visibility = #end-of-line-invisible
-        \override TimeSignature.transparent = ##t
-        \override TimeSignature.font-size = 10
+        % \override TimeSignature.transparent = ##t
+        \override TimeSignature.font-size = 7
 		\override TimeSignature.font-name = "Bodoni72 Book"
         \override TimeSignature.X-extent = ##f
         \override TimeSignature.X-offset = -1.3
@@ -52,7 +52,7 @@ afterGraceFraction = #(cons 15 16)
         % \override TimeSignature.font-size = 10
 		% \override TimeSignature.font-name = "Bodoni72 Book"
         % \override TimeSignature.X-offset = -2.5
-        % \override TimeSignature.Y-offset = 3
+        \override TimeSignature.Y-offset = 12
         % \override TimeSignature.whiteout-style = #'outline
         % \override TimeSignature.whiteout = 1
         % \override TimeSignature.layer = 4
@@ -65,7 +65,7 @@ afterGraceFraction = #(cons 15 16)
         \consists Grid_line_span_engraver
         % \consists Measure_spanner_engraver
         \remove Bar_number_engraver
-        proportionalNotationDuration = #(ly:make-moment 1 10)
+        proportionalNotationDuration = #(ly:make-moment 1 20)
         pedalSustainStyle = #'mixed
 
         \override StaffGrouper.staffgroup-staff-spacing = #'((basic-distance . 5) (minimum distance . 5) (padding . 1) (stretchability . 0))
@@ -92,8 +92,8 @@ afterGraceFraction = #(cons 15 16)
 
         autoBeaming = ##f
         \override Beam.breakable = ##t
-        \override Beam.damping = 2
-        \override Beam.concaveness = #10000
+        % \override Beam.damping = 2
+        % \override Beam.concaveness = #10000
         \override Beam.beam-thickness = #1.15
         \override Beam.length-fraction = #1.84
 
@@ -184,22 +184,22 @@ afterGraceFraction = #(cons 15 16)
         \override TupletBracket.layer = 2
         \override TupletBracket.whiteout-style = #'outline
         \override TupletBracket.whiteout = 1
-        \override TupletNumber.font-size = 2
+        \override TupletNumber.font-size = 1
         \override TupletNumber.layer = 3
         \override TupletNumber.whiteout-style = #'outline
         \override TupletNumber.whiteout = 1
         \override TupletNumber.text = #tuplet-number::calc-fraction-text
         \override TupletNumber.font-name = "Bodoni72 Book"
-        \override TupletBracket.stencil =
-            #(lambda (grob)
-               (let* ((pos (ly:grob-property grob 'positions))
-                      (dir (ly:grob-property grob 'direction))
-                      (new-pos (if (= dir 1)
-                                   (max (car pos)(cdr pos))
-                                   (min (car pos)(cdr pos)))))
-                 (ly:grob-set-property! grob 'positions (cons new-pos new-pos))
-                 (ly:tuplet-bracket::print grob)))
-        \override TupletBracket.direction = #UP
+        % \override TupletBracket.stencil =
+        %     #(lambda (grob)
+        %        (let* ((pos (ly:grob-property grob 'positions))
+        %               (dir (ly:grob-property grob 'direction))
+        %               (new-pos (if (= dir 1)
+        %                            (max (car pos)(cdr pos))
+        %                            (min (car pos)(cdr pos)))))
+        %          (ly:grob-set-property! grob 'positions (cons new-pos new-pos))
+        %          (ly:tuplet-bracket::print grob)))
+        % \override TupletBracket.direction = #UP
 
         \override VoltaBracketSpanner.padding = 8
     }
@@ -286,7 +286,7 @@ afterGraceFraction = #(cons 15 16)
     bottom-margin = 10\mm
     left-margin = 10\mm
     right-margin = 10\mm
-    top-margin = 20\mm
+    top-margin = 30\mm
 
     oddHeaderMarkup = \markup ""
     evenHeaderMarkup = \markup ""
