@@ -7,14 +7,45 @@ from abjadext import microtones
 
 # immutables
 
+
+def waidan_score(time_signatures):
+    score = trinton.make_empty_score(
+        instruments=[
+            abjad.Violin(),
+            abjad.Viola(),
+            abjad.BaritoneSaxophone(),
+            abjad.Cello(),
+            abjad.Harp(),
+            abjad.Accordion(),
+            abjad.Accordion(),
+            abjad.Piano(),
+            abjad.Piano(),
+        ],
+        groups=[
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+        ],
+        time_signatures=time_signatures,
+        filler=abjad.Skip,
+    )
+
+    return score
+
+
 first_voice_names = eval(
     """[
+        "violin voice",
         "viola voice",
         "baritonesaxophone voice",
         "cello voice",
         "harp voice",
-        "accordion voice",
-        "piano voice",
+        "accordion 1 voice",
+        "piano 1 voice",
     ]"""
 )
 
@@ -24,35 +55,41 @@ all_instrument_names = [
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Viola }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Conductor }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Saxophone }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Viola }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Violoncello }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Saxophone }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Harp }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Violoncello }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
+        markup=abjad.Markup(
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Harp }'
+        ),
+    ),
+    abjad.InstrumentName(
+        context="GrandStaff",
         markup=abjad.Markup(
             '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Accordion }'
         ),
     ),
     abjad.InstrumentName(
-        context="Staff",
+        context="GrandStaff",
         markup=abjad.Markup(
             '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Piano }'
         ),
@@ -60,38 +97,44 @@ all_instrument_names = [
 ]
 
 all_short_instrument_names = [
-    abjad.ShortInstrumentName(
+    abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ vla }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Conductor }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ sax }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ vla }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ vc }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ sax }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ hp }'
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ vc }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
+        markup=abjad.Markup(
+            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ hp }'
+        ),
+    ),
+    abjad.ShortInstrumentName(
+        context="GrandStaff",
         markup=abjad.Markup(
             '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ acc }'
         ),
     ),
     abjad.ShortInstrumentName(
-        context="Staff",
+        context="GrandStaff",
         markup=abjad.Markup(
             '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ pno }'
         ),
@@ -116,3 +159,51 @@ def write_short_instrument_names(score):
             attachment=markup,
             tag=abjad.Tag("+SCORE"),
         )
+
+
+def return_metronome_markup(note_value, tempo, padding, metric_modulation=None):
+    _note_value_to_number_pair = {
+        "sixteenth": (4, 0),
+        "eighth": (3, 0),
+        "dotted eighth": (3, 1),
+        "quarter": (2, 0),
+        "dotted quarter": (2, 1),
+        "half": (1, 0),
+        "dotted half": (1, 1),
+        "whole": (0, 0),
+    }
+
+    tempo_markup = f"""\\abjad-metronome-mark-markup #{_note_value_to_number_pair[note_value][0]} #{_note_value_to_number_pair[note_value][-1]} #2 #" {tempo} " """
+
+    if metric_modulation is None:
+        mark = abjad.LilyPondLiteral(
+            [
+                r"^ \markup {",
+                rf"  \raise #{padding} \with-dimensions-from \null",
+                r"  \override #'(font-size . 5.5)",
+                r"  \concat {",
+                f"      {tempo_markup}",
+                r"  }",
+                r"}",
+            ],
+            site="after",
+        )
+
+    else:
+        mark = abjad.LilyPondLiteral(
+            [
+                r"^ \markup {",
+                r"  \hspace #-9",
+                rf"  \raise #{padding} \with-dimensions-from \null",
+                r"  \override #'(font-size . 5.5)",
+                r"  \concat {",
+                f"  [{abjad.lilypond(metric_modulation)[8:]}]",
+                r"      \hspace #1",
+                f"      {tempo_markup}",
+                r"  }",
+                r"}",
+            ],
+            site="after",
+        )
+
+    return mark

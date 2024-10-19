@@ -4,10 +4,17 @@
 #(set-global-staff-size 24)
 #(ly:set-option 'relative-includes #t)
 
-% \include "../library.ily"
+\include "../library.ily"
 \include "/Users/trintonprater/evans/lilypond/evans.ily"
 \include "/Users/trintonprater/trinton/lilypond/trinton-markups.ily"
 \include "/Users/trintonprater/abjad-ext-microtones/abjadext/microtones/lilypond/ekmelos-ji-accidental-markups.ily"
+
+\header {
+    dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #2 { "Anthropodermic" \hspace #23 "Bibliopegy" } } \line { \fontsize #0.01 \with-color #white "."} }
+    title = \markup \override #'(font-name . "Source Han Serif SC Bold") \center-column { \line \fontsize #14 { γ: 外 丹 } \fontsize #0.01 \with-color #white "."}
+    subtitle = \markup \fontsize #0 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "for Viola Solo, Five Instruments, and Electronics" } } \fontsize #0.01 \with-color #white "."}
+    composer = \markup \override #'(font-name . "Bodoni72") \fontsize #0 {"Trinity Hlynn Prater (*2000)"}
+}
 
 afterGraceFraction = #(cons 15 16)
 
@@ -65,17 +72,17 @@ afterGraceFraction = #(cons 15 16)
         \consists Grid_line_span_engraver
         % \consists Measure_spanner_engraver
         \remove Bar_number_engraver
-        proportionalNotationDuration = #(ly:make-moment 1 20)
+        proportionalNotationDuration = #(ly:make-moment 1 30)
         pedalSustainStyle = #'mixed
 
-        \override StaffGrouper.staffgroup-staff-spacing = #'((basic-distance . 5) (minimum distance . 5) (padding . 1) (stretchability . 0))
-        \override StaffGrouper.staff-staff-spacing = #'((basic-distance . 13) (minimum distance . 13) (padding . 0) (stretchability . 0))
+        \override StaffGrouper.staffgroup-staff-spacing = #'((basic-distance . 13) (minimum distance . 13) (padding . 5) (stretchability . 13))
+        \override StaffGrouper.staff-staff-spacing = #'((basic-distance . 13) (minimum distance . 13) (padding . 5) (stretchability . 13))
 
         \override AccidentalSuggestion.avoid-slur = #'ignore
         \override Accidental.layer = 3
         \override Accidental.whiteout-style = #'outline
         \override Accidental.whiteout = 1
-        % \override Accidental.X-extent = ##f
+        \override Accidental.X-extent = ##f
 
         \override Script.layer = 2
         \override Script.whiteout-style = #'outline
@@ -85,7 +92,7 @@ afterGraceFraction = #(cons 15 16)
         \override BarLine.hair-thickness = 0.5
         \override BarLine.thick-thickness = #10
         \override BarLine.layer = 2
-        % \override BarLine.X-extent = #'(0 . 0)
+        \override BarLine.X-extent = #'(-0.5 . -0.5)
         % \override BarLine.X-extent = ##f
         % \override BarLine.X-offset = -4
         % \override BarLine.extra-offset = #'(-0.5 . 0.5)
@@ -115,7 +122,7 @@ afterGraceFraction = #(cons 15 16)
         \override DynamicText.whiteout = 1
         \override DynamicLineSpanner.staff-padding = 4
 
-        \override Glissando.thickness = #3
+        \override Glissando.thickness = #4
         \override Glissando.breakable = ##t
 
         \override Hairpin.to-barline = ##f
@@ -143,26 +150,27 @@ afterGraceFraction = #(cons 15 16)
 
         \override Stem.stemlet-length = 2
         \override Stem.thickness = #0.5
-        \override Stem.details.beamed-lengths = #'(7)
-        \override Stem.details.lengths = #'(7)
+        \override Stem.details.beamed-lengths = #'(6)
+        \override Stem.details.lengths = #'(6)
 
-        \override StemTremolo.stencil = #ly:text-interface::print
-        \override StemTremolo.text = \markup {
-            \fontsize #5
-            \override #'(font-name . "ekmelos")
-            {
-                \char ##xe222
-            }
-        }
+        % \override StemTremolo.stencil = #ly:text-interface::print
+        % \override StemTremolo.text = \markup {
+        %     \fontsize #3.5
+        %     \override #'(font-name . "ekmelos")
+        %     {
+        %         \char ##xe222
+        %     }
+        % }
         \override StemTremolo.whiteout-style = #'outline
         \override StemTremolo.whiteout = 1
         \override StemTremolo.layer = 2
 
         \override TextScript.font-name = "Bodoni72 Book"
+        \override TextScript.whiteout-style = #'outline
         \override TextScript.whiteout = 1
         \override TextSpanner.font-name = "Bodoni72 Book"
 
-        % \override Tie.stencil = #flare-tie
+        \override Tie.stencil = #flare-tie
         \override Tie.height-limit = 6
         \override Tie.thickness = 1.5
 
@@ -206,7 +214,7 @@ afterGraceFraction = #(cons 15 16)
 
     \context {
         \Staff
-        fontSize = #-0.5
+        fontSize = #0.5
         \remove Time_signature_engraver
         % \consists Measure_spanner_engraver
         \consists Duration_line_engraver
@@ -230,6 +238,8 @@ afterGraceFraction = #(cons 15 16)
         \override DurationLine.breakable = ##t
 
         \override InstrumentName.self-alignment-X = #CENTER
+        \RemoveAllEmptyStaves
+        % \RemoveEmptyStaves
     }
 
     \context {
@@ -269,7 +279,7 @@ afterGraceFraction = #(cons 15 16)
         \consists "Horizontal_bracket_engraver"
         \consists Measure_spanner_engraver
 
-        \override Accidental.font-size = 1
+        \override Accidental.font-size = 2
 
         \override MeasureSpanner.staff-padding = 30
     }
@@ -277,19 +287,56 @@ afterGraceFraction = #(cons 15 16)
 }
 %
 \paper {
+    #(define fonts
+        (set-global-fonts
+	        #:music "haydn"
+	        #:brace "haydn"
+	))
     % min-systems-per-page = 3
     % max-systems-per-page = 3
-    % system-separator-markup = \markup \fontsize #12 { \tremolo-moderato }
-    system-system-spacing = #'((basic-distance . 30) (minimum-distance . 30) (padding . 0) (stretchability . 30))
+    system-separator-markup = \markup \fontsize #12 { \tremolo-moderato }
+    system-system-spacing = #'((basic-distance . 20) (minimum-distance . 20) (padding . 0) (stretchability . 20))
     indent = 20\mm
     short-indent = 15\mm
     bottom-margin = 10\mm
-    left-margin = 10\mm
+    left-margin = 15\mm
     right-margin = 10\mm
     top-margin = 30\mm
 
     oddHeaderMarkup = \markup ""
     evenHeaderMarkup = \markup ""
-    oddFooterMarkup = \markup ""
-    evenFooterMarkup = \markup ""
+
+    oddFooterMarkup = \markup
+        \fill-line {
+            \concat {
+                \override #'(font-name . "Bodoni72 Book")
+                "Anthropodermic Bibliopegy "
+                \override #'(font-name . "Source Han Serif SC")
+                { "γ: 外丹" }
+                \override #'(font-name . "Bodoni72 Book")
+                " - Trinity Hlynn Prater"
+            }
+            \concat {
+                \fontsize #3
+                \override #'(font-name . "Bodoni72 Book")
+                    \fromproperty #'page:page-number-string
+            }
+        }
+
+        evenFooterMarkup = \markup
+            \fill-line {
+                \concat {
+                    \fontsize #3
+                    \override #'(font-name . "Bodoni72 Book")
+                        \fromproperty #'page:page-number-string
+                }
+                \concat {
+                    \override #'(font-name . "Bodoni72 Book")
+                    "Anthropodermic Bibliopegy "
+                    \override #'(font-name . "Source Han Serif SC")
+                    { "γ: 外丹" }
+                    \override #'(font-name . "Bodoni72 Book")
+                    " - Trinity Hlynn Prater"
+                }
+            }
 }
