@@ -828,32 +828,11 @@
                 {
                     \context Voice = "accordion 1 voice"
                     {
+                        \staff-line-count 1
+                        \once \override Staff.Clef.transparent = ##t
                         \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Accordion }
                           %! +SCORE
                         \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ acc }
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                    }
-                }
-                \context Staff = "accordion 2 staff"
-                {
-                    \context Voice = "accordion 2 voice"
-                    {
-                        \staff-line-count 1
-                        \once \override Staff.Clef.transparent = ##t
                         \clef "percussion"
                         r8
                         \override Dots.staff-position = #2
@@ -882,6 +861,319 @@
                         }
                         r8
                         \!
+                        \override Dots.staff-position = #2
+                        \staff-line-count 5
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \clef "treble"
+                        e'4.
+                        \fp
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        ~
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        e'4.
+                        ~
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        e'4.
+                        ~
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        e'4.
+                        ~
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        e'4.
+                        ~
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        e'4.
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/5
+                        {
+                            \override Dots.staff-position = #2
+                            \revert Dots.staff-position
+                            \override Staff.Stem.stemlet-length = 0.75
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            e'8
+                            [
+                            (
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \<
+                            \override Voice.NoteHead.X-extent = #'(0 . 0)
+                            \override Voice.NoteHead.transparent = ##t
+                            e'8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \>
+                            e'8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \<
+                            e'8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \>
+                            \revert Staff.Stem.stemlet-length
+                            e'8
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \<
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/5
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            e'8
+                            [
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \>
+                            e'8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \<
+                            e'8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \>
+                            e'8
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \<
+                            \revert Staff.Stem.stemlet-length
+                            e'8
+                            )
+                            ]
+                            - \abjad-zero-padding-glissando
+                            \glissando
+                            \>
+                            \revert Voice.NoteHead.X-extent
+                            \revert Voice.NoteHead.transparent
+                        }
+                        \override Dots.staff-position = #2
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \revert Dots.staff-position
+                        <e' fs' g'>4..
+                        \!
+                        _ \markup {
+                                            \override #'(font-name . "Bodoni72 Book Italic")
+                                            \column {
+                                                \line {
+                                                    "trilling between notated pitch and random adjacent diads"
+                                                }
+                                                \line {
+                                                    "maintaining basic chord shape through glissando"
+                                                }
+                                            }
+                                        }
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        - \tweak details.squiggle-Y-scale 1.5
+                        - \tweak details.squiggle-initial-width 19
+                        - \tweak details.squiggle-speed-factor 0.9
+                        - \tweak thickness 0.005
+                        \slow-fast-trill
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \override Voice.NoteHead.X-extent = #'(0 . 0)
+                        \override Voice.NoteHead.transparent = ##t
+                        \once \override NoteHead.transparent = ##t
+                        d'4
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        \<
+                        ~
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        d'16
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        e'4
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        c'8.
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        d'16
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        c'16
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        \afterGrace
+                        e'8.
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \revert Dots.staff-position
+                            \once \override NoteHead.transparent = ##t
+                            b16
+                            \mf
+                            \stopTrillSpan
+                        }
+                        \revert Voice.NoteHead.X-extent
+                        \revert Voice.NoteHead.transparent
+                    }
+                }
+                \context Staff = "accordion 2 staff"
+                {
+                    \context Voice = "accordion 2 voice"
+                    {
+                        s1 * 3/8
                         s1 * 3/8
                         s1 * 3/8
                         s1 * 3/8

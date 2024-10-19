@@ -5,6 +5,7 @@ import trinton
 from abjadext import rmakers
 from abjadext import microtones
 from waidan import library
+from itertools import cycle
 
 # tape chord
 
@@ -462,7 +463,129 @@ trinton.make_music(
         tag=None,
         tweaks=None,
     ),
-    voice=score["accordion 2 voice"],
+    voice=score["accordion 1 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 7)),
+    evans.RhythmHandler(evans.talea([1000], 8)),
+    evans.PitchHandler(["e'"]),
+    trinton.change_lines(
+        lines=5,
+        selector=trinton.select_leaves_by_index([0]),
+        clef="treble",
+        invisible_barlines=False,
+    ),
+    trinton.noteheads_only(),
+    trinton.attachment_command(
+        attachments=[abjad.Dynamic("fp")], selector=trinton.select_leaves_by_index([0])
+    ),
+    voice=score["accordion 1 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (8, 11)),
+    evans.RhythmHandler(
+        evans.tuplet(
+            [
+                (
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                )
+            ]
+        )
+    ),
+    evans.PitchHandler(["e'"]),
+    rmakers.rewrite_dots,
+    trinton.respell_tuplets_command(),
+    trinton.linear_attachment_command(
+        attachments=cycle([abjad.StartHairpin("<"), abjad.StartHairpin(">")]),
+        selector=trinton.pleaves(),
+    ),
+    abjad.slur,
+    voice=score["accordion 1 voice"],
+    preprocessor=trinton.fuse_preprocessor((2,)),
+    beam_meter=True,
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (12, 15)),
+    evans.RhythmHandler(
+        evans.talea(
+            [
+                7,
+                5,
+                4,
+                3,
+                1,
+                1,
+            ],
+            16,
+        )
+    ),
+    trinton.aftergrace_command(
+        selector=trinton.select_leaves_by_index([-1], pitched=True, grace=False),
+        invisible=True,
+    ),
+    evans.PitchHandler([["e'", "fs'", "g'"], "d'", "e'", "c'", "d'", "c'", "e'", "b"]),
+    trinton.noteheads_only(selector=trinton.pleaves(grace=False)),
+    trinton.transparent_noteheads(selector=trinton.pleaves(grace=False, exclude=[0])),
+    trinton.linear_attachment_command(
+        attachments=[abjad.StopHairpin(), abjad.StartHairpin("<"), abjad.Dynamic("mf")],
+        selector=trinton.select_leaves_by_index([0, 1, -1]),
+    ),
+    voice=score["accordion 1 voice"],
+    preprocessor=trinton.fuse_preprocessor((10,)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 8)),
+    trinton.continuous_glissando(
+        selector=trinton.pleaves(exclude=[-4, -3, -2, -1]), zero_padding=True
+    ),
+    voice=score["accordion 1 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (8, 12)),
+    trinton.continuous_glissando(zero_padding=True, invisible_center=True),
+    voice=score["accordion 1 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (12, 15)),
+    trinton.continuous_glissando(zero_padding=True, invisible_center=True),
+    library.accelerando_trills(
+        initial_width=19,
+        y_scale=1.5,
+        speed_factor=0.9,
+        thickness=0.005,
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        accordion_markup=True,
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup {
+                    \override #'(font-name . "Bodoni72 Book Italic")
+                    \column {
+                        \line {
+                            "trilling between notated pitch and random adjacent diads"
+                        }
+                        \line {
+                            "maintaining basic chord shape through glissando"
+                        }
+                    }
+                }"""
+            )
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.DOWN,
+    ),
+    voice=score["accordion 1 voice"],
 )
 
 # globals

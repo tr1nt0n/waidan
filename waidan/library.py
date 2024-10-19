@@ -49,6 +49,57 @@ first_voice_names = eval(
     ]"""
 )
 
+# notation tools
+
+
+def accelerando_trills(
+    initial_width,
+    y_scale,
+    speed_factor,
+    thickness=3,
+    selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+    accordion_markup=False,
+):
+    def trills(argument):
+        if speed_factor > 0.9:
+            raise Exception("Speed factor must be a float value under 1.")
+        selections = selector(argument)
+
+        it = iter(selections)
+        tups = [*zip(it, it)]
+
+        if accordion_markup is True:
+            # start_trill = abjad.bundle(
+            #     abjad.StartTrillSpan(),
+            #     r"""- \tweak bound-details.left.text \markup \with-color "goldenrod" { \center-column { \fontsize #5 \override #'(font-name . "ekmelos") \line { \char ##xe0BE | \char ##xe0A4 } } }""",
+            # )
+            start_trill = abjad.bundle(
+                abjad.LilyPondLiteral(r"\slow-fast-trill", site="after"),
+                rf"- \tweak details.squiggle-Y-scale {y_scale}",
+                rf"- \tweak details.squiggle-initial-width {initial_width}",
+                rf"- \tweak details.squiggle-speed-factor {speed_factor}",
+                rf"- \tweak thickness {thickness}",
+            )
+
+        else:
+            start_trill = abjad.bundle(
+                abjad.LilyPondLiteral(r"\slow-fast-trill", site="after"),
+                rf"- \tweak details.squiggle-Y-scale {y_scale}",
+                rf"- \tweak details.squiggle-initial-width {initial_width}",
+                rf"- \tweak details.squiggle-speed-factor {speed_factor}",
+                rf"- \tweak thickness {thickness}",
+            )
+
+        stop_trill = abjad.StopTrillSpan()
+
+        for tup in tups:
+            abjad.attach(start_trill, tup[0])
+
+            abjad.attach(stop_trill, tup[-1])
+
+    return trills
+
+
 # markups
 
 all_instrument_names = [
