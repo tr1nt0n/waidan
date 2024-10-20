@@ -1,7 +1,7 @@
 \version "2.23.81"
 \language english
-#(set-default-paper-size "11x17landscape")
-#(set-global-staff-size 24)
+#(set-default-paper-size "11x17portrait")
+#(set-global-staff-size 18)
 #(ly:set-option 'relative-includes #t)
 
 \include "../library.ily"
@@ -10,10 +10,10 @@
 \include "/Users/trintonprater/abjad-ext-microtones/abjadext/microtones/lilypond/ekmelos-ji-accidental-markups.ily"
 
 \header {
-    dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #2 { "Anthropodermic" \hspace #23 "Bibliopegy" } } \line { \fontsize #0.01 \with-color #white "."} }
-    title = \markup \override #'(font-name . "Source Han Serif SC Bold") \center-column { \line \fontsize #14 { γ: 外 丹 } \fontsize #0.01 \with-color #white "."}
+    dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #2 { "Anthropodermic" \hspace #13 "Bibliopegy" } } \line { \fontsize #0.01 \with-color #white "."} }
+    title = \markup \override #'(font-name . "Source Han Serif SC Bold") \center-column { \line \fontsize #12 { γ: 外 丹 } \fontsize #0.01 \with-color #white "."}
     subtitle = \markup \fontsize #0 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "for Viola Solo, Five Instruments, and Electronics" } } \fontsize #0.01 \with-color #white "."}
-    composer = \markup \override #'(font-name . "Bodoni72") \fontsize #0 {"Trinity Hlynn Prater (*2000)"}
+    composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #0 {"Trinity Hlynn Prater (*2000)"} \fontsize #25 \with-color #white "."}
 }
 
 afterGraceFraction = #(cons 15 16)
@@ -187,7 +187,7 @@ afterGraceFraction = #(cons 15 16)
         tupletFullLength = ##t
         \override TupletBracket.full-length-to-extent = ##f
         \override TupletBracket.padding = 2
-        \override TupletNumber.font-size = 1.5
+        \override TupletNumber.font-size = 0.5
         \override TupletBracket.bracket-visibility = ##t
         \override TupletBracket.layer = 2
         \override TupletBracket.whiteout-style = #'outline
@@ -214,7 +214,7 @@ afterGraceFraction = #(cons 15 16)
 
     \context {
         \Staff
-        fontSize = #0.5
+        fontSize = #-1
         \remove Time_signature_engraver
         % \consists Measure_spanner_engraver
         \consists Duration_line_engraver

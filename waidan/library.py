@@ -106,31 +106,31 @@ all_instrument_names = [
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Conductor }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Conductor }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Viola }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Viola }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Saxophone }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Saxophone }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Violoncello }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Violoncello }'
         ),
     ),
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Harp }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Harp }'
         ),
     ),
     abjad.InstrumentName(
@@ -151,31 +151,31 @@ all_short_instrument_names = [
     abjad.InstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic") { Conductor }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Conductor }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ vla }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ vla }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ sax }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ sax }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ vc }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ vc }'
         ),
     ),
     abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
-            '\markup \\fontsize #1 \override #\'(font-name . "Bodoni72 Book Italic"){ hp }'
+            '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic"){ hp }'
         ),
     ),
     abjad.ShortInstrumentName(

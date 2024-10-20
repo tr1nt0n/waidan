@@ -60,9 +60,9 @@
             {
                 \context Voice = "violin voice"
                 {
-                    \set Staff.instrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
+                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                       %! +SCORE
-                %%% \set Staff.instrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
+                %%% \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
@@ -84,9 +84,9 @@
             {
                 \context Voice = "viola voice"
                 {
-                    \set Staff.instrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic") { Viola }
+                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Viola }
                       %! +SCORE
-                %%% \set Staff.shortInstrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic"){ vla }
+                %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ vla }
                     \clef "alto"
                     s1 * 3/8
                     \override Dots.staff-position = #2
@@ -106,11 +106,11 @@
                     \glissando
                     - \tweak padding #6
                     - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-2 \box \line { poco tast. } \hspace #0.5 }
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { poco tast. } \hspace #0.5 }
                     \startTextSpanOne
                     - \tweak padding #8.5
                     - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-2 \box \line { senza vib. } \hspace #0.5 }
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { senza vib. } \hspace #0.5 }
                     \startTextSpanTwo
                     ~
                     \once \override NoteHead.no-ledgers = ##t
@@ -382,9 +382,9 @@
             {
                 \context Voice = "baritonesaxophone voice"
                 {
-                    \set Staff.instrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic") { Saxophone }
+                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Saxophone }
                       %! +SCORE
-                %%% \set Staff.shortInstrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic"){ sax }
+                %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ sax }
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
@@ -408,9 +408,9 @@
                 {
                     \staff-line-count 1
                     \once \override Staff.Clef.transparent = ##t
-                    \set Staff.instrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic") { Violoncello }
+                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Violoncello }
                       %! +SCORE
-                %%% \set Staff.shortInstrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic"){ vc }
+                %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ vc }
                     \clef "percussion"
                     r16
                     \override Dots.staff-position = #2
@@ -433,7 +433,7 @@
                     \glissando
                     - \tweak padding #3
                     - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-4 \box \line { brush on body } \hspace #0.5 }
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { sponge on body } \hspace #0.5 }
                     - \tweak bound-details.right.padding -2
                     \startTextSpan
                     \<
@@ -483,8 +483,6 @@
                     \once \override Dots.stencil = ##f
                     \once \override Tie.stencil = ##f
                     \once \override NoteHead.duration-log = 2
-                      %! +SCORE
-                %%% \revert Staff.BarLine.bar-extent
                     \clef "treble"
                     g'4.
                         _ #(make-dynamic-script (markup #:whiteout #:italic "fmp"))
@@ -495,11 +493,11 @@
                     \glissando
                     - \tweak padding #10
                     - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-2 \box \line { senza vib. } \hspace #0.5 }
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { senza vib. } \hspace #0.5 }
                     \startTextSpanTwo
                     - \tweak padding #7.5
                     - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-2 \box \line { poco tast. } \hspace #0.5 }
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { poco tast. } \hspace #0.5 }
                     \startTextSpanOne
                     ~
                     \once \override NoteHead.no-ledgers = ##t
@@ -729,9 +727,9 @@
                     \override Dots.staff-position = #2
                     \staff-line-count 1
                     \once \override Staff.Clef.transparent = ##t
-                    \set Staff.instrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic") { Harp }
+                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Harp }
                       %! +SCORE
-                %%% \set Staff.shortInstrumentName = \markup \fontsize #1 \override #'(font-name . "Bodoni72 Book Italic"){ hp }
+                %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ hp }
                     \clef "percussion"
                     \override Staff.Stem.stemlet-length = 0.75
                     c'8
@@ -752,7 +750,7 @@
                     \glissando
                     - \tweak padding #3
                     - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-4 \box \line { rub palms on soundboard } \hspace #0.5 }
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { rub palms on soundboard } \hspace #0.5 }
                     - \tweak bound-details.right.padding -2
                     \startTextSpan
                     \<
@@ -832,7 +830,7 @@
                         \>
                         - \tweak padding #3
                         - \abjad-dashed-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-4 \box \line { air } \hspace #0.5 }
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { air } \hspace #0.5 }
                         - \tweak bound-details.right.padding -2
                         \startTextSpan
                         {
@@ -1186,42 +1184,313 @@
                         \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Piano }
                           %! +SCORE
                     %%% \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ pno }
+                        \clef "bass"
                         s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
+                        r4
+                        \tweak style #'cross
+                        e8
+                        \pp
+                        [
+                        (
+                        - \tweak padding #7
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mute w/ styrofoam } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        \tweak style #'cross
+                        a8
+                        )
+                        r8
+                        \tweak style #'cross
+                        d8
+                        ]
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/5
+                        {
+                            r8
+                            \clef "treble"
+                            \tweak style #'cross
+                            d'8
+                            [
+                            (
+                            \tweak style #'cross
+                            b8
+                            \tweak style #'cross
+                            d'8
+                            )
+                            r8
+                        }
+                        \tweak style #'cross
+                        gs'8
+                        ]
+                        r8
+                        \tweak style #'cross
+                        d''8
+                        [
+                        (
+                        \<
+                        \tweak style #'cross
+                        b'16
+                        \tweak style #'cross
+                        d''16
+                        )
+                        \set stemLeftBeamCount = 2
+                        \set stemRightBeamCount = 1
+                        r16
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/7
+                        {
+                            \set stemLeftBeamCount = 1
+                            \set stemRightBeamCount = 3
+                            \tweak style #'cross
+                            d''32
+                            \mf
+                            (
+                            r32
+                            \once \override Staff.Accidental.stencil = ##f
+                            \tweak style #'cross
+                            gs''32
+                            - \sharp-articulation
+                            r32
+                            \tweak style #'cross
+                            d''32
+                            \once \override Staff.Accidental.stencil = ##f
+                            \tweak style #'cross
+                            bf'32
+                            - \flat-articulation
+                            )
+                            \set stemLeftBeamCount = 3
+                            \set stemRightBeamCount = 1
+                            r32
+                        }
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 2
+                        \tweak style #'cross
+                        b'16.
+                        (
+                        \>
+                        \tweak style #'cross
+                        d''16.
+                        \tweak style #'cross
+                        e''16.
+                        \tweak style #'cross
+                        a''16.
+                        \ppp
+                        )
+                        \stopTextSpan
+                        ]
+                        r8.
+                        \arpeggioArrowUp
+                        <a' bf' d'' fs'' a''>8.
+                        - \tenuto
+                        \arpeggio
+                        \ff
+                        ~
+                        \override Staff.Stem.stemlet-length = 0.75
+                        <a' bf' d'' fs'' a''>16
+                        [
+                        \arpeggioArrowUp
+                        <g' c'' e'' a''>16
+                        - \tenuto
+                        \arpeggio
+                        ~
+                        \revert Staff.Stem.stemlet-length
+                        <g' c'' e'' a''>8.
+                        ]
+                        r16
+                        \tweak style #'cross
+                        e'''4
+                        \p
+                        (
+                        - \tweak padding #9
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mute w/ styrofoam } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        \tweak style #'cross
+                        d'''8
+                        \mf
+                        ~
+                        \tweak style #'cross
+                        d'''8
+                        \tweak style #'cross
+                        b''4
+                        \pp
+                        )
+                        r16
+                        \tweak style #'cross
+                        b'16
+                        [
+                        (
+                        \tweak style #'cross
+                        d''16
+                        )
+                        ]
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/5
+                        {
+                            r32
+                            \tweak style #'cross
+                            gs'32
+                            \p
+                            [
+                            (
+                            \tweak style #'cross
+                            e'32
+                            )
+                            ]
+                            r32
+                            \tweak style #'cross
+                            b32
+                            \mp
+                            [
+                            (
+                        }
+                        \tweak style #'cross
+                        d'8
+                        )
+                        ]
+                        \clef "bass"
+                        \once \override Staff.Clef.X-extent = #'(3.5 . 3.5)
+                        \tweak style #'cross
+                        bf,8
+                        \pp
+                        [
+                        (
+                        \<
+                        \tweak style #'cross
+                        d8
+                        \tweak style #'cross
+                        e16
+                        \tweak style #'cross
+                        gs16
+                        )
+                        ]
+                        r16
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/7
+                        {
+                            \tweak style #'cross
+                            d,32
+                            \mf
+                            [
+                            (
+                            \once \override Staff.Accidental.stencil = ##f
+                            \tweak style #'cross
+                            bf,,32
+                            - \flat-articulation
+                            \tweak style #'cross
+                            d,32
+                            )
+                            ]
+                            r32
+                            \tweak style #'cross
+                            d,32
+                            [
+                            (
+                            \tweak style #'cross
+                            e,32
+                            )
+                            \stopTextSpan
+                            ]
+                            r32
+                        }
                     }
                 }
                 \context Staff = "piano 2 staff"
                 {
                     \context Voice = "piano 2 voice"
                     {
+                        \staff-line-count 1
+                        \clef "percussion"
+                        s1 * 3/8
+                        r16
+                        \tweak style #'cross
+                        c'16
+                        - \marcato
+                        \ff
+                        - \tweak padding #4
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { lid slam } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpanOne
+                        \sustainOn
+                        r4
+                          %! applying invisibility
+                        \once \override Rest.transparent = ##t
+                        r1 * 3/8
+                        \tweak style #'cross
+                        c'8
+                        - \marcato
+                        \ff
+                        r4
+                        r4
+                        \tweak style #'cross
+                        c'8
+                        - \marcato
+                        \ff
+                        r8
+                        \tweak style #'cross
+                        c'8
+                        - \marcato
+                        \ff
+                        \stopTextSpanOne
+                        r8
                         s1 * 3/8
                         s1 * 3/8
+                        r8.
+                        \sustainOff
+                        \staff-line-count 5
+                        \arpeggioArrowDown
+                        \clef "bass"
+                        <g, c e a>8.
+                        - \tenuto
+                        \arpeggio
+                        ~
+                        \override Staff.Stem.stemlet-length = 0.75
+                        <g, c e a>16
+                        [
+                        \arpeggioArrowDown
+                        <a, bf, d fs a>16
+                        - \tenuto
+                        \arpeggio
+                        ~
+                        <a, bf, d fs a>8.
+                        \staff-line-count 1
+                        \once \override Score.SustainPedalLineSpanner.staff-padding = #'10
+                        \once \override Staff.Clef.transparent = ##t
+                        \clef "percussion"
+                        \revert Staff.Stem.stemlet-length
+                        \tweak style #'cross
+                        c'16
+                        - \marcato
+                        ]
+                        - \tweak padding #4
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { lid slam } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpanOne
+                        \sustainOn
                         s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
+                        \tweak style #'cross
+                        c'8
+                        - \marcato
+                        \ff
+                        r4
+                          %! applying invisibility
+                        \once \override Rest.transparent = ##t
+                        r1 * 3/8
+                          %! applying invisibility
+                        \once \override Rest.transparent = ##t
+                        r1 * 3/8
+                        r4
+                        r16.
+                        \tweak style #'cross
+                        c'32
+                        - \marcato
+                        \ff
+                        \stopTextSpanOne
+                        \sustainOff
                     }
                 }
             >>
