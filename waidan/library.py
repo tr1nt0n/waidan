@@ -52,6 +52,51 @@ first_voice_names = eval(
 # notation tools
 
 
+def contour_staff(
+    clef=None, selector=trinton.select_leaves_by_index([0, -1], pitched=True)
+):
+    def change(argument):
+        selections = selector(argument)
+        first_leaf = abjad.select.leaf(selections, 0)
+        last_leaf = abjad.select.leaf(selections, -1)
+
+        literal_strings = [
+            r"\override Staff.NoteHead.no-ledgers = ##t" r"\staff-line-count 2",
+            r"\override Staff.StaffSymbol.line-positions = #'(7  -7)",
+            # f"\override Staff.Clef.text = {clef}",
+        ]
+
+        if clef == "harp strings":
+            literal_strings.append(
+                r"\override Staff.Clef.stencil = #ly:text-interface::print"
+            )
+            literal_strings.append(
+                r"""\override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }""",
+            )
+
+        open_literal = abjad.LilyPondLiteral(
+            literal_strings,
+            site="before",
+        )
+
+        abjad.attach(open_literal, first_leaf)
+        abjad.attach(abjad.Clef("treble"), first_leaf)
+
+        close_literal = abjad.LilyPondLiteral(
+            [
+                r"\revert Staff.NoteHead.no-ledgers",
+                r"\staff-line-count 5",
+                r"\revert Staff.StaffSymbol.line-positions",
+                r"\revert Staff.Clef.stencil",
+            ],
+            site="absolute_after",
+        )
+
+        abjad.attach(close_literal, last_leaf)
+
+    return change
+
+
 def accelerando_trills(
     initial_width,
     y_scale,

@@ -17,6 +17,8 @@
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \pageBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
@@ -44,12 +46,18 @@
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
@@ -386,9 +394,56 @@
                       %! +SCORE
                 %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ sax }
                     s1 * 3/8
+                    ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { Baritone } 
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/7
+                    {
+                        \times 2/3
+                        {
+                            \slapped
+                            \override Staff.NoteHead.no-ledgers = ##t
+                            b,16
+                            \f
+                            ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
+                            [
+                            - \tweak padding #12
+                            - \abjad-dashed-line-with-hook
+                            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { secco slap } \hspace #0.5 }
+                            - \tweak bound-details.right.padding -2
+                            \startTextSpan
+                            - \tweak stencil #constante-hairpin
+                            \<
+                            c16
+                            \set stemLeftBeamCount = 2
+                            \set stemRightBeamCount = 1
+                            a,16
+                        }
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 2
+                        d16
+                        \>
+                        g16
+                        f'8
+                        b'16
+                        \pp
+                        \stopTextSpan
+                        ]
+                        \revert-noteheads
+                        \revert Staff.NoteHead.no-ledgers
+                    }
                     s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'4.
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
@@ -726,7 +781,7 @@
                 {
                     \override Dots.staff-position = #2
                     \staff-line-count 1
-                    \once \override Staff.Clef.transparent = ##t
+                    \override Staff.Clef.stencil = ##f
                     \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Harp }
                       %! +SCORE
                 %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ hp }
@@ -790,9 +845,101 @@
                     \revert Voice.NoteHead.X-extent
                     \revert Voice.NoteHead.transparent
                     r8
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/11
+                    {
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 2
+                        \override Staff.StaffSymbol.line-positions = #'(7  -7)
+                        \override Staff.Clef.stencil = #ly:text-interface::print
+                        \override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }
+                        \slapped
+                        \override Staff.NoteHead.no-ledgers = ##t
+                        \clef "treble"
+                        b'16
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
+                        - \tweak padding #9
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { newspaper strings } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        g'16
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        c''16
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        a'8
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        b'8
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        f''8.
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        c'16
+                        \stopTextSpan
+                        \revert Staff.NoteHead.no-ledgers
+                        \staff-line-count 5
+                        \revert Staff.StaffSymbol.line-positions
+                        \revert Staff.Clef.stencil
+                        \revert-noteheads
+                        \revert Staff.NoteHead.no-ledgers
+                    }
                     s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'4.
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
