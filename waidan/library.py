@@ -37,6 +37,21 @@ def waidan_score(time_signatures):
     return score
 
 
+all_voice_names = eval(
+    """[
+        "violin voice",
+        "viola voice",
+        "baritonesaxophone voice",
+        "cello voice",
+        "harp voice",
+        "accordion 1 voice",
+        "accordion 2 voice",
+        "piano 1 voice",
+        "piano 2 voice",
+    ]"""
+)
+
+
 first_voice_names = eval(
     """[
         "violin voice",

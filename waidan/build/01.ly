@@ -444,149 +444,69 @@
                     \once \override NoteHead.transparent = ##t
                     c'4.
                     ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
                     r4
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
-                    r32
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    \slapped
-                    \override NoteHead.no-ledgers = ##t
-                    f'''32
-                    \f
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    b''16
-                    \mf
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
-                    r8
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
-                    r32
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    d'''32
-                    \mf
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    e'''16
-                    \f
-                    \revert-noteheads
-                    \revert NoteHead.no-ledgers
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
-                    r8
-                    r8
-                    \times 4/6
-                    {
-                        r8
-                        \slapped
-                        \override NoteHead.no-ledgers = ##t
-                        \override Staff.Stem.stemlet-length = 0.75
-                        f16
-                        \mf
-                        [
-                        g16
-                        e16
-                        \revert Staff.Stem.stemlet-length
-                        d16
-                        ]
-                    }
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
-                    r8
-                    \once \override TupletBracket.stencil = ##f
-                    \once \override TupletNumber.stencil = ##f
-                    \times 4/5
-                    {
-                        \once \override RepeatTie.transparent = ##t
-                        \once \override Stem.stencil = ##f
-                        \once \override Beam.stencil = ##f
-                        \once \override Flag.stencil = ##f
-                        \once \override Dots.stencil = ##f
-                        \once \override Tie.stencil = ##f
-                        \once \override NoteHead.duration-log = 2
-                        f16
-                        \>
-                        \once \override RepeatTie.transparent = ##t
-                        \once \override Stem.stencil = ##f
-                        \once \override Beam.stencil = ##f
-                        \once \override Flag.stencil = ##f
-                        \once \override Dots.stencil = ##f
-                        \once \override Tie.stencil = ##f
-                        \once \override NoteHead.duration-log = 2
-                        g8
-                        \once \override RepeatTie.transparent = ##t
-                        \once \override Stem.stencil = ##f
-                        \once \override Beam.stencil = ##f
-                        \once \override Flag.stencil = ##f
-                        \once \override Dots.stencil = ##f
-                        \once \override Tie.stencil = ##f
-                        \once \override NoteHead.duration-log = 2
-                        d'16
-                        \once \override RepeatTie.transparent = ##t
-                        \once \override Stem.stencil = ##f
-                        \once \override Beam.stencil = ##f
-                        \once \override Flag.stencil = ##f
-                        \once \override Dots.stencil = ##f
-                        \once \override Tie.stencil = ##f
-                        \once \override NoteHead.duration-log = 2
-                        a'16
-                        \pp
-                    }
                     \override Staff.Stem.stemlet-length = 0.75
-                    b''16
-                    \f
+                    c'16
                     [
                     \revert Staff.Stem.stemlet-length
-                    g''16
-                    \p
+                    \afterGrace
+                    c'16
                     ]
-                    \revert-noteheads
-                    \revert NoteHead.no-ledgers
-                    r16
-                    cqs'8.
-                    - \tenuto
-                    \ff
-                    ~
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
+                      %! applying invisibility
+                    \once \override Rest.transparent = ##t
+                    r1 * 3/8
                     \override Staff.Stem.stemlet-length = 0.75
-                    cqs'16
+                    c'8.
                     [
-                    cqs'16
-                    - \tenuto
-                    ~
                     \revert Staff.Stem.stemlet-length
-                    cqs'8.
+                    \afterGrace
+                    c'8.
                     ]
-                    r16
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
+                    r4
+                    c'8
+                    ~
+                    c'8
+                    \afterGrace
+                    c'4
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
                     s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
+                    r8
+                    c'4
+                    \afterGrace
+                    c'4
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
+                    r8
+                      %! applying invisibility
+                    \once \override Rest.transparent = ##t
+                    r1 * 3/8
+                    \override Staff.Stem.stemlet-length = 0.75
+                    c'8.
+                    [
+                    \revert Staff.Stem.stemlet-length
+                    \afterGrace
+                    c'8.
+                    ]
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
+                      %! applying invisibility
+                    \once \override Rest.transparent = ##t
+                    r1 * 3/8
                 }
             }
             \context Staff = "cello staff"
@@ -1074,129 +994,43 @@
                     \once \override NoteHead.transparent = ##t
                     c'4.
                     ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
-                    \tweak text #tuplet-number::calc-fraction-text
-                    \times 6/7
-                    {
-                        r4
-                        \times 2/3
-                        {
-                            r8
-                            \slapped
-                            \override NoteHead.no-ledgers = ##t
-                            \override Staff.Stem.stemlet-length = 0.75
-                            b'8
-                            \f
-                            [
-                            \revert Staff.Stem.stemlet-length
-                            a''8
-                            \ff
-                            ]
-                        }
-                        r8
-                        \times 2/3
-                        {
-                            \override Staff.Stem.stemlet-length = 0.75
-                            e''16
-                            \f
-                            [
-                            \revert Staff.Stem.stemlet-length
-                            b'8
-                            \mf
-                            ]
-                            \revert-noteheads
-                            \revert NoteHead.no-ledgers
-                        }
-                        r8
-                    }
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
-                    r8
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    \slapped
-                    \override NoteHead.no-ledgers = ##t
-                    d'16
-                    \p
-                    \<
-                    \once \override Dots.transparent = ##t
-                    \once \override Rest.transparent = ##t
-                    r16
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    e'32
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    f'32
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    e'32
-                    \once \override RepeatTie.transparent = ##t
-                    \once \override Stem.stencil = ##f
-                    \once \override Beam.stencil = ##f
-                    \once \override Flag.stencil = ##f
-                    \once \override Dots.stencil = ##f
-                    \once \override Tie.stencil = ##f
-                    \once \override NoteHead.duration-log = 2
-                    f'32
-                    \mf
-                    r16.
-                    a''16
+                    r4
+                    \override Staff.Stem.stemlet-length = 0.75
+                    c'16
                     [
-                    \>
-                    f''16
-                    g''16
-                    f''16
-                    a''32
-                    \pp
-                    \times 2/3
-                    {
-                        r16
-                        f''16
-                        \p
-                        b'16
-                        \f
-                        ]
-                        \revert-noteheads
-                        \revert NoteHead.no-ledgers
-                    }
-                    r16
-                    \revert Staff.NoteHead.no-ledgers
-                    \staff-line-count 5
-                    \revert Staff.StaffSymbol.line-positions
-                    \revert Staff.Clef.stencil
-                    \clef "bass"
-                    ef,8.
-                    - \tenuto
-                    \fff
-                    ~
-                    ef,16
-                    [
-                    ef,16
-                    - \tenuto
-                    ~
-                    ef,8.
+                    \revert Staff.Stem.stemlet-length
+                    \afterGrace
+                    c'16
                     ]
-                    r16
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
+                      %! applying invisibility
+                    \once \override Rest.transparent = ##t
+                    r1 * 3/8
+                    \override Staff.Stem.stemlet-length = 0.75
+                    c'8.
+                    [
+                    \revert Staff.Stem.stemlet-length
+                    \afterGrace
+                    c'8.
+                    ]
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
+                    r4
+                    c'8
+                    ~
+                    c'8
+                    \afterGrace
+                    c'4
+                    {
+                        \once \override Flag.stroke-style = #"grace"
+                        c'16
+                    }
+                    s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
@@ -1582,120 +1416,147 @@
                         \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Piano }
                           %! +SCORE
                         \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ pno }
-                        \clef "bass"
+                        s1 * 3/8
+                        r16
+                        \f
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                            {
+                                \context Score = "Score"
+                                \with
+                                {
+                                    \override SpacingSpanner.spacing-increment = 0.5
+                                    proportionalNotationDuration = ##f
+                                }
+                                <<
+                                    \context RhythmicStaff = "Rhythmic_Staff"
+                                    \with
+                                    {
+                                        \remove Time_signature_engraver
+                                        \remove Staff_symbol_engraver
+                                        \override Stem.direction = #up
+                                        \override Stem.length = 5
+                                        \override TupletBracket.bracket-visibility = ##t
+                                        \override TupletBracket.direction = #up
+                                        \override TupletBracket.minimum-length = 4
+                                        \override TupletBracket.padding = 1.25
+                                        \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                        \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                        \override TupletNumber.font-size = 0
+                                        \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                        tupletFullLength = ##t
+                                    }
+                                    {
+                                        c'2
+                                        ~
+                                        c'8.
+                                    }
+                                >>
+                                \layout
+                                {
+                                    indent = 0
+                                    ragged-right = ##t
+                                }
+                            }
+                        \times 1/1
+                        {
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override Beam.grow-direction = #left
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            f'''32 * 11/8
+                            - \stopped
+                            [
+                            - \tweak padding #10
+                            - \abjad-dashed-line-with-hook
+                            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mute w/ hand } \hspace #0.5 }
+                            - \tweak bound-details.right.padding -2
+                            \startTextSpan
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            e'''32 * 45/32
+                            - \stopped
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            g'''32 * 3/2
+                            - \stopped
+                            r32 * 13/8
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            d'''32 * 59/32
+                            - \stopped
+                            \>
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            f'''32 * 17/8
+                            - \stopped
+                            r32 * 5/2
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            e'''32 * 93/32
+                            - \stopped
+                            r32 * 105/32
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            g'''32 * 55/16
+                            - \stopped
+                            \pp
+                            \stopTextSpan
+                            ]
+                        }
+                        \revert TupletNumber.text
                         s1 * 3/8
                         r4
-                        \tweak style #'cross
-                        e8
-                        \pp
-                        [
-                        (
-                        - \tweak padding #7
-                        - \abjad-dashed-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mute w/ styrofoam } \hspace #0.5 }
-                        - \tweak bound-details.right.padding -2
-                        \startTextSpan
-                        \tweak style #'cross
-                        a8
-                        )
-                        r8
-                        \tweak style #'cross
-                        d8
-                        ]
-                        \tweak text #tuplet-number::calc-fraction-text
-                        \times 6/5
-                        {
-                            r8
-                            \clef "treble"
-                            \tweak style #'cross
-                            d'8
-                            [
-                            (
-                            \tweak style #'cross
-                            b8
-                            \tweak style #'cross
-                            d'8
-                            )
-                            r8
-                        }
-                        \tweak style #'cross
-                        gs'8
-                        ]
-                        r8
-                        \tweak style #'cross
-                        d''8
-                        [
-                        (
-                        \<
-                        \tweak style #'cross
-                        b'16
-                        \tweak style #'cross
-                        d''16
-                        )
-                        \set stemLeftBeamCount = 2
-                        \set stemRightBeamCount = 1
-                        r16
-                        \tweak text #tuplet-number::calc-fraction-text
-                        \times 6/7
-                        {
-                            \set stemLeftBeamCount = 1
-                            \set stemRightBeamCount = 3
-                            \tweak style #'cross
-                            d''32
-                            \mf
-                            (
-                            r32
-                            \once \override Staff.Accidental.stencil = ##f
-                            \tweak style #'cross
-                            gs''32
-                            - \sharp-articulation
-                            r32
-                            \tweak style #'cross
-                            d''32
-                            \once \override Staff.Accidental.stencil = ##f
-                            \tweak style #'cross
-                            bf'32
-                            - \flat-articulation
-                            )
-                            \set stemLeftBeamCount = 3
-                            \set stemRightBeamCount = 1
-                            r32
-                        }
-                        \set stemLeftBeamCount = 1
-                        \set stemRightBeamCount = 2
-                        \tweak style #'cross
-                        b'16.
-                        (
-                        \>
-                        \tweak style #'cross
-                        d''16.
-                        \tweak style #'cross
-                        e''16.
-                        \tweak style #'cross
-                        a''16.
-                        \ppp
-                        )
-                        \stopTextSpan
-                        ]
-                        r8.
-                        \arpeggioArrowUp
-                        <a' bf' d'' fs'' a''>8.
-                        - \tenuto
-                        \arpeggio
-                        \ff
-                        ~
                         \override Staff.Stem.stemlet-length = 0.75
-                        <a' bf' d'' fs'' a''>16
+                        c'16
                         [
-                        \arpeggioArrowUp
-                        <g' c'' e'' a''>16
-                        - \tenuto
-                        \arpeggio
-                        ~
                         \revert Staff.Stem.stemlet-length
-                        <g' c'' e'' a''>8.
+                        \afterGrace
+                        c'16
                         ]
-                        r16
+                        {
+                            \once \override Flag.stroke-style = #"grace"
+                            c'16
+                        }
+                          %! applying invisibility
+                        \once \override Rest.transparent = ##t
+                        r1 * 3/8
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'8.
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        \afterGrace
+                        c'8.
+                        ]
+                        {
+                            \once \override Flag.stroke-style = #"grace"
+                            c'16
+                        }
+                        r4
+                        c'8
+                        ~
+                        c'8
+                        \afterGrace
+                        c'4
+                        {
+                            \once \override Flag.stroke-style = #"grace"
+                            c'16
+                        }
+                        s1 * 3/8
                         s1 * 3/8
                         s1 * 3/8
                         s1 * 3/8
@@ -1707,87 +1568,23 @@
                 {
                     \context Voice = "piano 2 voice"
                     {
-                        \staff-line-count 1
-                        \clef "percussion"
                         s1 * 3/8
-                        r16
-                        \tweak style #'cross
-                        c'16
-                        - \marcato
-                        \ff
-                        - \tweak padding #4
-                        - \abjad-dashed-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { lid slam } \hspace #0.5 }
-                        - \tweak bound-details.right.padding -2
-                        \startTextSpanOne
-                        \sustainOn
-                        r4
-                          %! applying invisibility
-                        \once \override Rest.transparent = ##t
-                        r1 * 3/8
-                        \tweak style #'cross
-                        c'8
-                        - \marcato
-                        \ff
-                        r4
-                        r4
-                        \tweak style #'cross
-                        c'8
-                        - \marcato
-                        \ff
-                        r8
-                        \tweak style #'cross
-                        c'8
-                        - \marcato
-                        \ff
-                        \stopTextSpanOne
-                        r8
-                        s1 * 3/8
-                        s1 * 3/8
-                        r8.
-                        \sustainOff
-                        \staff-line-count 5
-                        \arpeggioArrowDown
-                        \clef "bass"
-                        <g, c e a>8.
-                        - \tenuto
-                        \arpeggio
-                        ~
-                        \override Staff.Stem.stemlet-length = 0.75
-                        <g, c e a>16
-                        [
-                        \arpeggioArrowDown
-                        <a, bf, d fs a>16
-                        - \tenuto
-                        \arpeggio
-                        ~
-                        <a, bf, d fs a>8.
-                        \staff-line-count 1
-                        \once \override Score.SustainPedalLineSpanner.staff-padding = #'10
-                        \once \override Staff.Clef.transparent = ##t
-                        \clef "percussion"
-                        \revert Staff.Stem.stemlet-length
-                        \tweak style #'cross
-                        c'16
-                        - \marcato
-                        ]
-                        - \tweak padding #4
-                        - \abjad-dashed-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { lid slam } \hspace #0.5 }
-                        - \tweak bound-details.right.padding -2
-                        \startTextSpanOne
-                        \sustainOn
+                        e'4.
+                        - \accent
+                        \laissezVibrer
                         s1 * 3/8
                         s1 * 3/8
                         s1 * 3/8
-                        \tweak style #'cross
-                        c'8
-                        - \marcato
-                        \ff
-                        \stopTextSpanOne
-                        r4
                         s1 * 3/8
-                        \sustainOff
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
                     }
                 }
             >>
