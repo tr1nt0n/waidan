@@ -444,12 +444,144 @@
                     \once \override NoteHead.transparent = ##t
                     c'4.
                     ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r4
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r32
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \slapped
+                    \override NoteHead.no-ledgers = ##t
+                    f'''32
+                    \f
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    b''16
+                    \mf
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r8
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r32
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    d'''32
+                    \mf
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    e'''16
+                    \f
+                    \revert-noteheads
+                    \revert NoteHead.no-ledgers
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r8
+                    r8
+                    \times 4/6
+                    {
+                        r8
+                        \slapped
+                        \override NoteHead.no-ledgers = ##t
+                        \override Staff.Stem.stemlet-length = 0.75
+                        f16
+                        \mf
+                        [
+                        g16
+                        e16
+                        \revert Staff.Stem.stemlet-length
+                        d16
+                        ]
+                    }
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r8
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \times 4/5
+                    {
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        f16
+                        \>
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        g8
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        d'16
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        a'16
+                        \pp
+                    }
+                    \override Staff.Stem.stemlet-length = 0.75
+                    b''16
+                    \f
+                    [
+                    \revert Staff.Stem.stemlet-length
+                    g''16
+                    \p
+                    ]
+                    \revert-noteheads
+                    \revert NoteHead.no-ledgers
+                    r16
+                    cqs'8.
+                    - \tenuto
+                    \ff
+                    ~
+                    \override Staff.Stem.stemlet-length = 0.75
+                    cqs'16
+                    [
+                    cqs'16
+                    - \tenuto
+                    ~
+                    \revert Staff.Stem.stemlet-length
+                    cqs'8.
+                    ]
+                    r16
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
@@ -861,16 +993,20 @@
                         \override Staff.StaffSymbol.line-positions = #'(7  -7)
                         \override Staff.Clef.stencil = #ly:text-interface::print
                         \override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }
+                        \set Staff.forceClef = ##t
                         \slapped
                         \override Staff.NoteHead.no-ledgers = ##t
                         \clef "treble"
                         b'16
+                        \ff
                         ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                         - \tweak padding #9
                         - \abjad-dashed-line-with-hook
                         - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { newspaper strings } \hspace #0.5 }
                         - \tweak bound-details.right.padding -2
                         \startTextSpan
+                        - \tweak stencil #constante-hairpin
+                        \<
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
                         \once \override Beam.stencil = ##f
@@ -895,6 +1031,7 @@
                         \once \override Tie.stencil = ##f
                         \once \override NoteHead.duration-log = 2
                         a'8
+                        \>
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
                         \once \override Beam.stencil = ##f
@@ -919,11 +1056,8 @@
                         \once \override Tie.stencil = ##f
                         \once \override NoteHead.duration-log = 2
                         c'16
+                        \pp
                         \stopTextSpan
-                        \revert Staff.NoteHead.no-ledgers
-                        \staff-line-count 5
-                        \revert Staff.StaffSymbol.line-positions
-                        \revert Staff.Clef.stencil
                         \revert-noteheads
                         \revert Staff.NoteHead.no-ledgers
                     }
@@ -940,12 +1074,129 @@
                     \once \override NoteHead.transparent = ##t
                     c'4.
                     ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/7
+                    {
+                        r4
+                        \times 2/3
+                        {
+                            r8
+                            \slapped
+                            \override NoteHead.no-ledgers = ##t
+                            \override Staff.Stem.stemlet-length = 0.75
+                            b'8
+                            \f
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            a''8
+                            \ff
+                            ]
+                        }
+                        r8
+                        \times 2/3
+                        {
+                            \override Staff.Stem.stemlet-length = 0.75
+                            e''16
+                            \f
+                            [
+                            \revert Staff.Stem.stemlet-length
+                            b'8
+                            \mf
+                            ]
+                            \revert-noteheads
+                            \revert NoteHead.no-ledgers
+                        }
+                        r8
+                    }
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r8
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \slapped
+                    \override NoteHead.no-ledgers = ##t
+                    d'16
+                    \p
+                    \<
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r16
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    e'32
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    f'32
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    e'32
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    f'32
+                    \mf
+                    r16.
+                    a''16
+                    [
+                    \>
+                    f''16
+                    g''16
+                    f''16
+                    a''32
+                    \pp
+                    \times 2/3
+                    {
+                        r16
+                        f''16
+                        \p
+                        b'16
+                        \f
+                        ]
+                        \revert-noteheads
+                        \revert NoteHead.no-ledgers
+                    }
+                    r16
+                    \revert Staff.NoteHead.no-ledgers
+                    \staff-line-count 5
+                    \revert Staff.StaffSymbol.line-positions
+                    \revert Staff.Clef.stencil
+                    \clef "bass"
+                    ef,8.
+                    - \tenuto
+                    \fff
+                    ~
+                    ef,16
+                    [
+                    ef,16
+                    - \tenuto
+                    ~
+                    ef,8.
+                    ]
+                    r16
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
@@ -1445,103 +1696,11 @@
                         <g' c'' e'' a''>8.
                         ]
                         r16
-                        \tweak style #'cross
-                        e'''4
-                        \p
-                        (
-                        - \tweak padding #9
-                        - \abjad-dashed-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mute w/ styrofoam } \hspace #0.5 }
-                        - \tweak bound-details.right.padding -2
-                        \startTextSpan
-                        \tweak style #'cross
-                        d'''8
-                        \mf
-                        ~
-                        \tweak style #'cross
-                        d'''8
-                        \tweak style #'cross
-                        b''4
-                        \pp
-                        )
-                        r16
-                        \tweak style #'cross
-                        b'16
-                        [
-                        (
-                        \tweak style #'cross
-                        d''16
-                        )
-                        ]
-                        \tweak text #tuplet-number::calc-fraction-text
-                        \times 6/5
-                        {
-                            r32
-                            \tweak style #'cross
-                            gs'32
-                            \p
-                            [
-                            (
-                            \tweak style #'cross
-                            e'32
-                            )
-                            ]
-                            r32
-                            \tweak style #'cross
-                            b32
-                            \mp
-                            [
-                            (
-                        }
-                        \tweak style #'cross
-                        d'8
-                        )
-                        ]
-                        \clef "bass"
-                        \once \override Staff.Clef.X-extent = #'(3.5 . 3.5)
-                        \tweak style #'cross
-                        bf,8
-                        \pp
-                        [
-                        (
-                        \<
-                        \tweak style #'cross
-                        d8
-                        \tweak style #'cross
-                        e16
-                        \tweak style #'cross
-                        gs16
-                        )
-                        ]
-                        r16
-                        \tweak text #tuplet-number::calc-fraction-text
-                        \times 6/7
-                        {
-                            \tweak style #'cross
-                            d,32
-                            \mf
-                            [
-                            (
-                            \once \override Staff.Accidental.stencil = ##f
-                            \tweak style #'cross
-                            bf,,32
-                            - \flat-articulation
-                            \tweak style #'cross
-                            d,32
-                            )
-                            ]
-                            r32
-                            \tweak style #'cross
-                            d,32
-                            [
-                            (
-                            \tweak style #'cross
-                            e,32
-                            )
-                            \stopTextSpan
-                            ]
-                            r32
-                        }
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
                     }
                 }
                 \context Staff = "piano 2 staff"
@@ -1619,24 +1778,15 @@
                         \startTextSpanOne
                         \sustainOn
                         s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
                         \tweak style #'cross
                         c'8
                         - \marcato
                         \ff
-                        r4
-                          %! applying invisibility
-                        \once \override Rest.transparent = ##t
-                        r1 * 3/8
-                          %! applying invisibility
-                        \once \override Rest.transparent = ##t
-                        r1 * 3/8
-                        r4
-                        r16.
-                        \tweak style #'cross
-                        c'32
-                        - \marcato
-                        \ff
                         \stopTextSpanOne
+                        r4
+                        s1 * 3/8
                         \sustainOff
                     }
                 }

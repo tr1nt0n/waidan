@@ -53,7 +53,9 @@ first_voice_names = eval(
 
 
 def contour_staff(
-    clef=None, selector=trinton.select_leaves_by_index([0, -1], pitched=True)
+    clef=None,
+    reset=False,
+    selector=trinton.select_leaves_by_index([0, -1], pitched=True),
 ):
     def change(argument):
         selections = selector(argument)
@@ -73,6 +75,9 @@ def contour_staff(
             literal_strings.append(
                 r"""\override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }""",
             )
+            literal_strings.append(
+                r"\set Staff.forceClef = ##t",
+            )
 
         open_literal = abjad.LilyPondLiteral(
             literal_strings,
@@ -82,17 +87,18 @@ def contour_staff(
         abjad.attach(open_literal, first_leaf)
         abjad.attach(abjad.Clef("treble"), first_leaf)
 
-        close_literal = abjad.LilyPondLiteral(
-            [
-                r"\revert Staff.NoteHead.no-ledgers",
-                r"\staff-line-count 5",
-                r"\revert Staff.StaffSymbol.line-positions",
-                r"\revert Staff.Clef.stencil",
-            ],
-            site="absolute_after",
-        )
+        if reset is True:
+            close_literal = abjad.LilyPondLiteral(
+                [
+                    r"\revert Staff.NoteHead.no-ledgers",
+                    r"\staff-line-count 5",
+                    r"\revert Staff.StaffSymbol.line-positions",
+                    r"\revert Staff.Clef.stencil",
+                ],
+                site="absolute_after",
+            )
 
-        abjad.attach(close_literal, last_leaf)
+            abjad.attach(close_literal, last_leaf)
 
     return change
 
