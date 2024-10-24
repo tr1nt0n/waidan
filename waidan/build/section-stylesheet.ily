@@ -9,13 +9,6 @@
 \include "/Users/trintonprater/trinton/lilypond/trinton-markups.ily"
 \include "/Users/trintonprater/abjad-ext-microtones/abjadext/microtones/lilypond/ekmelos-ji-accidental-markups.ily"
 
-\header {
-    dedication = \markup \column {\line \override #'(font-name . "Bodoni72 Book Italic") { \fontsize #2 { "Anthropodermic" \hspace #13 "Bibliopegy" } } \line { \fontsize #0.01 \with-color #white "."} }
-    title = \markup \override #'(font-name . "Source Han Serif SC Bold") \center-column { \line \fontsize #12 { γ: 外 丹 } \fontsize #0.01 \with-color #white "."}
-    subtitle = \markup \fontsize #0 \center-column { \line { \override #'(font-name . "Bodoni72 Book Italic") { "for Viola Solo, Five Instruments, and Electronics" } } \fontsize #0.01 \with-color #white "."}
-    composer = \markup \column { \override #'(font-name . "Bodoni72") \fontsize #0 {"Trinity Hlynn Prater (*2000)"} \fontsize #25 \with-color #white "."}
-}
-
 afterGraceFraction = #(cons 15 16)
 
 \layout {
@@ -50,6 +43,7 @@ afterGraceFraction = #(cons 15 16)
         % \override TimeSignature.transparent = ##t
         \override TimeSignature.font-size = 7
 		\override TimeSignature.font-name = "Bodoni72 Book"
+        % \override TimeSignature.X-extent = #'(0 . 0)
         \override TimeSignature.X-extent = ##f
         \override TimeSignature.X-offset = -1.3
         \override TimeSignature.whiteout-style = #'outline

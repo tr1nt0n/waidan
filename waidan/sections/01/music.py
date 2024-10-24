@@ -1140,7 +1140,7 @@ trinton.make_music(
     evans.PitchHandler(["d'", "f'", "g'", "b'", "b'", "b'", "e''", "f''", "g''"]),
     trinton.invisible_rests(),
     trinton.invisible_tuplet_brackets(),
-    library.contour_staff(clef="harp strings", reset=True),
+    library.contour_staff(clef="harp strings", reset=False),
     trinton.linear_attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
@@ -1970,7 +1970,7 @@ trinton.render_file(
     build_path="/Users/trintonprater/scores/waidan/waidan/build",
     segment_name="01",
     includes=[
-        "/Users/trintonprater/scores/waidan/waidan/build/waidan_stylesheet.ily",
+        "/Users/trintonprater/scores/waidan/waidan/build/waidan-stylesheet.ily",
         "/Users/trintonprater/abjad/abjad/scm/abjad.ily",
     ],
 )

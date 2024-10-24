@@ -1622,6 +1622,7 @@
                         \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 2
                         \override Staff.StaffSymbol.line-positions = #'(7  -7)
                         \override Staff.Clef.stencil = #ly:text-interface::print
+                        \override Staff.Clef.X-extent = #'(9 . 9)
                         \override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }
                         \set Staff.forceClef = ##t
                         \slapped
@@ -1692,6 +1693,7 @@
                         \staff-line-count 5
                         \revert Staff.StaffSymbol.line-positions
                         \revert Staff.Clef.stencil
+                        \revert Staff.Clef.X-extent
                         \revert-noteheads
                         \revert Staff.NoteHead.no-ledgers
                     }
@@ -2047,6 +2049,7 @@
                         \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 2
                         \override Staff.StaffSymbol.line-positions = #'(7  -7)
                         \override Staff.Clef.stencil = #ly:text-interface::print
+                        \override Staff.Clef.X-extent = #'(9 . 9)
                         \override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }
                         \set Staff.forceClef = ##t
                         \slapped
@@ -2132,10 +2135,6 @@
                         \p
                         \stopTextSpan
                         ]
-                        \revert Staff.NoteHead.no-ledgers
-                        \staff-line-count 5
-                        \revert Staff.StaffSymbol.line-positions
-                        \revert Staff.Clef.stencil
                         \revert-noteheads
                         \revert Staff.NoteHead.no-ledgers
                     }

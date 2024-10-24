@@ -71,6 +71,7 @@ def contour_staff(
     clef=None,
     reset=False,
     selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+    force_clef=True,
 ):
     def change(argument):
         selections = selector(argument)
@@ -87,12 +88,14 @@ def contour_staff(
             literal_strings.append(
                 r"\override Staff.Clef.stencil = #ly:text-interface::print"
             )
+            literal_strings.append(r"\override Staff.Clef.X-extent = #'(9 . 9)")
             literal_strings.append(
                 r"""\override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }""",
             )
-            literal_strings.append(
-                r"\set Staff.forceClef = ##t",
-            )
+            if force_clef is True:
+                literal_strings.append(
+                    r"\set Staff.forceClef = ##t",
+                )
 
         open_literal = abjad.LilyPondLiteral(
             literal_strings,
@@ -109,6 +112,7 @@ def contour_staff(
                     r"\staff-line-count 5",
                     r"\revert Staff.StaffSymbol.line-positions",
                     r"\revert Staff.Clef.stencil",
+                    r"\revert Staff.Clef.X-extent",
                 ],
                 site="absolute_after",
             )
