@@ -7,6 +7,7 @@
 \include "../library.ily"
 \include "/Users/trintonprater/evans/lilypond/evans.ily"
 \include "/Users/trintonprater/trinton/lilypond/trinton-markups.ily"
+\include "/Users/trintonprater/trinton/lilypond/trinton-spanners.ily"
 \include "/Users/trintonprater/abjad-ext-microtones/abjadext/microtones/lilypond/ekmelos-ji-accidental-markups.ily"
 
 afterGraceFraction = #(cons 15 16)

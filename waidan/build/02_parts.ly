@@ -2,6 +2,8 @@
     <<
         \context TimeSignatureContext = "Global Context"
         {
+              %! +SCORE
+        %%% \once \override TimeSignature.X-offset = -6.5
             \time 4/8
             s1 * 1/2
             ^ \markup {
@@ -17,6 +19,8 @@
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
+              %! +SCORE
+        %%% \once \override TimeSignature.X-offset = -6.5
             \time 5/8
             s1 * 5/8
         }

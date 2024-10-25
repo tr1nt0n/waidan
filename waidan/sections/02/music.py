@@ -8,8 +8,6 @@ from abjadext import microtones
 from itertools import cycle
 from waidan import library
 
-# tape chord
-
 # score
 
 score = library.waidan_score(
@@ -815,6 +813,29 @@ trinton.make_music(
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override TimeSignature.X-offset = -6.5", site="before"
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override TimeSignature.X-offset = -6.5", site="before"
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        tag=abjad.Tag("+SCORE"),
     ),
     voice=score["Global Context"],
 )

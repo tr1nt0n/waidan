@@ -6,7 +6,7 @@
 \version "2.23.81"
   %! abjad.LilyPondFile._get_format_pieces()
 \language "english"
-\include "/Users/trintonprater/scores/waidan/waidan/build/section_stylesheet.ily"
+\include "/Users/trintonprater/scores/waidan/waidan/build/section-stylesheet.ily"
 \include "/Users/trintonprater/abjad/abjad/scm/abjad.ily"
   %! abjad.LilyPondFile._get_format_pieces()
 \score
@@ -16,6 +16,8 @@
     <<
         \context TimeSignatureContext = "Global Context"
         {
+              %! +SCORE
+            \once \override TimeSignature.X-offset = -6.5
             \time 4/8
             s1 * 1/2
             ^ \markup {
@@ -31,6 +33,8 @@
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
+              %! +SCORE
+            \once \override TimeSignature.X-offset = -6.5
             \time 5/8
             s1 * 5/8
         }

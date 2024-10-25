@@ -7,8 +7,6 @@ from abjadext import microtones
 from waidan import library
 from itertools import cycle
 
-# tape chord
-
 # score
 
 score = library.waidan_score(
