@@ -64,7 +64,70 @@ first_voice_names = eval(
     ]"""
 )
 
+bari_multiphonic_1 = r"\markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }"
+
+bari_multiphonic_2 = r"\markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }"
+
 # notation tools
+
+
+def multiphonic_trem_noteheads(selector, preprolated=True):
+    def multi_trem(argument):
+        selections = selector(argument)
+        ties = abjad.select.logical_ties(selections)
+        tie_duration = abjad.get.duration(selections, preprolated=preprolated)
+        tremolo_count = tie_duration * 16
+        tremolo_count = int(tremolo_count)
+
+        tremolo_container = abjad.TremoloContainer(
+            count=tremolo_count, components="d32 d"
+        )
+
+        opening_literal = abjad.LilyPondLiteral(
+            [
+                r"\once \override NoteHead.X-extent = #'(-1.5 . 2)",
+                r"\override NoteHead.no-ledgers = ##t",
+                r"\override NoteHead.stencil = #ly:text-interface::print",
+                rf"\once \override NoteHead.text = {bari_multiphonic_1}"
+                rf"\once \override NoteHead.X-offset = 0.5",
+            ],
+            site="before",
+        )
+
+        center_literal = abjad.LilyPondLiteral(
+            [
+                r"\once \override NoteHead.X-extent = #'(-1.5 . -1.5)",
+                rf"\once \override NoteHead.text = {bari_multiphonic_2}",
+            ],
+            site="before",
+        )
+
+        closing_literal = abjad.LilyPondLiteral(
+            [
+                # r"\revert Stem.X-extent",
+                r"\revert NoteHead.stencil",
+                r"\revert NoteHead.no-ledgers",
+            ],
+            site="absolute_after",
+        )
+
+        tremolo_container_leaves = abjad.select.leaves(tremolo_container)
+
+        abjad.attach(opening_literal, tremolo_container_leaves[0])
+        abjad.attach(center_literal, tremolo_container_leaves[1])
+        abjad.attach(closing_literal, tremolo_container_leaves[-1])
+
+        bend_after_bundle = abjad.bundle(
+            abjad.BendAfter(0),
+            r"- \tweak Y-extent ##f",
+            r"- \tweak Y-offset 6.5",
+        )
+
+        abjad.attach(bend_after_bundle, tremolo_container_leaves[-1])
+
+        abjad.mutate.replace(selections, tremolo_container)
+
+    return multi_trem
 
 
 def string_clef(selector=trinton.select_leaves_by_index([0, 0, -1])):

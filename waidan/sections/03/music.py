@@ -14,6 +14,9 @@ score = library.waidan_score(
     [
         (8, 4),
         (3, 4),
+        (9, 8),
+        (3, 4),
+        (1, 8),
     ],
 )
 
@@ -144,69 +147,20 @@ trinton.make_music(
     evans.RhythmHandler(
         trinton.handwrite_nested_tuplets(
             tuplet_ratios=[
-                (
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                ),
+                (1, 1, 1, 1, 1, 1, 1),
                 (1,),
             ],
             preprocessor=None,
             nested_ratios=[
-                (
-                    1,
-                    1,
-                ),
-                (
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                ),
-                (
-                    1,
-                    1,
-                    1,
-                ),
-                (
-                    1,
-                    1,
-                ),
-                (
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                ),
-                (
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                ),
+                (1, 1),
+                (1, 1, 1, 1, 1, 1, 1),
+                (1, 1, 1),
+                (1, 1),
+                (1, 1, 1, 1, 1),
+                (1, 1, 1, 1, 1, 1, 1, 1),
                 (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
             ],
-            nested_vectors=[
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-            ],
+            nested_vectors=[0, 1, 2, 3, 4, 5, 6],
             nested_period=8,
             # extract_trivial_tuplets=False,
         ),
@@ -302,6 +256,24 @@ trinton.make_music(
         ],
         selector=trinton.select_leaves_by_index([0, -2], pitched=True, grace=False),
     ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.Dynamic("ppp"),
+            abjad.StartHairpin("<"),
+            abjad.Dynamic("mf"),
+            abjad.StartHairpin(">"),
+            abjad.Dynamic("p"),
+            abjad.Dynamic("mf"),
+            abjad.StartHairpin("<"),
+            abjad.Dynamic("f"),
+            abjad.StartHairpin(">"),
+            abjad.Dynamic("mf"),
+            abjad.StartHairpin(">o"),
+        ],
+        selector=trinton.select_leaves_by_index(
+            [0, 0, 9, 11, 13, 14, 20, 23, 23, 27, 30], pitched=True
+        ),
+    ),
     trinton.hooked_spanner_command(
         string=trinton.boxed_markup(
             string="secco slap",
@@ -321,8 +293,53 @@ trinton.make_music(
         tag=None,
         tweaks=None,
     ),
+    library.multiphonic_trem_noteheads(
+        selector=trinton.select_leaves_by_index([-1]), preprolated=True
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.StartHairpin("o<|"),
+            abjad.Dynamic("mf"),
+            abjad.StartHairpin("|>o"),
+        ],
+        selector=trinton.select_leaves_by_index([-2, -1, -1], pitched=True),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.bundle(
+                trinton.boxed_markup(
+                    string="Gran ON",
+                    # column="\center-column",
+                    # font_name="Bodoni72 Book",
+                    fontsize=0,
+                    string_only=False,
+                ),
+                r"- \tweak padding #13",
+            ),
+            abjad.bundle(
+                trinton.boxed_markup(
+                    string="Gran OFF",
+                    # column="\center-column",
+                    # font_name="Bodoni72 Book",
+                    fontsize=0,
+                    string_only=False,
+                ),
+                r"- \tweak padding #2",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0, -2]),
+        direction=abjad.UP,
+    ),
     voice=score["baritonesaxophone voice"],
     preprocessor=trinton.fuse_quarters_preprocessor((6, 2)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2,)),
+    trinton.attachment_command(
+        attachments=[abjad.StopHairpin()], selector=trinton.select_leaves_by_index([0])
+    ),
+    voice=score["baritonesaxophone voice"],
 )
 
 # cello music
@@ -476,6 +493,20 @@ for measure in [1, 2]:
 
 library.write_instrument_names(score=score)
 library.write_short_instrument_names(score=score)
+
+trinton.fermata_measures(
+    score=score,
+    measures=[5],
+    fermata="long-fermata",
+    voice_names=None,
+    font_size=12,
+    clef_whitespace=True,
+    blank=True,
+    last_measure=False,
+    padding=-10,
+    extra_offset=2.5,
+    tag=None,
+)
 
 # breaks
 

@@ -8,6 +8,19 @@
             \once \override Score.TimeSignature.stencil = #(trinton-blank-time-signature)
             \time 3/4
             s1 * 3/4
+            \time 9/8
+            s1 * 9/8
+            \time 3/4
+            s1 * 3/4
+            \once \override Score.BarLine.transparent = ##f
+            \once \override MultiMeasureRest.transparent = ##t
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 1/8
+            R1 * 1/8
+            - \tweak font-size #'12
+            - \tweak padding -10
+            _ \long-fermata
+            \once \override Score.BarLine.transparent = ##f
         }
         \context StaffGroup = "Staff Group"
         <<
@@ -20,6 +33,13 @@
                 %%% \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 2
                     s1 * 3/4
+                    s1 * 9/8
+                    s1 * 3/4
+                    \once \override MultiMeasureRest.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                    s1 * 1/8
+                    \stopStaff \startStaff
                 }
             }
             \context Staff = "viola staff"
@@ -141,6 +161,13 @@
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
                     r2
+                    s1 * 9/8
+                    s1 * 3/4
+                    \once \override MultiMeasureRest.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                    s1 * 1/8
+                    \stopStaff \startStaff
                 }
             }
             \context Staff = "baritonesaxophone staff"
@@ -158,12 +185,16 @@
                         \slapped
                         \override NoteHead.no-ledgers = ##t
                         e'''8
+                        \ppp
+                        - \tweak padding #13
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                         [
                         - \tweak padding #13.5
                         - \abjad-dashed-line-with-hook
                         - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { secco slap } \hspace #0.5 }
                         - \tweak bound-details.right.padding -2
                         \startTextSpan
+                        \<
                         b''8
                         \tweak text #tuplet-number::calc-fraction-text
                         \times 8/7
@@ -179,14 +210,18 @@
                         \times 2/3
                         {
                             f8
+                            \mf
                             a8
                             e8
+                            \>
                         }
                         g'8
                         d''8
+                        \p
                         \times 4/5
                         {
                             f16
+                            \mf
                             a,16
                             b,16
                             e16
@@ -198,9 +233,12 @@
                         \set stemLeftBeamCount = 1
                         \set stemRightBeamCount = 3
                         c32
+                        \<
                         f32
                         a,32
                         b,32
+                        \f
+                        \>
                         e32
                         c32
                         \set stemLeftBeamCount = 3
@@ -211,9 +249,12 @@
                             \set stemLeftBeamCount = 1
                             \set stemRightBeamCount = 3
                             a,32
+                            \mf
                             e32
                             d32
                             a32
+                            - \tweak circled-tip ##t
+                            \>
                             g32
                             d'32
                             c'32
@@ -227,8 +268,39 @@
                             \revert NoteHead.no-ledgers
                         }
                     }
-                    c'2
+                    \repeat tremolo 8 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        d32
+                        - \tweak padding #2
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \mf
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
                     s1 * 3/4
+                    \!
+                    s1 * 9/8
+                    s1 * 3/4
+                    \once \override MultiMeasureRest.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                    s1 * 1/8
+                    \stopStaff \startStaff
                 }
             }
             \context Staff = "cello staff"
@@ -294,6 +366,13 @@
                         \revert Staff.Clef.X-extent
                     }
                     s1 * 3/4
+                    s1 * 9/8
+                    s1 * 3/4
+                    \once \override MultiMeasureRest.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                    s1 * 1/8
+                    \stopStaff \startStaff
                 }
             }
             \context Staff = "harp staff"
@@ -305,6 +384,13 @@
                 %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ hp }
                     s1 * 2
                     s1 * 3/4
+                    s1 * 9/8
+                    s1 * 3/4
+                    \once \override MultiMeasureRest.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                    s1 * 1/8
+                    \stopStaff \startStaff
                 }
             }
             \context GrandStaff = "sub group 1"
@@ -318,6 +404,13 @@
                     %%% \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ acc }
                         s1 * 2
                         s1 * 3/4
+                        s1 * 9/8
+                        s1 * 3/4
+                        \once \override MultiMeasureRest.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                        s1 * 1/8
+                        \stopStaff \startStaff
                     }
                 }
                 \context Staff = "accordion 2 staff"
@@ -326,6 +419,13 @@
                     {
                         s1 * 2
                         s1 * 3/4
+                        s1 * 9/8
+                        s1 * 3/4
+                        \once \override MultiMeasureRest.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                        s1 * 1/8
+                        \stopStaff \startStaff
                     }
                 }
             >>
@@ -340,6 +440,13 @@
                     %%% \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ pno }
                         s1 * 2
                         s1 * 3/4
+                        s1 * 9/8
+                        s1 * 3/4
+                        \once \override MultiMeasureRest.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                        s1 * 1/8
+                        \stopStaff \startStaff
                     }
                 }
                 \context Staff = "piano 2 staff"
@@ -348,6 +455,13 @@
                     {
                         s1 * 2
                         s1 * 3/4
+                        s1 * 9/8
+                        s1 * 3/4
+                        \once \override MultiMeasureRest.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
+                        s1 * 1/8
+                        \stopStaff \startStaff
                     }
                 }
             >>
