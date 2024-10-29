@@ -20,21 +20,25 @@
             \once \override TimeSignature.X-offset = -6.5
             \time 4/8
             s1 * 1/2
-            ^ \markup {
-              \raise #11.5 \with-dimensions-from \null
-              \override #'(font-size . 5.5)
-              \concat {
-                  \abjad-metronome-mark-markup #3 #0 #2 #" 70 " 
-              }
-            }
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 4/8
-            s1 * 1/2
+                ^ \markup {
+                  \raise #11.5 \with-dimensions-from \null
+                  \override #'(font-size . 5.5)
+                  \concat {
+                      \abjad-metronome-mark-markup #3 #0 #2 #" 70 " 
+                  }
+                }
+              %! +SCORE
+            \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
               %! +SCORE
-            \once \override TimeSignature.X-offset = -6.5
+            \noBreak
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 4/8
+            s1 * 1/2
+              %! +SCORE
+            \noBreak
             \time 5/8
             s1 * 5/8
         }

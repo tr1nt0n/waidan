@@ -445,7 +445,9 @@ def write_short_instrument_names(score):
         )
 
 
-def return_metronome_markup(note_value, tempo, padding, metric_modulation=None):
+def return_metronome_markup(
+    note_value, tempo, padding, metric_modulation=None, site="after", hspace=None
+):
     _note_value_to_number_pair = {
         "sixteenth": (4, 0),
         "eighth": (3, 0),
@@ -460,17 +462,22 @@ def return_metronome_markup(note_value, tempo, padding, metric_modulation=None):
     tempo_markup = f"""\\abjad-metronome-mark-markup #{_note_value_to_number_pair[note_value][0]} #{_note_value_to_number_pair[note_value][-1]} #2 #" {tempo} " """
 
     if metric_modulation is None:
+        literal_strings = [
+            r"^ \markup {",
+            rf"  \raise #{padding} \with-dimensions-from \null",
+            r"  \override #'(font-size . 5.5)",
+            r"  \concat {",
+            f"      {tempo_markup}",
+            r"  }",
+            r"}",
+        ]
+
+        if hspace is not None:
+            literal_strings.insert(1, rf"\hspace #{hspace}")
+
         mark = abjad.LilyPondLiteral(
-            [
-                r"^ \markup {",
-                rf"  \raise #{padding} \with-dimensions-from \null",
-                r"  \override #'(font-size . 5.5)",
-                r"  \concat {",
-                f"      {tempo_markup}",
-                r"  }",
-                r"}",
-            ],
-            site="after",
+            literal_strings,
+            site=site,
         )
 
     else:
@@ -487,7 +494,7 @@ def return_metronome_markup(note_value, tempo, padding, metric_modulation=None):
                 r"  }",
                 r"}",
             ],
-            site="after",
+            site=site,
         )
 
     return mark

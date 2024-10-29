@@ -807,27 +807,11 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             library.return_metronome_markup(
-                note_value="eighth",
-                tempo=70,
-                padding=11.5,
+                note_value="eighth", tempo=70, padding=11.5, site="closing"
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),
     ),
-    trinton.attachment_command(
-        attachments=[
-            abjad.LilyPondLiteral(
-                r"\once \override TimeSignature.X-offset = -6.5", site="before"
-            ),
-        ],
-        selector=trinton.select_leaves_by_index([0]),
-        tag=abjad.Tag("+SCORE"),
-    ),
-    voice=score["Global Context"],
-)
-
-trinton.make_music(
-    lambda _: trinton.select_target(_, (4,)),
     trinton.attachment_command(
         attachments=[
             abjad.LilyPondLiteral(
@@ -859,30 +843,22 @@ library.write_short_instrument_names(score=score)
 
 # breaks
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (3,)),
-#     trinton.attachment_command(
-#         attachments=[abjad.LilyPondLiteral(r"\pageBreak", site="after")],
-#         selector=trinton.select_leaves_by_index(
-#             [
-#                 0,
-#             ]
-#         ),
-#         tag=abjad.Tag("+SCORE"),
-#     ),
-#     voice=score["Global Context"],
-# )
-#
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (12, 14)),
-#     trinton.attachment_command(
-#         attachments=[abjad.LilyPondLiteral(r"\noBreak", site="after")],
-#         selector=trinton.select_leaves_by_index([0, 1, 2]),
-#         tag=abjad.Tag("+SCORE"),
-#     ),
-#     voice=score["Global Context"],
-# )
-#
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1, 3)),
+    trinton.attachment_command(
+        attachments=[abjad.LilyPondLiteral(r"\noBreak", site="after")],
+        selector=trinton.select_leaves_by_index(
+            [
+                0,
+                1,
+                2,
+            ]
+        ),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
+
 # trinton.make_music(
 #     lambda _: trinton.select_target(_, (15,)),
 #     trinton.attachment_command(
