@@ -24,8 +24,17 @@
                 }
               %! +SCORE
         %%% \pageBreak
+              %! +SCORE
+        %%% \once \override TimeSignature.X-offset = -6.5
             \time 3/4
             s1 * 3/4
+            ^ \markup {
+              \raise #10 \with-dimensions-from \null
+              \override #'(font-size . 5.5)
+              \concat {
+                  \abjad-metronome-mark-markup #3 #0 #2 #" 72 " 
+              }
+            }
             \once \override Score.BarLine.transparent = ##f
             \once \override MultiMeasureRest.transparent = ##t
             \once \override Score.TimeSignature.stencil = ##f
@@ -122,8 +131,9 @@
                     \once \override Dots.stencil = ##f
                     \once \override Tie.stencil = ##f
                     \once \override NoteHead.duration-log = 2
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 4
                     \override Staff.Clef.stencil = #ly:text-interface::print
-                    \override Staff.Clef.text = \markup \fontsize #-8 \raise #2.5 { \center-column { \line { I } \line { II } \line { III } \line { IV } } }
+                    \override Staff.Clef.text = \stringing-clef
                     \set Staff.forceClef = ##t
                     \clef "treble"
                     \afterGrace
@@ -170,15 +180,49 @@
                         \mf
                         \stopTextSpanOne
                     }
-                    \revert Staff.Clef.stencil
-                    \set Staff.forceClef = ##f
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
+                    \once \revert Staff.StaffSymbol.line-positions
+                    \once \override Staff.Clef.stencil = ##f
                     r2
+                    \once \revert Staff.StaffSymbol.line-positions
+                    \once \override Staff.Clef.stencil = ##f
                     s1 * 9/8
-                    s1 * 3/4
+                    \override NoteHead.X-extent = #'(0 . 0)
+                    \override NoteHead.transparent = ##t
+                    \override NoteHead.no-ledgers = ##t
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 5
+                    \override Staff.Clef.stencil = #ly:text-interface::print
+                    \override Staff.Clef.text = \string-clef
+                    \set Staff.forceClef = ##t
+                    \override Staff.StaffSymbol.line-positions = #'(7 4 6 0 -7)
+                    \clef "treble"
+                    d''4
+                    - \accent
+                    \f
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \times 4/5
+                    {
+                        a''4
+                        - \accent
+                        \mp
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        e''16
+                        - \accent
+                        - \bendAfter #'2
+                        \mf
+                    }
+                    r4
+                    \revert NoteHead.X-extent
+                    \revert NoteHead.transparent
+                    \revert NoteHead.no-ledgers
                     \once \override MultiMeasureRest.transparent = ##t
                     \once \override Rest.transparent = ##t
+                    \once \revert Staff.StaffSymbol.line-positions
+                    \once \override Staff.Clef.stencil = ##f
+                    \once \override Staff.BarLine.bar-extent = #'(-3.5 . 3.5)
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                     s1 * 1/8
                     \stopStaff \startStaff

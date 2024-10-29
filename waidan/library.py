@@ -71,6 +71,70 @@ bari_multiphonic_2 = r"\markup \override #'(size . .7) { \woodwind-diagram #'bar
 # notation tools
 
 
+def change_viola_staff(
+    clef_name, selector=trinton.select_leaves_by_index([0], pitched=True)
+):
+    _clef_name_to_info = {
+        "body": (3, [7, 0, -7]),
+        "back-of-body": (2, [7, -7]),
+        "string": (5, [7, 4, 6, 0, -7]),
+        "stringing": (4,),
+        "alto": (5, "revert"),
+    }
+
+    def change(argument):
+        selections = selector(argument)
+        first_leaf = abjad.select.leaf(selections, 0)
+
+        if clef_name != "alto":
+            clef = f"\{clef_name}-clef"
+            clef_line_count = _clef_name_to_info[clef_name][0]
+
+            literal_strings = [
+                r"\override Staff.NoteHead.no-ledgers = ##t"
+                rf"\staff-line-count {clef_line_count}",
+                r"\override Staff.Clef.stencil = #ly:text-interface::print",
+                f"\override Staff.Clef.text = {clef}",
+                r"\set Staff.forceClef = ##t",
+            ]
+
+            if clef_name != "stringing":
+                clef_line_positions = _clef_name_to_info[clef_name][-1]
+                clef_line_positions = tuple(clef_line_positions)
+                clef_line_positions = str(clef_line_positions)
+                clef_line_positions = clef_line_positions.replace(",", "")
+
+                literal_strings.append(
+                    f"\override Staff.StaffSymbol.line-positions = #'{clef_line_positions}"
+                )
+
+            literal = abjad.LilyPondLiteral(
+                literal_strings,
+                site="before",
+            )
+
+            abjad.attach(abjad.Clef("treble"), first_leaf)
+
+            abjad.attach(literal, first_leaf)
+
+        else:
+            literal = abjad.LilyPondLiteral(
+                [
+                    r"\revert Staff.NoteHead.no-ledgers",
+                    r"\staff-line-count 5",
+                    r"\revert Staff.StaffSymbol.line-positions",
+                    r"\revert Staff.Clef.stencil",
+                    r"\set Staff.forceClef = ##t",
+                ],
+                site="before",
+            )
+
+            abjad.attach(abjad.Clef("alto"), first_leaf)
+            abjad.attach(literal, first_leaf)
+
+    return change
+
+
 def multiphonic_trem_noteheads(selector, preprolated=True):
     def multi_trem(argument):
         selections = selector(argument)
@@ -128,30 +192,6 @@ def multiphonic_trem_noteheads(selector, preprolated=True):
         abjad.mutate.replace(selections, tremolo_container)
 
     return multi_trem
-
-
-def string_clef(selector=trinton.select_leaves_by_index([0, 0, -1])):
-    return trinton.linear_attachment_command(
-        attachments=[
-            abjad.Clef("treble"),
-            abjad.LilyPondLiteral(
-                [
-                    r"\override Staff.Clef.stencil = #ly:text-interface::print",
-                    r"\override Staff.Clef.text = \markup \fontsize #-8 \raise #2.5 { \center-column { \line { I } \line { II } \line { III } \line { IV } } }",
-                    r"\set Staff.forceClef = ##t",
-                ],
-                site="before",
-            ),
-            abjad.LilyPondLiteral(
-                [
-                    r"\revert Staff.Clef.stencil",
-                    r"\set Staff.forceClef = ##f",
-                ],
-                site="absolute_after",
-            ),
-        ],
-        selector=selector,
-    )
 
 
 def graphic_bow_pressure_spanner(
@@ -498,3 +538,57 @@ def return_metronome_markup(
         )
 
     return mark
+
+
+# beautification tools
+
+
+def reset_line_positions(score, voice_names):
+    for voice_name in voice_names:
+
+        reset = abjad.LilyPondLiteral(
+            [
+                r"\once \revert Staff.StaffSymbol.line-positions",
+                r"\once \override Staff.Clef.stencil = ##f",
+            ],
+            site="before",
+        )
+
+        literal_strings = [
+            r"\once \revert Staff.StaffSymbol.line-positions",
+            r"\once \override Staff.Clef.stencil = ##f",
+        ]
+
+        if voice_name == "viola voice":
+            literal_strings.append(
+                r"\once \override Staff.BarLine.bar-extent = #'(-3.5 . 3.5)"
+            )
+
+        else:
+            literal_strings.append(
+                r"\once \override Staff.BarLine.bar-extent = #'(-2 . 2)"
+            )
+
+        fermata_measure_literal = abjad.LilyPondLiteral(
+            literal_strings,
+            site="before",
+        )
+
+        voice = score[voice_name]
+
+        shards = abjad.select.group_by_measure(voice)
+        relevant_shards = []
+        for shard in shards:
+            if (
+                all(isinstance(leaf, abjad.Rest) for leaf in shard)
+                or all(isinstance(leaf, abjad.MultimeasureRest) for leaf in shard)
+                or all(isinstance(leaf, abjad.Skip) for leaf in shard)
+            ):
+                relevant_shards.append(shard)
+
+        for shard in relevant_shards:
+            shard_duration = abjad.get.duration(shard)
+            if shard_duration == abjad.Duration((1, 8)):
+                abjad.attach(fermata_measure_literal, shard[0])
+            else:
+                abjad.attach(reset, shard[0])

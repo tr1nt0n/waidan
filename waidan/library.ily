@@ -85,15 +85,26 @@ boxed-markup = #(
 
 string-clef = \markup {
     % \hspace #0.6
-    \fontsize #4.9
+    \fontsize #6.6
     \override #'(font-name . "ekmelos")
     \override #'(whiteout-style . "outline")
     \override #'(whiteout . 1)
     \override #'(layer . 27)
     {
-        \rotate #-180
         \raise #1
         \char ##xe078
+    }
+}
+
+stringing-clef = \markup {
+    \fontsize #-8
+    \raise #2.5 {
+        \center-column {
+            \line { I }
+            \line { II }
+            \line { III }
+            \line { IV }
+        }
     }
 }
 

@@ -76,8 +76,12 @@ trinton.make_music(
         ),
         invisible_barlines=False,
     ),
-    library.string_clef(
-        selector=trinton.select_leaves_by_index([1, 1, -1], grace=False, pitched=True)
+    # library.string_clef(
+    #     selector=trinton.select_leaves_by_index([1, 1, -1], grace=False, pitched=True)
+    # ),
+    library.change_viola_staff(
+        clef_name="stringing",
+        selector=trinton.select_leaves_by_index([1], grace=False, pitched=True),
     ),
     trinton.hooked_spanner_command(
         string="\gridato-twist-bow",
@@ -138,6 +142,58 @@ trinton.make_music(
     ),
     voice=score["viola voice"],
     preprocessor=trinton.fuse_preprocessor((2,)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    evans.RhythmHandler(evans.tuplet([(1,), (4, 1), (-1,)])),
+    evans.PitchHandler(["d''", "a''", "e''"]),
+    library.change_viola_staff(
+        clef_name="string", selector=trinton.select_leaves_by_index([0], pitched=True)
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                [
+                    r"\override NoteHead.X-extent = #'(0 . 0)",
+                    r"\override NoteHead.transparent = ##t",
+                    r"\override NoteHead.no-ledgers = ##t",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\revert NoteHead.X-extent",
+                    r"\revert NoteHead.transparent",
+                    r"\revert NoteHead.no-ledgers",
+                ],
+                site="absolute_after",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0, -1], grace=False),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Glissando(zero_padding=True)],
+        selector=trinton.select_leaves_by_index([0, 1], pitched=True, grace=False),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.BendAfter(2),
+        ],
+        selector=trinton.select_leaves_by_index([-1], pitched=True, grace=False),
+    ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Articulation(">"),
+        ],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[abjad.Dynamic("f"), abjad.Dynamic("mp"), abjad.Dynamic("mf")],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    voice=score["viola voice"],
+    preprocessor=trinton.fuse_quarters_preprocessor((1,)),
 )
 
 # saxophone music
@@ -910,18 +966,36 @@ trinton.make_music(
 )
 
 trinton.make_music(
-    lambda _: trinton.select_target(_, (1, 2)),
+    lambda _: trinton.select_target(_, (4,)),
     trinton.attachment_command(
         attachments=[
-            abjad.LilyPondLiteral(
-                r"\once \override TimeSignature.X-offset = -6.5", site="before"
+            library.return_metronome_markup(
+                note_value="eighth",
+                tempo=72,
+                padding=10,
+                # site="closing",
+                # hspace=1.5
             ),
         ],
-        selector=trinton.select_leaves_by_index([0, 1]),
-        tag=abjad.Tag("+SCORE"),
+        selector=trinton.select_leaves_by_index([0]),
     ),
     voice=score["Global Context"],
 )
+
+for measure in [1, 2, 4]:
+    trinton.make_music(
+        lambda _: trinton.select_target(_, (measure,)),
+        trinton.attachment_command(
+            attachments=[
+                abjad.LilyPondLiteral(
+                    r"\once \override TimeSignature.X-offset = -6.5", site="before"
+                ),
+            ],
+            selector=trinton.select_leaves_by_index([0]),
+            tag=abjad.Tag("+SCORE"),
+        ),
+        voice=score["Global Context"],
+    )
 
 for measure in [1, 2]:
     trinton.make_music(
@@ -1001,6 +1075,8 @@ trinton.remove_redundant_time_signatures(score=score)
 
 for voice_name in library.all_voice_names:
     trinton.fill_empty_staves_with_skips(voice=score[voice_name])
+
+library.reset_line_positions(score=score, voice_names=["viola voice"])
 
 # show file
 
