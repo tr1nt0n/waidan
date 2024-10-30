@@ -1886,9 +1886,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             library.return_metronome_markup(
-                note_value="dotted quarter",
-                tempo=50,
-                padding=10,
+                note_value="dotted quarter", tempo=50, padding=11, hspace=0.5
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),

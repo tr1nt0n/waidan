@@ -646,6 +646,38 @@ trinton.make_music(
     beam_meter=True,
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 3)),
+    evans.RhythmHandler(
+        rmakers.note,
+    ),
+    trinton.noteheads_only(),
+    trinton.transparent_noteheads(
+        selector=trinton.logical_ties(first=True, pitched=True)
+    ),
+    trinton.aftergrace_command(
+        selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False),
+        invisible=True,
+    ),
+    trinton.hooked_spanner_command(
+        string="\somatic-position-one",
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=0,
+        direction=None,
+        right_padding=2,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=[
+            abjad.Tweak(r"- \tweak Y-extent ##f"),
+            abjad.Tweak(r"- \tweak Y-offset 0"),
+        ],
+    ),
+    voice=score["harp voice"],
+)
+
 # accordion music
 
 trinton.make_music(
@@ -739,6 +771,38 @@ trinton.make_music(
     ),
     voice=score["piano 1 voice"],
     preprocessor=trinton.fuse_quarters_preprocessor((1,)),
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (2, 3)),
+    evans.RhythmHandler(
+        rmakers.note,
+    ),
+    trinton.noteheads_only(),
+    trinton.transparent_noteheads(
+        selector=trinton.logical_ties(first=True, pitched=True)
+    ),
+    trinton.aftergrace_command(
+        selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False),
+        invisible=True,
+    ),
+    trinton.hooked_spanner_command(
+        string="\somatic-position-one",
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=0,
+        direction=None,
+        right_padding=2,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=[
+            abjad.Tweak(r"- \tweak Y-extent ##f"),
+            abjad.Tweak(r"- \tweak Y-offset 0.5"),
+        ],
+    ),
+    voice=score["piano 1 voice"],
 )
 
 trinton.make_music(
@@ -859,19 +923,19 @@ trinton.make_music(
     voice=score["Global Context"],
 )
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (15,)),
-#     trinton.attachment_command(
-#         attachments=[abjad.LilyPondLiteral(r"\noPageBreak", site="after")],
-#         selector=trinton.select_leaves_by_index(
-#             [
-#                 0,
-#             ]
-#         ),
-#         tag=abjad.Tag("+SCORE"),
-#     ),
-#     voice=score["Global Context"],
-# )
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4,)),
+    trinton.attachment_command(
+        attachments=[abjad.LilyPondLiteral(r"\noPageBreak", site="after")],
+        selector=trinton.select_leaves_by_index(
+            [
+                0,
+            ]
+        ),
+        tag=abjad.Tag("+SCORE"),
+    ),
+    voice=score["Global Context"],
+)
 
 # beautification
 

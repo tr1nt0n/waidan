@@ -27,6 +27,8 @@
             \noBreak
             \time 5/8
             s1 * 5/8
+              %! +SCORE
+            \noPageBreak
         }
         \context StaffGroup = "Staff Group"
         <<
@@ -556,8 +558,45 @@
                     }
                     r4
                     \!
-                    s1 * 1/2
-                    s1 * 1/2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'2
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding #0
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \somatic-position-one \hspace #0.5 }
+                    - \tweak bound-details.right.padding -2
+                    \startTextSpan
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    \afterGrace
+                    c'2
+                    {
+                        \once \override Stem.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.transparent = ##t
+                        c'16
+                        \stopTextSpan
+                    }
                     r4.
                     \times 2/3
                     {
@@ -858,8 +897,45 @@
                         \once \override Rest.transparent = ##t
                         r4
                         \!
-                        s1 * 1/2
-                        s1 * 1/2
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        c'2
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0.5
+                        - \tweak padding #0
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \somatic-position-one \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        \afterGrace
+                        c'2
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \stopTextSpan
+                        }
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r4

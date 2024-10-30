@@ -5,7 +5,8 @@
             \time 3/8
             s1 * 3/8
             ^ \markup {
-              \raise #10 \with-dimensions-from \null
+            \hspace #0.5
+              \raise #11 \with-dimensions-from \null
               \override #'(font-size . 5.5)
               \concat {
                   \abjad-metronome-mark-markup #2 #1 #2 #" 50 " 
