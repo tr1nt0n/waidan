@@ -8,8 +8,6 @@
             \time 8/4
             s1 * 2
             \once \override Score.TimeSignature.stencil = #(trinton-blank-time-signature)
-              %! +SCORE
-            \once \override TimeSignature.X-offset = -6.5
             \time 3/4
             s1 * 3/4
             \time 9/8
@@ -24,8 +22,6 @@
                 }
               %! +SCORE
             \pageBreak
-              %! +SCORE
-            \once \override TimeSignature.X-offset = -6.5
             \time 3/4
             s1 * 3/4
             ^ \markup {
@@ -202,19 +198,43 @@
                     \f
                     - \abjad-zero-padding-glissando
                     \glissando
+                    - \tweak padding #6
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { \upright { "135°" } \hspace #0.5 }
+                    - \tweak bound-details.right.padding 0.5
+                    \startTextSpanTwo
+                    - \tweak padding #8.5
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { 3/4 spazzolato } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -6
+                    \startTextSpanOne
                     \times 4/5
                     {
                         a''4
                         - \accent
                         \mp
+                        \stopTextSpanTwo
                         - \abjad-zero-padding-glissando
                         \glissando
+                        - \tweak padding #6
+                        - \abjad-solid-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { \upright { "45°" } \hspace #0.5 }
+                        - \tweak bound-details.right.padding 0.5
+                        \startTextSpanTwo
                         e''16
                         - \accent
                         - \bendAfter #'2
                         \mf
+                        \stopTextSpanOne
+                        \stopTextSpanTwo
+                        - \tweak padding #6
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \upright { "135°" } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -1.5
+                        \startTextSpanTwo
                     }
                     r4
+                    \stopTextSpanTwo
                     \revert NoteHead.X-extent
                     \revert NoteHead.transparent
                     \revert NoteHead.no-ledgers
@@ -983,6 +1003,11 @@
                         - \tweak padding #3
                         ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                         \stopTextSpan
+                        \revert Staff.NoteHead.no-ledgers
+                        \staff-line-count 5
+                        \revert Staff.StaffSymbol.line-positions
+                        \revert Staff.Clef.stencil
+                        \revert Staff.Clef.X-extent
                         \revert-noteheads
                         \revert NoteHead.no-ledgers
                     }
@@ -1327,8 +1352,75 @@
                         \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ pno }
                         s1 * 2
                         s1 * 3/4
-                        s1 * 9/8
-                        s1 * 3/4
+                        r4.
+                        r2
+                        r8
+                        \staff-line-count 1
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                        \clef "percussion"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        f''8
+                        \ppp
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { "lift" } 
+                        - \tweak Beam.positions #'(0 . 0)
+                        [
+                        - \tweak padding #9
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { Chains } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        g,8
+                        \mf
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #-1 "drop" } 
+                        ]
+                        \sustainOn
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        f''8
+                        \ppp
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #-1 "( etc. )" } 
+                        \sustainOff
+                        - \tweak Beam.positions #'(0 . 0)
+                        [
+                        \times 4/5
+                        {
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            g,8
+                            \p
+                            ]
+                            \sustainOn
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            f''8
+                            \ppp
+                            \sustainOff
+                            - \tweak Beam.positions #'(0 . 0)
+                            [
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            g,16
+                            \mp
+                            \stopTextSpan
+                            ]
+                            \sustainOn
+                        }
+                        r4
+                        \sustainOff
                         \once \override MultiMeasureRest.transparent = ##t
                         \once \override Rest.transparent = ##t
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff

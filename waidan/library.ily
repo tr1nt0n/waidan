@@ -242,3 +242,30 @@ big-half-harmonic = {
     #{\markup \override #`(box-padding . ,inter-box-padding) \box
               \override #`(box-padding . ,box-padding) \box
               { #text } #}))
+
+% somatic spells markups
+
+somatic-position-one = \markup {
+    % \hspace #-3
+    \epsfile #X #10 "/Users/trintonprater/scores/waidan/waidan/etc/graphics/position_one.eps"
+}
+
+somatic-position-two = \markup {
+    % \hspace #-3
+    \epsfile #X #8 "/Users/trintonprater/scores/waidan/waidan/etc/graphics/position_two.eps"
+}
+
+somatic-position-three = \markup {
+    % \hspace #-4
+    \epsfile #X #14 "/Users/trintonprater/scores/waidan/waidan/etc/graphics/position_three.eps"
+}
+
+somatic-position-four = \markup {
+    % \hspace #-6
+    \epsfile #X #5.5 "/Users/trintonprater/scores/waidan/waidan/etc/graphics/position_four.eps"
+}
+
+somatic-position-five = \markup {
+    % \hspace #-5
+    \epsfile #X #11 "/Users/trintonprater/scores/waidan/waidan/etc/graphics/position_five.eps"
+}
