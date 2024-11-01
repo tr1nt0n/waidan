@@ -243,6 +243,271 @@ big-half-harmonic = {
               \override #`(box-padding . ,box-padding) \box
               { #text } #}))
 
+% arrow noteheads
+
+up-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        \rotate #180
+        {
+            \char ##x2B07
+        }
+    }
+}
+
+down-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        {
+            \char ##x2B07
+        }
+    }
+}
+
+right-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        \rotate #90
+        {
+            \char ##x2B07
+        }
+    }
+}
+
+left-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        \rotate #-90
+        {
+            \char ##x2B07
+        }
+    }
+}
+
+right-down-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        \rotate #45
+        {
+            \char ##x2B07
+        }
+    }
+}
+
+right-up-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        \rotate #135
+        {
+            \char ##x2B07
+        }
+    }
+}
+
+left-up-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        \rotate #-135
+        {
+            \char ##x2B07
+        }
+    }
+}
+
+left-down-arrow = {
+    \override NoteHead.stem-attachment = #(lambda (grob)
+        (let* ((thickness (ly:staff-symbol-line-thickness grob))
+              (stem (ly:grob-object grob 'stem))
+              (dir (ly:grob-property stem 'direction UP)))
+          (if (= dir UP)
+              (cons
+                  0
+                  0.9
+              )
+              (if (= dir DOWN)
+                  (cons
+                      0
+                      -0.9
+                  )
+              )
+          )
+        )
+    )
+    \override NoteHead.stencil = #ly:text-interface::print
+    \override NoteHead.text = \markup {
+        \fontsize #6.6
+        \override #'(font-name . "ekmelos")
+        \override #'(whiteout-style . "outline")
+        \override #'(whiteout . 1)
+        \override #'(layer . 27)
+        \rotate #-45
+        {
+            \char ##x2B07
+        }
+    }
+}
+
 % somatic spells markups
 
 somatic-position-one = \markup {

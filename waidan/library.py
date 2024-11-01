@@ -4,6 +4,7 @@ import evans
 import trinton
 from abjadext import rmakers
 from abjadext import microtones
+from itertools import cycle
 
 # immutables
 
@@ -69,6 +70,26 @@ bari_multiphonic_1 = r"\markup \override #'(size . .7) { \woodwind-diagram #'bar
 bari_multiphonic_2 = r"\markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }"
 
 # notation tools
+
+
+def stone_arrow_noteheads(notehead_list, selector=trinton.pleaves()):
+    def noteheads(argument):
+        selections = selector(argument)
+        notehead_cycle = cycle(notehead_list)
+
+        for selection, notehead in zip(selections, notehead_cycle):
+            literal = abjad.LilyPondLiteral(f"\{notehead}-arrow", site="before")
+
+            abjad.attach(literal, selection)
+
+        termination_literal = abjad.LilyPondLiteral(
+            [r"\revert NoteHead.stencil", r"\revert NoteHead.stem-attachment"],
+            site="absolute_after",
+        )
+
+        abjad.attach(termination_literal, selections[-1])
+
+    return noteheads
 
 
 def manual_beam_positions(positions, selector=abjad.select.leaves):
@@ -179,6 +200,7 @@ def multiphonic_trem_noteheads(selector, preprolated=True):
                 r"\override NoteHead.stencil = #ly:text-interface::print",
                 rf"\once \override NoteHead.text = {bari_multiphonic_1}"
                 rf"\once \override NoteHead.X-offset = 0.5",
+                r"\override Dots.stencil = ##f",
             ],
             site="before",
         )
@@ -193,7 +215,7 @@ def multiphonic_trem_noteheads(selector, preprolated=True):
 
         closing_literal = abjad.LilyPondLiteral(
             [
-                # r"\revert Stem.X-extent",
+                r"\revert Dots.stencil",
                 r"\revert NoteHead.stencil",
                 r"\revert NoteHead.no-ledgers",
             ],
@@ -524,7 +546,11 @@ def return_metronome_markup(
         "whole": (0, 0),
     }
 
-    tempo_markup = f"""\\abjad-metronome-mark-markup #{_note_value_to_number_pair[note_value][0]} #{_note_value_to_number_pair[note_value][-1]} #2 #" {tempo} " """
+    if isinstance(tempo, tuple):
+        tempo_markup = f"""\\abjad-metronome-mark-mixed-number-markup #{_note_value_to_number_pair[note_value][0]} #{_note_value_to_number_pair[note_value][-1]} #2 #" {tempo[0]} " #" {tempo[1]} " #" {tempo[2]} " """
+
+    else:
+        tempo_markup = f"""\\abjad-metronome-mark-markup #{_note_value_to_number_pair[note_value][0]} #{_note_value_to_number_pair[note_value][-1]} #2 #" {tempo} " """
 
     if metric_modulation is None:
         literal_strings = [

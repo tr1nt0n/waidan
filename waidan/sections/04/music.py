@@ -1087,27 +1087,6 @@ trinton.make_music(
     voice=score["Global Context"],
 )
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (4,)),
-#     trinton.attachment_command(
-#         attachments=[
-#             abjad.bundle(
-#                 trinton.boxed_markup(
-#                     string="ALL SIT",
-#                     # column="\center-column",
-#                     # font_name="Bodoni72 Book",
-#                     fontsize=4,
-#                     string_only=False,
-#                 ),
-#                 r"- \tweak padding #18"
-#             ),
-#         ],
-#         selector=trinton.select_leaves_by_index([0]),
-#         direction=abjad.UP
-#     ),
-#     voice=score["Global Context"],
-# )
-
 # for measure in [1]:
 trinton.make_music(
     lambda _: trinton.select_target(_, (3,)),
@@ -1162,20 +1141,6 @@ for measure in [1, 2]:
 library.write_instrument_names(score=score)
 library.write_short_instrument_names(score=score)
 
-# trinton.fermata_measures(
-#     score=score,
-#     measures=[5],
-#     fermata="long-fermata",
-#     voice_names=None,
-#     font_size=12,
-#     clef_whitespace=True,
-#     blank=True,
-#     last_measure=False,
-#     padding=-10,
-#     extra_offset=2.5,
-#     tag=None,
-# )
-
 # breaks
 
 trinton.make_music(
@@ -1192,24 +1157,12 @@ trinton.make_music(
     voice=score["Global Context"],
 )
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (12, 14)),
-#     trinton.attachment_command(
-#         attachments=[abjad.LilyPondLiteral(r"\noBreak", site="after")],
-#         selector=trinton.select_leaves_by_index([0, 1, 2]),
-#         tag=abjad.Tag("+SCORE"),
-#     ),
-#     voice=score["Global Context"],
-# )
-
 # beautification
 
 trinton.remove_redundant_time_signatures(score=score)
 
 for voice_name in library.all_voice_names:
     trinton.fill_empty_staves_with_skips(voice=score[voice_name])
-
-# library.reset_line_positions(score=score, voice_names=["viola voice"])
 
 # show file
 

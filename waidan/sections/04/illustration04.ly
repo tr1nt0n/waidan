@@ -380,6 +380,7 @@
                         \override NoteHead.no-ledgers = ##t
                         \override NoteHead.stencil = #ly:text-interface::print
                         \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
                         d32
                         - \tweak circled-tip ##t
                         \<
@@ -392,6 +393,7 @@
                         \f
                         - \tweak circled-tip ##t
                         \>
+                        \revert Dots.stencil
                         \revert NoteHead.stencil
                         \revert NoteHead.no-ledgers
                     }
