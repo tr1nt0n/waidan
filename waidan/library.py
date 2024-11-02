@@ -600,14 +600,12 @@ def reset_line_positions(score, voice_names):
         reset = abjad.LilyPondLiteral(
             [
                 r"\once \revert Staff.StaffSymbol.line-positions",
-                r"\once \override Staff.Clef.stencil = ##f",
             ],
             site="before",
         )
 
         literal_strings = [
             r"\once \revert Staff.StaffSymbol.line-positions",
-            r"\once \override Staff.Clef.stencil = ##f",
         ]
 
         if voice_name == "viola voice":
