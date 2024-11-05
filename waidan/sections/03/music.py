@@ -76,9 +76,6 @@ trinton.make_music(
         ),
         invisible_barlines=False,
     ),
-    # library.string_clef(
-    #     selector=trinton.select_leaves_by_index([1, 1, -1], grace=False, pitched=True)
-    # ),
     library.change_viola_staff(
         clef_name="stringing",
         selector=trinton.select_leaves_by_index([1], grace=False, pitched=True),

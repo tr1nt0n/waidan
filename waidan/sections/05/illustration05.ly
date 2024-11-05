@@ -485,8 +485,59 @@
                         \stopTextSpanTwo
                         \ottava 0
                     }
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 3/4
+                    \override NoteHead.X-extent = #'(0 . 0)
+                    \override NoteHead.transparent = ##t
+                    \override NoteHead.no-ledgers = ##t
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 5
+                    \override Staff.Clef.stencil = #ly:text-interface::print
+                    \override Staff.Clef.text = \string-clef
+                    \set Staff.forceClef = ##t
+                    \override Staff.StaffSymbol.line-positions = #'(7 4 6 0 -7)
+                    \clef "treble"
+                    d''4
+                    - \accent
+                    \f
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak padding #6
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { \upright { "135°" } \hspace #0.5 }
+                    \startTextSpanTwo
+                    - \tweak padding #8.5
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { 3/4 spazzolato } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -6
+                    \startTextSpanOne
+                    \times 4/5
+                    {
+                        a''4
+                        - \accent
+                        \mp
+                        \stopTextSpanTwo
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        - \tweak padding #6
+                        - \abjad-solid-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { \upright { "45°" } \hspace #0.5 }
+                        \startTextSpanTwo
+                        \once \override Accidental.stencil = ##f
+                        e''16
+                        - \accent
+                        - \bendAfter #'2
+                        \mf
+                        \stopTextSpanOne
+                        \stopTextSpanTwo
+                        - \tweak padding #6
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \upright { "135°" } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -1.5
+                        \startTextSpanTwo
+                    }
+                    r4
+                    \stopTextSpanTwo
+                    \revert NoteHead.X-extent
+                    \revert NoteHead.transparent
+                    \revert NoteHead.no-ledgers
                     \once \revert Staff.StaffSymbol.line-positions
                     s1 * 3/4
                     \once \override MultiMeasureRest.transparent = ##t
@@ -621,8 +672,19 @@
                     g'16
                     ~
                     g'4.
-                    s1 * 3/4
-                    s1 * 3/4
+                    r4
+                    \times 4/5
+                    {
+                        r8
+                        c'8
+                        c'16
+                        ~
+                    }
+                    c'8.
+                    r16
+                      %! applying invisibility
+                    \once \override Rest.transparent = ##t
+                    r1 * 3/4
                     \once \override MultiMeasureRest.transparent = ##t
                     \once \override Rest.transparent = ##t
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -1408,9 +1470,41 @@
                         r16
                         r2
                         s1 * 5/8
-                        s1 * 9/16
-                        s1 * 1/2
-                        s1 * 13/16
+                        \clef "bass"
+                        bf,4.
+                        \f
+                        (
+                        \>
+                          %! abjad.glissando(7)
+                        \glissando
+                        ~
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        bf,8.
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        aqs,16
+                        \mf
+                        )
+                        r4..
+                        <bf,, a,>4.
+                        \f
+                        ~
+                        <bf,, a,>16
+                        ~
+                        <bf,, a,>4.
                         s1 * 3/4
                         s1 * 3/4
                         \once \override MultiMeasureRest.transparent = ##t
@@ -1430,8 +1524,66 @@
                         s1 * 3/4
                         s1 * 5/8
                         s1 * 9/16
-                        s1 * 1/2
-                        s1 * 13/16
+                        r4
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "strike and scrape Stones" } 
+                        \staff-line-count 1
+                          %! +SCORE
+                        \override Staff.BarLine.bar-extent = #'(-0.01 . 0.01)
+                        \clef "percussion"
+                        \tweak style #'cross
+                        c'4
+                        :32
+                        - \accent
+                        _ #(make-dynamic-script
+                            (markup
+                                #:whiteout
+                                #:line (
+                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                    #:hspace -0.4
+                                    #:dynamic "fp"
+                                    #:hspace -0.25
+                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                    )
+                                )
+                            )
+                        \<
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/7
+                        {
+                            r8.
+                            _ #(make-dynamic-script
+                                (markup
+                                    #:whiteout
+                                    #:line (
+                                        #:general-align Y -2 #:normal-text #:larger "“"
+                                        #:hspace -0.4
+                                        #:dynamic "ff"
+                                        #:hspace -0.2
+                                        #:general-align Y -2 #:normal-text #:larger "”"
+                                        )
+                                    )
+                                )
+                            [
+                            \left-down-arrow
+                            c'8
+                            \right-arrow
+                            c'8
+                            ]
+                        }
+                        r16
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/7
+                        {
+                            r8.
+                            [
+                            \left-up-arrow
+                            c'8
+                            \left-down-arrow
+                            c'8
+                            ]
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
+                        }
                         s1 * 3/4
                         s1 * 3/4
                         \once \override MultiMeasureRest.transparent = ##t
@@ -1667,15 +1819,207 @@
                         >8
                         \mf
                         r4
-                        s1 * 9/16
-                        s1 * 1/2
-                        s1 * 13/16
-                        s1 * 3/4
+                        \times 2/3
+                        {
+                            r8
+                            [
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                            >8
+                            \p
+                            \<
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                            >8
+                            ]
+                        }
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 5/6
+                        {
+                            r8
+                            [
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                            >8
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                            >8
+                            ]
+                        }
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                        >16
+                        \f
+                        r8.
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                        >16
+                        r8.
+                        r4
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
+                        \staff-line-count 1
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                        \clef "percussion"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        f''8
+                        \pppp
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { "lift" } 
+                        - \tweak Beam.positions #'(0 . 0)
+                        [
+                        - \tweak padding #9
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { Chains } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        g,16
+                        _ #(make-dynamic-script
+                            (markup
+                                #:whiteout
+                                #:line (
+                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                    #:hspace -0.4
+                                    #:dynamic "ffff"
+                                    #:hspace -0.2
+                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                    )
+                                )
+                            )
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #-1 "drop" } 
+                        ]
+                        r8
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        f''8
+                        \pppp
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #-1 "( etc. )" } 
+                        - \tweak Beam.positions #'(0 . 0)
+                        [
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        \afterGrace
+                        g,8
+                        \mp
+                        ]
+                        {
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override Stem.direction = #DOWN
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            f''16
+                            \pppp
+                        }
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        g,8
+                        \mf
+                        \sustainOn
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        f''8
+                        \ppp
+                        \sustainOff
+                        - \tweak Beam.positions #'(0 . 0)
+                        [
+                        \times 4/5
+                        {
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            g,8
+                            \p
+                            ]
+                            \sustainOn
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            f''8
+                            \ppp
+                            \sustainOff
+                            - \tweak Beam.positions #'(0 . 0)
+                            [
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            g,16
+                            \mp
+                            \stopTextSpan
+                            ]
+                            \sustainOn
+                        }
+                        r4
                         s1 * 3/4
                         \once \override MultiMeasureRest.transparent = ##t
                         \once \override Rest.transparent = ##t
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         s1 * 1/8
+                        \sustainOff
                         \stopStaff \startStaff
                         s1 * 5/4
                     }
@@ -1716,9 +2060,103 @@
                         ]
                         \revert NoteHead.stencil
                         \revert NoteHead.stem-attachment
-                        s1 * 9/16
-                        s1 * 1/2
-                        s1 * 13/16
+                        \once \override Dots.staff-position = #2
+                        \tweak style #'cross
+                        c'8.
+                        [
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        - \tweak circled-tip ##t
+                        \<
+                        - \tweak padding #5.5
+                        - \abjad-solid-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { \tremolo-largo \hspace #0.5 }
+                        - \tweak bound-details.right.padding 0.5
+                        \startTextSpan
+                        \once \override Dots.staff-position = #2
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        c'8.
+                        \mf
+                        \stopTextSpan
+                        - \tweak circled-tip ##t
+                        \>
+                        - \tweak padding #5.5
+                        - \abjad-solid-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { \tremolo-stretto \hspace #0.5 }
+                        - \tweak bound-details.right.text \tremolo-largo
+                        - \tweak bound-details.right.padding 0.5
+                        \startTextSpan
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        c'8.
+                        ]
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            c'16
+                            \!
+                            \stopTextSpan
+                        }
+                        r16
+                        _ #(make-dynamic-script
+                            (markup
+                                #:whiteout
+                                #:line (
+                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                    #:hspace -0.4
+                                    #:dynamic "ff"
+                                    #:hspace -0.2
+                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                    )
+                                )
+                            )
+                        [
+                        \right-arrow
+                        c'8
+                        \left-down-arrow
+                        c'8
+                        \left-up-arrow
+                        c'8
+                        r16
+                        ]
+                        r8
+                        [
+                        \right-down-arrow
+                        c'8
+                        \right-up-arrow
+                        c'8
+                        ]
+                        r16
+                        r8
+                        [
+                        \right-arrow
+                        c'8
+                        \left-down-arrow
+                        c'8
+                        ]
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         s1 * 3/4
                         s1 * 3/4
                         \once \override MultiMeasureRest.transparent = ##t
