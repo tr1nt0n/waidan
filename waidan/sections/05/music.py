@@ -2305,6 +2305,30 @@ trinton.make_music(
     voice=score["piano 1 voice"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1, 6)),
+    trinton.hooked_spanner_command(
+        string=trinton.boxed_markup(
+            string="mallets on low strings",
+            # column="\center-column",
+            # font_name="Bodoni72 Book",
+            fontsize=-1,
+            string_only=True,
+        ),
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=6.5,
+        direction=None,
+        right_padding=1.5,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=None,
+    ),
+    voice=score["piano 1 voice"],
+)
+
 # piano lh music
 
 trinton.make_music(

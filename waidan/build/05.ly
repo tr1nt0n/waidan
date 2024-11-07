@@ -2230,6 +2230,11 @@
                                 e,,
                             >16
                             \pp
+                            - \tweak padding #6.5
+                            - \abjad-dashed-line-with-hook
+                            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mallets on low strings } \hspace #0.5 }
+                            - \tweak bound-details.right.padding -1.5
+                            \startTextSpan
                             r4..
                         }
                         r2
@@ -2511,6 +2516,7 @@
                             \tweak style #'la
                             e,,
                         >16
+                        \stopTextSpan
                         r8.
                         r4
                         ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
