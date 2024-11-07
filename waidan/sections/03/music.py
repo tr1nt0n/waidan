@@ -865,7 +865,7 @@ trinton.make_music(
         # on_beat_graces=False,
     ),
     trinton.noteheads_only(),
-    trinton.change_lines(lines=1, clef="percussion"),
+    trinton.change_lines(lines=1, clef="percussion", invisible_barlines=False),
     trinton.change_notehead_command(
         notehead="cross",
         selector=trinton.logical_ties(first=True, pitched=True, grace=False),

@@ -1157,8 +1157,6 @@
                         \once \override Dots.stencil = ##f
                         \once \override Tie.stencil = ##f
                         \once \override NoteHead.duration-log = 2
-                          %! +SCORE
-                        \override Staff.BarLine.bar-extent = #'(-0.01 . 0.01)
                         \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Accordion }
                           %! +SCORE
                         \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ acc }

@@ -551,8 +551,84 @@
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                     s1 * 1/8
                     \stopStaff \startStaff
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 5/4
+                    \once \override Staff.Clef.X-extent = ##f
+                    \once \override Staff.Clef.extra-offset = #'(-2.5 . 0)
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    \revert Staff.NoteHead.no-ledgers
+                    \staff-line-count 5
+                    \revert Staff.StaffSymbol.line-positions
+                    \revert Staff.Clef.stencil
+                    \set Staff.forceClef = ##t
+                    \clef "alto"
+                    r2
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r16
+                    \staff-line-count 1
+                    \once \override Dots.staff-position = #2
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \clef "percussion"
+                    \afterGrace
+                    \tweak style #'cross
+                    c'4
+                    ^ \tremolo-articulation
+                    _ #(make-dynamic-script
+                        (markup
+                            #:whiteout
+                            #:line (
+                                #:general-align Y -2 #:normal-text #:larger "“"
+                                #:hspace -0.1
+                                #:dynamic "p"
+                                #:hspace -0.25
+                                #:general-align Y -2 #:normal-text #:larger "”"
+                                )
+                            )
+                        )
+                    ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #-13 { \center-column { \line { "Hold all seven Stones loosely in your hands," } \line { "and cup your hands around the microphone." } \line { "Rotate the hands gently," } \line { "allowing the Stones to roll." } } } } 
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        c'16
+                    }
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r4..
                 }
             }
             \context Staff = "baritonesaxophone staff"
@@ -681,6 +757,7 @@
                     \override NoteHead.no-ledgers = ##t
                     r4
                     ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Env ON }
+                    ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Soprano" } 
                     \times 4/5
                     {
                         r8
@@ -884,7 +961,37 @@
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                     s1 * 1/8
                     \stopStaff \startStaff
-                    s1 * 5/4
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r2
+                    ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Baritone" } 
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r16
+                    \repeat tremolo 4 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        \pp
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \!
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r4..
                 }
             }
             \context Staff = "cello staff"
@@ -1268,7 +1375,76 @@
                     c'8
                     \stopTextSpan
                     \stopStaff \startStaff
-                    s1 * 5/4
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r2
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r16
+                    \once \override Dots.staff-position = #2
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 4
+                    \override Staff.Clef.stencil = #ly:text-interface::print
+                    \override Staff.Clef.text = \stringing-clef
+                    \set Staff.forceClef = ##t
+                    \clef "treble"
+                    \afterGrace
+                    <a' c''>4
+                    - \downbow
+                    _ #(make-dynamic-script
+                        (markup
+                            #:whiteout
+                            #:line (
+                                #:general-align Y -2 #:normal-text #:larger "“"
+                                #:hspace -0.1
+                                #:dynamic "ppp"
+                                #:hspace -0.25
+                                #:general-align Y -2 #:normal-text #:larger "”"
+                                )
+                            )
+                        )
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak padding #8
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #-1 { \center-column { \line { XFB } \line { legno molto pont. } \line { crine dietro pont. }  } } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -2
+                    \startTextSpan
+                    - \tweak stencil #constante-hairpin
+                    \<
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        <a' c''>16
+                        \!
+                        \stopTextSpan
+                    }
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r4..
                 }
             }
             \context Staff = "harp staff"
@@ -2468,7 +2644,72 @@
                         s1 * 1/8
                         \sustainOff
                         \stopStaff \startStaff
-                        s1 * 5/4
+                        \once \override Dots.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        r2
+                        \staff-line-count 5
+                        \once \override Dots.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        \clef "treble"
+                        r16
+                        \once \override Dots.staff-position = #2
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \afterGrace
+                        <b fs' c'' e'' f''>4
+                        _ #(make-dynamic-script
+                            (markup
+                                #:whiteout
+                                #:line (
+                                    #:general-align Y -2 #:normal-text #:larger "“"
+                                    #:hspace -0.1
+                                    #:dynamic "p"
+                                    #:hspace -0.25
+                                    #:general-align Y -2 #:normal-text #:larger "”"
+                                    )
+                                )
+                            )
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        - \tweak padding #5
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { Jewellery Wire, XFB } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override RepeatTie.transparent = ##t
+                            \once \override Stem.stencil = ##f
+                            \once \override Beam.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override Dots.stencil = ##f
+                            \once \override Tie.stencil = ##f
+                            \once \override NoteHead.duration-log = 2
+                            \once \override NoteHead.transparent = ##t
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            <b fs' c'' e'' f''>16
+                            \!
+                            \stopTextSpan
+                        }
+                        \once \override Dots.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        r4..
                     }
                 }
                 \context Staff = "piano 2 staff"

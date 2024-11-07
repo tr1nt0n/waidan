@@ -449,6 +449,16 @@ trinton.make_music(
     preprocessor=trinton.fuse_preprocessor((2,)),
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (11,)),
+    evans.RhythmHandler(
+        evans.talea(
+            [],
+        )
+    ),
+    voice=score["baritonesaxophone voice"],
+)
+
 # cello music
 
 trinton.make_music(
