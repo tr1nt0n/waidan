@@ -99,11 +99,26 @@
                     - \abjad-solid-line-with-arrow
                     - \tweak bound-details.left.text \markup \concat { \upright { "135°" } \hspace #0.5 }
                     \startTextSpanTwo
+                      %! +SCORE
                     - \tweak padding #8.5
+                      %! +SCORE
                     - \abjad-dashed-line-with-hook
+                      %! +SCORE
                     - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { 3/4 spazzolato } \hspace #0.5 }
-                    - \tweak bound-details.right.padding -6
+                      %! +SCORE
+                    - \tweak bound-details.right.padding -16
+                      %! +SCORE
                     \startTextSpanOne
+                      %! +PARTS
+                %%% - \tweak padding #8.5
+                      %! +PARTS
+                %%% - \abjad-dashed-line-with-hook
+                      %! +PARTS
+                %%% - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { 3/4 spazzolato } \hspace #0.5 }
+                      %! +PARTS
+                %%% - \tweak bound-details.right.padding -6
+                      %! +PARTS
+                %%% \startTextSpanOne
                     \times 4/5
                     {
                         a''4
@@ -121,7 +136,10 @@
                         - \accent
                         - \bendAfter #'2
                         \mf
+                          %! +SCORE
                         \stopTextSpanOne
+                          %! +PARTS
+                    %%% \stopTextSpanOne
                         \stopTextSpanTwo
                         - \tweak padding #6
                         - \abjad-dashed-line-with-hook
@@ -162,11 +180,185 @@
             {
                 \context Voice = "baritonesaxophone voice"
                 {
-                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Saxophone }
-                      %! +SCORE
-                    \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ sax }
-                    s1 * 1/2
-                    s1 * 3/4
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                        {
+                            \context Score = "Score"
+                            \with
+                            {
+                                \override SpacingSpanner.spacing-increment = 0.5
+                                proportionalNotationDuration = ##f
+                            }
+                            <<
+                                \context RhythmicStaff = "Rhythmic_Staff"
+                                \with
+                                {
+                                    \remove Time_signature_engraver
+                                    \remove Staff_symbol_engraver
+                                    \override Stem.direction = #up
+                                    \override Stem.length = 5
+                                    \override TupletBracket.bracket-visibility = ##t
+                                    \override TupletBracket.direction = #up
+                                    \override TupletBracket.minimum-length = 4
+                                    \override TupletBracket.padding = 1.25
+                                    \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                    \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                    \override TupletNumber.font-size = 0
+                                    \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                    tupletFullLength = ##t
+                                }
+                                {
+                                    c'8
+                                }
+                            >>
+                            \layout
+                            {
+                                indent = 0
+                                ragged-right = ##t
+                            }
+                        }
+                    \times 1/1
+                    {
+                        \once \override Dots.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Saxophone }
+                          %! +SCORE
+                        \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ sax }
+                        r8
+                        \pp
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Stones" } 
+                        \<
+                    }
+                    \revert TupletNumber.text
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                        {
+                            \context Score = "Score"
+                            \with
+                            {
+                                \override SpacingSpanner.spacing-increment = 0.5
+                                proportionalNotationDuration = ##f
+                            }
+                            <<
+                                \context RhythmicStaff = "Rhythmic_Staff"
+                                \with
+                                {
+                                    \remove Time_signature_engraver
+                                    \remove Staff_symbol_engraver
+                                    \override Stem.direction = #up
+                                    \override Stem.length = 5
+                                    \override TupletBracket.bracket-visibility = ##t
+                                    \override TupletBracket.direction = #up
+                                    \override TupletBracket.minimum-length = 4
+                                    \override TupletBracket.padding = 1.25
+                                    \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                    \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                    \override TupletNumber.font-size = 0
+                                    \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                    tupletFullLength = ##t
+                                }
+                                {
+                                    c'4.
+                                }
+                            >>
+                            \layout
+                            {
+                                indent = 0
+                                ragged-right = ##t
+                            }
+                        }
+                    \times 1/1
+                    {
+                        \staff-line-count 1
+                        \once \override Beam.grow-direction = #right
+                        \clef "percussion"
+                        \tweak style #'cross
+                        c'32 * 117/32
+                        [
+                        - \tweak padding #3
+                        - \abjad-solid-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { strike } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { rub }
+                        - \tweak bound-details.right.padding 1
+                        \startTextSpan
+                        \tweak style #'cross
+                        c'32 * 99/32
+                        \tweak style #'cross
+                        c'32 * 69/32
+                        \tweak style #'cross
+                        c'32 * 13/8
+                        \tweak style #'cross
+                        c'32 * 47/32
+                        \stopTextSpan
+                        ]
+                    }
+                    \revert TupletNumber.text
+                    \times 4/5
+                    {
+                        \down-arrow
+                        c'64
+                        \mf
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "strike + scrape" } 
+                        [
+                        - \tweak circled-tip ##t
+                        \>
+                        \right-arrow
+                        c'64
+                        \left-arrow
+                        c'64
+                        \up-arrow
+                        c'64
+                        \down-arrow
+                        c'64
+                        ]
+                    }
+                    r8.
+                    \!
+                    \times 4/5
+                    {
+                        \times 4/5
+                        {
+                            \right-arrow
+                            c'64
+                            \mf
+                            [
+                            - \tweak circled-tip ##t
+                            \>
+                            \left-arrow
+                            c'64
+                            \up-arrow
+                            c'64
+                            \down-arrow
+                            c'64
+                            \right-arrow
+                            c'64
+                        }
+                        r8.
+                        \!
+                        \times 4/5
+                        {
+                            \left-arrow
+                            c'64
+                            \mf
+                            - \tweak circled-tip ##t
+                            \>
+                            \up-arrow
+                            c'64
+                            \down-arrow
+                            c'64
+                            \right-arrow
+                            c'64
+                            \left-arrow
+                            c'64
+                            ]
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
+                        }
+                    }
+                    r4
+                    \!
                     s1 * 2/5
                     s1 * 1/2
                     s1 * 1/2
@@ -184,11 +376,188 @@
             {
                 \context Voice = "cello voice"
                 {
-                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Violoncello }
-                      %! +SCORE
-                    \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ vc }
-                    s1 * 1/2
-                    s1 * 3/4
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                        {
+                            \context Score = "Score"
+                            \with
+                            {
+                                \override SpacingSpanner.spacing-increment = 0.5
+                                proportionalNotationDuration = ##f
+                            }
+                            <<
+                                \context RhythmicStaff = "Rhythmic_Staff"
+                                \with
+                                {
+                                    \remove Time_signature_engraver
+                                    \remove Staff_symbol_engraver
+                                    \override Stem.direction = #up
+                                    \override Stem.length = 5
+                                    \override TupletBracket.bracket-visibility = ##t
+                                    \override TupletBracket.direction = #up
+                                    \override TupletBracket.minimum-length = 4
+                                    \override TupletBracket.padding = 1.25
+                                    \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                    \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                    \override TupletNumber.font-size = 0
+                                    \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                    tupletFullLength = ##t
+                                }
+                                {
+                                    c'4.
+                                }
+                            >>
+                            \layout
+                            {
+                                indent = 0
+                                ragged-right = ##t
+                            }
+                        }
+                    \times 1/1
+                    {
+                        \staff-line-count 1
+                        \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Violoncello }
+                          %! +SCORE
+                        \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ vc }
+                        \once \override Beam.grow-direction = #left
+                        \clef "percussion"
+                        \tweak style #'cross
+                        c'32 * 5/4
+                        \pp
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Stones" } 
+                        [
+                        - \tweak padding #4.5
+                        - \abjad-solid-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { strike } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { rub }
+                        - \tweak bound-details.right.padding 1
+                        \startTextSpan
+                        \<
+                        \tweak style #'cross
+                        c'32 * 43/32
+                        \tweak style #'cross
+                        c'32 * 51/32
+                        \tweak style #'cross
+                        c'32 * 65/32
+                        \tweak style #'cross
+                        c'32 * 85/32
+                        \tweak style #'cross
+                        c'32 * 25/8
+                        \mp
+                        \stopTextSpan
+                        ]
+                    }
+                    \revert TupletNumber.text
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                        {
+                            \context Score = "Score"
+                            \with
+                            {
+                                \override SpacingSpanner.spacing-increment = 0.5
+                                proportionalNotationDuration = ##f
+                            }
+                            <<
+                                \context RhythmicStaff = "Rhythmic_Staff"
+                                \with
+                                {
+                                    \remove Time_signature_engraver
+                                    \remove Staff_symbol_engraver
+                                    \override Stem.direction = #up
+                                    \override Stem.length = 5
+                                    \override TupletBracket.bracket-visibility = ##t
+                                    \override TupletBracket.direction = #up
+                                    \override TupletBracket.minimum-length = 4
+                                    \override TupletBracket.padding = 1.25
+                                    \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                    \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                    \override TupletNumber.font-size = 0
+                                    \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                    tupletFullLength = ##t
+                                }
+                                {
+                                    c'8
+                                }
+                            >>
+                            \layout
+                            {
+                                indent = 0
+                                ragged-right = ##t
+                            }
+                        }
+                    \times 1/1
+                    {
+                        \once \override Dots.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        r8
+                    }
+                    \revert TupletNumber.text
+                    \times 4/5
+                    {
+                        \down-arrow
+                        c'64
+                        \mf
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "strike + scrape" } 
+                        [
+                        - \tweak circled-tip ##t
+                        \>
+                        \right-arrow
+                        c'64
+                        \left-arrow
+                        c'64
+                        \up-arrow
+                        c'64
+                        \down-arrow
+                        c'64
+                        ]
+                    }
+                    r8.
+                    \!
+                    \times 4/5
+                    {
+                        \times 4/5
+                        {
+                            \right-arrow
+                            c'64
+                            \mf
+                            [
+                            - \tweak circled-tip ##t
+                            \>
+                            \left-arrow
+                            c'64
+                            \up-arrow
+                            c'64
+                            \down-arrow
+                            c'64
+                            \right-arrow
+                            c'64
+                        }
+                        r8.
+                        \!
+                        \times 4/5
+                        {
+                            \left-arrow
+                            c'64
+                            \mf
+                            - \tweak circled-tip ##t
+                            \>
+                            \up-arrow
+                            c'64
+                            \down-arrow
+                            c'64
+                            \right-arrow
+                            c'64
+                            \left-arrow
+                            c'64
+                            ]
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
+                        }
+                    }
+                    r4
+                    \!
                     s1 * 2/5
                     s1 * 1/2
                     s1 * 1/2
@@ -206,11 +575,185 @@
             {
                 \context Voice = "harp voice"
                 {
-                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Harp }
-                      %! +SCORE
-                    \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ hp }
-                    s1 * 1/2
-                    s1 * 3/4
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                        {
+                            \context Score = "Score"
+                            \with
+                            {
+                                \override SpacingSpanner.spacing-increment = 0.5
+                                proportionalNotationDuration = ##f
+                            }
+                            <<
+                                \context RhythmicStaff = "Rhythmic_Staff"
+                                \with
+                                {
+                                    \remove Time_signature_engraver
+                                    \remove Staff_symbol_engraver
+                                    \override Stem.direction = #up
+                                    \override Stem.length = 5
+                                    \override TupletBracket.bracket-visibility = ##t
+                                    \override TupletBracket.direction = #up
+                                    \override TupletBracket.minimum-length = 4
+                                    \override TupletBracket.padding = 1.25
+                                    \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                    \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                    \override TupletNumber.font-size = 0
+                                    \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                    tupletFullLength = ##t
+                                }
+                                {
+                                    c'8
+                                }
+                            >>
+                            \layout
+                            {
+                                indent = 0
+                                ragged-right = ##t
+                            }
+                        }
+                    \times 1/1
+                    {
+                        \once \override Dots.transparent = ##t
+                        \once \override Rest.transparent = ##t
+                        \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Harp }
+                          %! +SCORE
+                        \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ hp }
+                        r8
+                        \pp
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Stones" } 
+                        \<
+                    }
+                    \revert TupletNumber.text
+                    \once \override TupletBracket.stencil = ##f
+                    \once \override TupletNumber.stencil = ##f
+                    \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                        {
+                            \context Score = "Score"
+                            \with
+                            {
+                                \override SpacingSpanner.spacing-increment = 0.5
+                                proportionalNotationDuration = ##f
+                            }
+                            <<
+                                \context RhythmicStaff = "Rhythmic_Staff"
+                                \with
+                                {
+                                    \remove Time_signature_engraver
+                                    \remove Staff_symbol_engraver
+                                    \override Stem.direction = #up
+                                    \override Stem.length = 5
+                                    \override TupletBracket.bracket-visibility = ##t
+                                    \override TupletBracket.direction = #up
+                                    \override TupletBracket.minimum-length = 4
+                                    \override TupletBracket.padding = 1.25
+                                    \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                    \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                    \override TupletNumber.font-size = 0
+                                    \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                    tupletFullLength = ##t
+                                }
+                                {
+                                    c'4.
+                                }
+                            >>
+                            \layout
+                            {
+                                indent = 0
+                                ragged-right = ##t
+                            }
+                        }
+                    \times 1/1
+                    {
+                        \staff-line-count 1
+                        \once \override Beam.grow-direction = #right
+                        \clef "percussion"
+                        \tweak style #'cross
+                        c'32 * 117/32
+                        [
+                        - \tweak padding #3
+                        - \abjad-solid-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { rub } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { strike }
+                        - \tweak bound-details.right.padding 1
+                        \startTextSpan
+                        \tweak style #'cross
+                        c'32 * 99/32
+                        \tweak style #'cross
+                        c'32 * 69/32
+                        \tweak style #'cross
+                        c'32 * 13/8
+                        \tweak style #'cross
+                        c'32 * 47/32
+                        \stopTextSpan
+                        ]
+                    }
+                    \revert TupletNumber.text
+                    \times 4/5
+                    {
+                        \down-arrow
+                        c'64
+                        \mf
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "strike + scrape" } 
+                        [
+                        - \tweak circled-tip ##t
+                        \>
+                        \right-arrow
+                        c'64
+                        \left-arrow
+                        c'64
+                        \up-arrow
+                        c'64
+                        \down-arrow
+                        c'64
+                        ]
+                    }
+                    r8.
+                    \!
+                    \times 4/5
+                    {
+                        \times 4/5
+                        {
+                            \right-arrow
+                            c'64
+                            \mf
+                            [
+                            - \tweak circled-tip ##t
+                            \>
+                            \left-arrow
+                            c'64
+                            \up-arrow
+                            c'64
+                            \down-arrow
+                            c'64
+                            \right-arrow
+                            c'64
+                        }
+                        r8.
+                        \!
+                        \times 4/5
+                        {
+                            \left-arrow
+                            c'64
+                            \mf
+                            - \tweak circled-tip ##t
+                            \>
+                            \up-arrow
+                            c'64
+                            \down-arrow
+                            c'64
+                            \right-arrow
+                            c'64
+                            \left-arrow
+                            c'64
+                            ]
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
+                        }
+                    }
+                    r4
+                    \!
                     s1 * 2/5
                     s1 * 1/2
                     s1 * 1/2
@@ -230,11 +773,188 @@
                 {
                     \context Voice = "accordion 1 voice"
                     {
-                        \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Accordion }
-                          %! +SCORE
-                        \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ acc }
-                        s1 * 1/2
-                        s1 * 3/4
+                        \once \override TupletBracket.stencil = ##f
+                        \once \override TupletNumber.stencil = ##f
+                        \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                            {
+                                \context Score = "Score"
+                                \with
+                                {
+                                    \override SpacingSpanner.spacing-increment = 0.5
+                                    proportionalNotationDuration = ##f
+                                }
+                                <<
+                                    \context RhythmicStaff = "Rhythmic_Staff"
+                                    \with
+                                    {
+                                        \remove Time_signature_engraver
+                                        \remove Staff_symbol_engraver
+                                        \override Stem.direction = #up
+                                        \override Stem.length = 5
+                                        \override TupletBracket.bracket-visibility = ##t
+                                        \override TupletBracket.direction = #up
+                                        \override TupletBracket.minimum-length = 4
+                                        \override TupletBracket.padding = 1.25
+                                        \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                        \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                        \override TupletNumber.font-size = 0
+                                        \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                        tupletFullLength = ##t
+                                    }
+                                    {
+                                        c'4.
+                                    }
+                                >>
+                                \layout
+                                {
+                                    indent = 0
+                                    ragged-right = ##t
+                                }
+                            }
+                        \times 1/1
+                        {
+                            \staff-line-count 1
+                            \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Accordion }
+                              %! +SCORE
+                            \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ acc }
+                            \once \override Beam.grow-direction = #left
+                            \clef "percussion"
+                            \tweak style #'cross
+                            c'32 * 5/4
+                            \pp
+                            ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Stones" } 
+                            [
+                            - \tweak padding #4.5
+                            - \abjad-solid-line-with-arrow
+                            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { rub } \hspace #0.5 }
+                            - \tweak bound-details.right.text \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { strike }
+                            - \tweak bound-details.right.padding 1
+                            \startTextSpan
+                            \<
+                            \tweak style #'cross
+                            c'32 * 43/32
+                            \tweak style #'cross
+                            c'32 * 51/32
+                            \tweak style #'cross
+                            c'32 * 65/32
+                            \tweak style #'cross
+                            c'32 * 85/32
+                            \tweak style #'cross
+                            c'32 * 25/8
+                            \mp
+                            \stopTextSpan
+                            ]
+                        }
+                        \revert TupletNumber.text
+                        \once \override TupletBracket.stencil = ##f
+                        \once \override TupletNumber.stencil = ##f
+                        \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
+                            {
+                                \context Score = "Score"
+                                \with
+                                {
+                                    \override SpacingSpanner.spacing-increment = 0.5
+                                    proportionalNotationDuration = ##f
+                                }
+                                <<
+                                    \context RhythmicStaff = "Rhythmic_Staff"
+                                    \with
+                                    {
+                                        \remove Time_signature_engraver
+                                        \remove Staff_symbol_engraver
+                                        \override Stem.direction = #up
+                                        \override Stem.length = 5
+                                        \override TupletBracket.bracket-visibility = ##t
+                                        \override TupletBracket.direction = #up
+                                        \override TupletBracket.minimum-length = 4
+                                        \override TupletBracket.padding = 1.25
+                                        \override TupletBracket.shorten-pair = #'(-1 . -1.5)
+                                        \override TupletBracket.springs-and-rods = #ly:spanner::set-spacing-rods
+                                        \override TupletNumber.font-size = 0
+                                        \override TupletNumber.text = #tuplet-number::calc-fraction-text
+                                        tupletFullLength = ##t
+                                    }
+                                    {
+                                        c'8
+                                    }
+                                >>
+                                \layout
+                                {
+                                    indent = 0
+                                    ragged-right = ##t
+                                }
+                            }
+                        \times 1/1
+                        {
+                            \once \override Dots.transparent = ##t
+                            \once \override Rest.transparent = ##t
+                            r8
+                        }
+                        \revert TupletNumber.text
+                        \times 4/5
+                        {
+                            \down-arrow
+                            c'64
+                            \mf
+                            ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "strike + scrape" } 
+                            [
+                            - \tweak circled-tip ##t
+                            \>
+                            \right-arrow
+                            c'64
+                            \left-arrow
+                            c'64
+                            \up-arrow
+                            c'64
+                            \down-arrow
+                            c'64
+                            ]
+                        }
+                        r8.
+                        \!
+                        \times 4/5
+                        {
+                            \times 4/5
+                            {
+                                \right-arrow
+                                c'64
+                                \mf
+                                [
+                                - \tweak circled-tip ##t
+                                \>
+                                \left-arrow
+                                c'64
+                                \up-arrow
+                                c'64
+                                \down-arrow
+                                c'64
+                                \right-arrow
+                                c'64
+                            }
+                            r8.
+                            \!
+                            \times 4/5
+                            {
+                                \left-arrow
+                                c'64
+                                \mf
+                                - \tweak circled-tip ##t
+                                \>
+                                \up-arrow
+                                c'64
+                                \down-arrow
+                                c'64
+                                \right-arrow
+                                c'64
+                                \left-arrow
+                                c'64
+                                ]
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
+                            }
+                        }
+                        r4
+                        \!
                         s1 * 2/5
                         s1 * 1/2
                         s1 * 1/2
@@ -389,7 +1109,14 @@
                     \context Voice = "piano 2 voice"
                     {
                         s1 * 1/2
-                        s1 * 3/4
+                        r4
+                        \times 4/5
+                        {
+                            r4
+                            c'16
+                            ~
+                        }
+                        c'4
                         \tweak edge-height #'(0.7 . 0)
                         \times 4/5
                         {
