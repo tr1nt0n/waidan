@@ -722,7 +722,7 @@ trinton.make_music(
             abjad.StartHairpin("--"),
             abjad.StopHairpin(),
         ],
-        selector=trinton.select_leaves_by_index([2, 2, 3]),
+        selector=trinton.select_leaves_by_index([2, 2, 4]),
     ),
     voice=score["baritonesaxophone voice"],
 )
@@ -2640,15 +2640,16 @@ trinton.make_music(
 
 # breaks
 
-trinton.make_music(
-    lambda _: trinton.select_target(_, (1,)),
-    trinton.attachment_command(
-        attachments=[abjad.LilyPondLiteral(r"\noPageBreak", site="after")],
-        selector=trinton.select_leaves_by_index([0]),
-        tag=abjad.Tag("+SCORE"),
-    ),
-    voice=score["Global Context"],
-)
+for measure in [1]:
+    trinton.make_music(
+        lambda _: trinton.select_target(_, (measure,)),
+        trinton.attachment_command(
+            attachments=[abjad.LilyPondLiteral(r"\noPageBreak", site="after")],
+            selector=trinton.select_leaves_by_index([0]),
+            tag=abjad.Tag("+SCORE"),
+        ),
+        voice=score["Global Context"],
+    )
 
 for measure in [2, 4, 5, 9, 10]:
     trinton.make_music(
@@ -2671,7 +2672,7 @@ trinton.make_music(
     voice=score["Global Context"],
 )
 
-for measure in [6, 8]:
+for measure in [6, 8, 11]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
         trinton.attachment_command(

@@ -112,6 +112,8 @@
             \once \override Score.TimeSignature.stencil = #(trinton-blank-time-signature)
             \time 5/4
             s1 * 5/4
+              %! +SCORE
+        %%% \pageBreak
         }
         \context StaffGroup = "Staff Group"
         <<
@@ -970,7 +972,6 @@
                         - \tweak Y-extent ##f
                         - \tweak Y-offset 6.5
                         - \bendAfter #'0
-                        \!
                         \revert Dots.stencil
                         \revert NoteHead.stencil
                         \revert NoteHead.no-ledgers
@@ -978,6 +979,7 @@
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
                     r4..
+                    \!
                 }
             }
             \context Staff = "cello staff"
