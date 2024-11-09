@@ -206,16 +206,114 @@
                         \>
                         \startTrillSpan f''
                     }
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
+                    r4..
                     \!
                     \stopTrillSpan
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
+                    \once \override Dots.staff-position = #2
+                    \pitchedTrill
+                    \tweak style #'harmonic
+                    f''16
+                    \pp
+                    ^ \markup \center-align { \center-column { "-11" } }
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    \<
+                    \startTrillSpan f''
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    f''4
+                    \mp
+                    - \tweak circled-tip ##t
+                    \>
+                    \times 2/3
+                    {
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        f''8
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            f''16
+                            \!
+                            \stopTrillSpan
+                        }
+                        r16
+                    }
+                    r8
+                    r8.
+                    \once \override Dots.staff-position = #2
+                    \pitchedTrill
+                    \tweak style #'harmonic
+                    f''16
+                    \pp
+                    ^ \markup \center-align { \center-column { "-11" } }
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    \<
+                    \startTrillSpan f''
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    f''4
+                    \mp
+                    - \tweak circled-tip ##t
+                    \>
+                    \times 2/3
+                    {
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        f''8
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            f''16
+                            \!
+                            \stopTrillSpan
+                        }
+                        r16
+                    }
+                    r4.
                     \once \revert Staff.StaffSymbol.line-positions
                     s1 * 1/2
                     \once \revert Staff.StaffSymbol.line-positions
@@ -415,6 +513,7 @@
                     \!
                     \afterGrace
                     s1 * 2/5
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Env ON }
                     ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Soprano" } 
                     {
                         \override Dots.staff-position = #2
@@ -1046,9 +1145,105 @@
                     s1 * 1/2
                     \!
                     \stopTrillSpan
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
+                    \once \override Dots.staff-position = #2
+                    \pitchedTrill
+                    \tweak Accidental.stencil #ly:text-interface::print
+                    \tweak Accidental.text \markup { \one-septimal-comma-down  }
+                    \tweak style #'harmonic
+                    g''!4
+                    \mp
+                    ^ \markup \center-align { \concat { -33 } }
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \>
+                    \startTrillSpan g''
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    \tweak Accidental.stencil #ly:text-interface::print
+                    \tweak Accidental.text \markup { \one-septimal-comma-down  }
+                    \tweak style #'harmonic
+                    g''16
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        g''16
+                        \!
+                        \stopTrillSpan
+                    }
+                    r8.
+                    r4
+                    \once \override Dots.staff-position = #2
+                    \pitchedTrill
+                    \tweak Accidental.stencil #ly:text-interface::print
+                    \tweak Accidental.text \markup { \one-septimal-comma-down  }
+                    \tweak style #'harmonic
+                    g''!4
+                    \mp
+                    ^ \markup \center-align { \concat { -33 } }
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \>
+                    \startTrillSpan g''
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    \tweak Accidental.stencil #ly:text-interface::print
+                    \tweak Accidental.text \markup { \one-septimal-comma-down  }
+                    \tweak style #'harmonic
+                    g''16
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        g''16
+                        \!
+                        \stopTrillSpan
+                    }
+                    r4..
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
@@ -1274,8 +1469,25 @@
                         ]
                     }
                     s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
+                    \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                    \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                    <bs,,! c,!>8
+                    - \salzedo-thunder
+                    \ff
+                    \laissezVibrer
+                    r4.
+                    r4
+                    \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                    \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                    <bs,,! c,!>8
+                    - \salzedo-thunder
+                    \ff
+                    \laissezVibrer
+                    r8
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
@@ -1514,11 +1726,103 @@
                             \startTrillSpan
                             \ottava 0
                         }
-                        s1 * 1/2
+                        r4
                         \!
                         \stopTrillSpan
-                        s1 * 1/2
-                        s1 * 1/2
+                        \once \override Dots.staff-position = #2
+                        \ottava 1
+                        <e''' fs''' b''' c'''' f''''>4
+                        _ \markup {
+                                            \override #'(font-name . "Bodoni72 Book Italic")
+                                            { "( sim. )" }
+                                        }
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        - \tweak circled-tip ##t
+                        \<
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \afterGrace
+                        <e''' fs''' b''' c'''' f''''>4
+                        \mp
+                        - \tweak circled-tip ##t
+                        \>
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <e''' fs''' b''' c'''' f''''>16
+                            \!
+                        }
+                        r8.
+                        \once \override Dots.staff-position = #2
+                        <e''' fs''' b''' c'''' f''''>16
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        - \tweak circled-tip ##t
+                        \<
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        <e''' fs''' b''' c'''' f''''>4
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        <e''' fs''' b''' c'''' f''''>4
+                        \mp
+                        - \tweak circled-tip ##t
+                        \>
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <e''' fs''' b''' c'''' f''''>16
+                            \!
+                            \ottava 0
+                        }
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
@@ -1658,12 +1962,47 @@
                             \once \override NoteHead.stem-attachment = #'(0 . 0.75)
                             \once \override Staff.AccidentalPlacement.right-padding = #0.6
                             g,8
-                            \stopTextSpan
                             ]
                         }
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
+                        \afterGrace
+                        r2
+                        {
+                            \staff-line-count 1
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override Stem.direction = #DOWN
+                            \clef "percussion"
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            f''16
+                        }
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        g,8
+                        - \accent
+                        r4.
+                        \afterGrace
+                        r4
+                        {
+                            \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bb)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0bc)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0be)))))))
+                            \once \override Stem.direction = #DOWN
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                            \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                            f''16
+                        }
+                        \once \override NoteHead.stencil = #(lambda (grob) (let ((dur (ly:grob-property grob 'duration-log))) (if (= dur 0) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c4)) (if (= dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c5)) (if (> dur 1) (grob-interpret-markup grob (markup #:ekmelos-char #xe0c7)))))))
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.stem-attachment = #'(0 . 0.75)
+                        \once \override Staff.AccidentalPlacement.right-padding = #0.6
+                        g,8
+                        - \accent
+                        \stopTextSpan
+                        r8
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
@@ -1704,10 +2043,10 @@
                             :128
                             - \tweak circled-tip ##t
                             \<
-                            - \tweak padding #6.5
+                            - \tweak padding #8
                             - \abjad-dashed-line-with-hook
                             - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mallets on low strings } \hspace #0.5 }
-                            - \tweak bound-details.right.padding -1
+                            - \tweak bound-details.right.padding -1.5
                             \startTextSpan
                             ~
                         }
@@ -1831,13 +2170,115 @@
                                 \once \override NoteHead.transparent = ##t
                                 c'16
                                 \!
-                                \stopTextSpan
                             }
                         }
+                        r4
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >4
+                        :32
+                        - \tweak circled-tip ##t
+                        ^ \<
+                        \sustainOn
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >8
+                        - \accent
+                        \laissezVibrer
+                        ^ \ff
+                        r4
+                        r16
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >16
+                        :128
+                        - \tweak circled-tip ##t
+                        ^ \<
+                        ~
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >4
+                        :32
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >8
+                        - \accent
+                        \laissezVibrer
+                        ^ \ff
+                        \stopTextSpan
+                        r8
                         s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
+                        \sustainOff
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
