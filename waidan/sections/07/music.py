@@ -176,6 +176,30 @@ trinton.make_music(
     voice=score["baritonesaxophone voice"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (1, 4)),
+    trinton.hooked_spanner_command(
+        string=trinton.boxed_markup(
+            string="( trumpet embouchure )",
+            # column="\center-column",
+            # font_name="Bodoni72 Book",
+            fontsize=-1,
+            string_only=True,
+        ),
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=6,
+        direction=None,
+        right_padding=2,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=None,
+    ),
+    voice=score["baritonesaxophone voice"],
+)
+
 # accordion music
 
 trinton.make_music(

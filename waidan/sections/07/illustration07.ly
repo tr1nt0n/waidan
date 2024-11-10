@@ -128,6 +128,11 @@
                         \f
                         - \abjad-zero-padding-glissando
                         \glissando
+                        - \tweak padding #6
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { ( trumpet embouchure ) } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
                         - \tweak stencil #constante-hairpin
                         \<
                         \once \override Accidental.stencil = ##f
@@ -567,6 +572,7 @@
                             \once \override NoteHead.transparent = ##t
                             d'16
                             \mp
+                            \stopTextSpan
                         }
                     }
                 }
