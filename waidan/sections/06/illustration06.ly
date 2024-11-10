@@ -46,6 +46,16 @@
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
+              %! +SCORE
+            \pageBreak
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 4/8
+            s1 * 1/2
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 4/8
+            s1 * 1/2
+            - \tweak padding #5
+            ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #4 \box \line { ALL STAND }
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
@@ -58,15 +68,10 @@
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 4/8
-            s1 * 1/2
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 4/8
-            s1 * 1/2
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 4/8
-            s1 * 1/2
+            \time 3/16
+            s1 * 3/16
+              %! +SCORE
+            \pageBreak
         }
         \context StaffGroup = "Staff Group"
         <<
@@ -89,7 +94,7 @@
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
-                    s1 * 1/2
+                    s1 * 3/16
                 }
             }
             \context Staff = "viola staff"
@@ -325,7 +330,7 @@
                     \once \revert Staff.StaffSymbol.line-positions
                     s1 * 1/2
                     \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
+                    s1 * 3/16
                 }
             }
             \context Staff = "baritonesaxophone staff"
@@ -529,6 +534,11 @@
                         \mf
                         - \abjad-zero-padding-glissando
                         \glissando
+                        - \tweak padding #11
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { trumpet embouchure } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
                         \>
                     }
                     \once \override Accidental.stencil = ##f
@@ -904,11 +914,125 @@
                         \f
                     }
                     r16
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
+                    r16
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.X-extent = #'(0 . 0)
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    \afterGrace
+                    b''4..
+                    \p
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \<
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                        \once \override NoteHead.no-ledgers = ##t
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                        \once \override Flag.stroke-style = #"grace"
+                        b''16
+                        \f
+                    }
+                    r8
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.X-extent = #'(0 . 0)
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b''4.
+                    \p
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    \<
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.X-extent = #'(0 . 0)
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    b''8
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                        \once \override NoteHead.no-ledgers = ##t
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                        \once \override Flag.stroke-style = #"grace"
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        b''16
+                        \f
+                    }
+                    r8
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.X-extent = #'(0 . 0)
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b''4
+                    \p
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    \<
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.X-extent = #'(0 . 0)
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    b''2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.X-extent = #'(0 . 0)
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    \afterGrace
+                    b''16
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                        \once \override NoteHead.no-ledgers = ##t
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                        \once \override Flag.stroke-style = #"grace"
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        b''16
+                        \f
+                        \stopTextSpan
+                    }
+                    r8
                 }
             }
             \context Staff = "cello staff"
@@ -1244,12 +1368,34 @@
                         \stopTrillSpan
                     }
                     r4..
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'2
+                    ^ \markup {
+                                            \override #'(font-name . "Bodoni72 Book Italic")
+                                            \center-column {
+                                                \line {
+                                                    "sempre"
+                                                }
+                                                \line {
+                                                    "hold position until next instruction"
+                                                }
+                                            }
+                                        }
+                    ^ \somatic-position-two
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
+                    s1 * 3/16
                 }
             }
             \context Staff = "harp staff"
@@ -1489,12 +1635,34 @@
                     \laissezVibrer
                     r8
                     s1 * 1/2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'2
+                    ^ \markup {
+                                            \override #'(font-name . "Bodoni72 Book Italic")
+                                            \center-column {
+                                                \line {
+                                                    "sempre"
+                                                }
+                                                \line {
+                                                    "hold position until next instruction"
+                                                }
+                                            }
+                                        }
+                    ^ \somatic-position-two
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
+                    s1 * 3/16
                 }
             }
             \context GrandStaff = "sub group 1"
@@ -1742,6 +1910,7 @@
                         \glissando
                         - \tweak circled-tip ##t
                         \<
+                        \startTrillSpan
                         \once \override Accidental.stencil = ##f
                         \once \override Dots.staff-position = #2
                           %! abjad.glissando(1)
@@ -1775,6 +1944,7 @@
                             \undo \hide NoteHead
                             <e''' fs''' b''' c'''' f''''>16
                             \!
+                            \stopTrillSpan
                         }
                         r8.
                         \once \override Dots.staff-position = #2
@@ -1785,6 +1955,7 @@
                         \glissando
                         - \tweak circled-tip ##t
                         \<
+                        \startTrillSpan
                         \once \override Accidental.stencil = ##f
                         \once \override Dots.staff-position = #2
                           %! abjad.glissando(1)
@@ -1821,15 +1992,38 @@
                             \undo \hide NoteHead
                             <e''' fs''' b''' c'''' f''''>16
                             \!
+                            \stopTrillSpan
                             \ottava 0
                         }
                         s1 * 1/2
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        c'2
+                        ^ \markup {
+                                                \override #'(font-name . "Bodoni72 Book Italic")
+                                                \center-column {
+                                                    \line {
+                                                        "sempre"
+                                                    }
+                                                    \line {
+                                                        "hold position until next instruction"
+                                                    }
+                                                }
+                                            }
+                        ^ \somatic-position-two
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
+                        s1 * 3/16
                     }
                 }
                 \context Staff = "accordion 2 staff"
@@ -1848,7 +2042,7 @@
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
-                        s1 * 1/2
+                        s1 * 3/16
                     }
                 }
             >>
@@ -1983,6 +2177,7 @@
                         \once \override Staff.AccidentalPlacement.right-padding = #0.6
                         g,8
                         - \accent
+                        \laissezVibrer
                         r4.
                         \afterGrace
                         r4
@@ -2001,15 +2196,38 @@
                         \once \override Staff.AccidentalPlacement.right-padding = #0.6
                         g,8
                         - \accent
+                        \laissezVibrer
                         \stopTextSpan
                         r8
                         s1 * 1/2
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                        c'2
+                        ^ \markup {
+                                                \override #'(font-name . "Bodoni72 Book Italic")
+                                                \center-column {
+                                                    \line {
+                                                        "sempre"
+                                                    }
+                                                    \line {
+                                                        "hold position until next instruction"
+                                                    }
+                                                }
+                                            }
+                        ^ \somatic-position-two
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
+                        s1 * 3/16
                     }
                 }
                 \context Staff = "piano 2 staff"
@@ -2284,7 +2502,7 @@
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
-                        s1 * 1/2
+                        s1 * 3/16
                     }
                 }
             >>
