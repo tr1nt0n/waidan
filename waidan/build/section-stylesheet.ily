@@ -234,7 +234,6 @@ afterGraceFraction = #(cons 15 16)
 
         \override InstrumentName.self-alignment-X = #CENTER
         \RemoveAllEmptyStaves
-        % \RemoveEmptyStaves
     }
 
     \context {
@@ -276,7 +275,7 @@ afterGraceFraction = #(cons 15 16)
 
         \override Accidental.font-size = 2
 
-        \override MeasureSpanner.staff-padding = 30
+        \override MeasureSpanner.staff-padding = 10
     }
 
 }
