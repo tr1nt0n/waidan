@@ -165,7 +165,7 @@
                     - \tweak padding #9
                     - \abjad-dashed-line-with-hook
                     - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { 3/4 spazzolato } \hspace #0.5 }
-                    - \tweak bound-details.right.padding -4
+                    - \tweak bound-details.right.padding -5.5
                     \startTextSpanOne
                     \times 4/5
                     {
@@ -207,7 +207,7 @@
                     \once \override NoteHead.transparent = ##t
                     \afterGrace
                     b'1.
-                    ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { \hspace #1.5 { \raise #0.75 \with-dimensions-from \null { "when finished casting Stones, repeat and vary idea until other musicians finish" } } } 
+                    ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { \hspace #2 { \raise #0.75 \with-dimensions-from \null { "when finished casting Stones, repeat and vary idea until other musicians finish" } } } 
                     \stopTextSpanTwo
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
@@ -263,7 +263,7 @@
                     - \accent
                     \mf
                     - \tweak padding #8
-                    ^ \markup \staffBox #133 #17 %% #width #height
+                    ^ \markup \staffBox #128 #17 %% #width #height
                     ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { \raise #9.5 \with-dimensions-from \null { "( after 9× viola )" } } 
                     ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "cast Stones" } 
                     ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #3 { \raise #6 \with-dimensions-from \null { "Lento" } } 
@@ -366,7 +366,7 @@
                         \clef "treble"
                         d32
                         - \tweak padding #6
-                        ^ \markup \staffBox #18.25 #16 %% #width #height
+                        ^ \markup \staffBox #20.5 #16 %% #width #height
                         - \tweak circled-tip ##t
                         \<
                         \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
@@ -562,7 +562,7 @@
                         g'!
                     >8
                     - \tweak padding #7
-                    ^ \markup \staffBox #36.5 #15 %% #width #height
+                    ^ \markup \staffBox #37.5 #15 %% #width #height
                     ^ \markup \center-align { \center-column { \line { \concat { -33 }  }\line { \concat { +0 }  } } }
                     (
                     - \abjad-zero-padding-glissando
@@ -824,8 +824,68 @@
                         c'1
                         ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { \hspace #-6.5 { "gather + crunch" } } 
                         \stopMeasureSpanner
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
                         c'1..
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \afterGrace
                         c'2.
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override RepeatTie.transparent = ##t
+                            \once \override Stem.stencil = ##f
+                            \once \override Beam.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override Dots.stencil = ##f
+                            \once \override Tie.stencil = ##f
+                            \once \override NoteHead.duration-log = 2
+                            \once \override NoteHead.transparent = ##t
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            c'16
+                            ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { \hspace #-7 { "Accordion" } } 
+                        }
                         \once \override TupletBracket.stencil = ##f
                         \once \override TupletNumber.stencil = ##f
                         \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score

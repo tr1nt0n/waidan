@@ -110,7 +110,7 @@ trinton.make_music(
                 r"- \tweak padding #11",
             ),
             abjad.Markup(
-                r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { \hspace #1.5 { \raise #0.75 \with-dimensions-from \null { "when finished casting Stones, repeat and vary idea until other musicians finish" } } } """
+                r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { \hspace #2 { \raise #0.75 \with-dimensions-from \null { "when finished casting Stones, repeat and vary idea until other musicians finish" } } } """
             ),
         ],
         selector=trinton.select_leaves_by_index([0, -1], pitched=True, grace=False),
@@ -179,15 +179,13 @@ trinton.make_music(
     trinton.hooked_spanner_command(
         string=trinton.boxed_markup(
             string="3/4 spazzolato",
-            # column="\center-column",
-            # font_name="Bodoni72 Book",
             fontsize=-1,
             string_only=True,
         ),
         selector=trinton.select_leaves_by_index([0, 2], pitched=True),
         padding=9,
         direction=None,
-        right_padding=4,
+        right_padding=5.5,
         full_string=True,
         style="dashed-line-with-hook",
         hspace=None,
@@ -245,7 +243,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #133 #17 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #128 #17 %% #width #height"),
                 r"- \tweak padding #8",
             ),
         ],
@@ -292,7 +290,7 @@ trinton.make_music(
                 site="before",
             ),
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #18.25 #16 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #20.5 #16 %% #width #height"),
                 r"- \tweak padding #6",
             ),
             abjad.Markup(
@@ -405,9 +403,6 @@ trinton.make_music(
 trinton.make_music(
     lambda _: trinton.select_target(_, (4,)),
     evans.RhythmHandler(evans.talea([1000], 4)),
-    # trinton.duration_line(),
-    # trinton.transparent_noteheads(selector=trinton.pleaves()),
-    # trinton.noteheads_only(),
     voice=score["cello voice"],
 )
 
@@ -454,7 +449,7 @@ trinton.make_music(
                 site="before",
             ),
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #36.5 #15 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #37.5 #15 %% #width #height"),
                 r"- \tweak padding #7",
             ),
             abjad.Markup(
@@ -754,22 +749,24 @@ trinton.make_music(
     voice=score["accordion 1 voice"],
 )
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (4, 5)),
-#     trinton.duration_line(selector=trinton.pleaves(exclude=[-6, -5, -4, -3, -2, -1]), sustained=True),
-#     trinton.transparent_noteheads(selector=trinton.pleaves(exclude=[-6, -5, -4, -3, -2, -1])),
-#     trinton.noteheads_only(selector=trinton.pleaves(exclude=[-6, -5, -4, -3, -2, -1])),
-#     trinton.attachment_command(
-#         attachments=[
-#             abjad.Markup(
-#                 r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { \hspace #-5 { "Cello" } } """
-#             ),
-#         ],
-#         selector=trinton.select_leaves_by_index([-3], grace=True),
-#         direction=abjad.UP
-#     ),
-#     voice=score["accordion 1 voice"],
-# )
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4, 5)),
+    trinton.duration_line(
+        selector=trinton.select_leaves_by_index([0, 1]), sustained=True
+    ),
+    trinton.transparent_noteheads(selector=trinton.select_leaves_by_index([0, 1, 2])),
+    trinton.noteheads_only(selector=trinton.select_leaves_by_index([0, 1, 2])),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { \hspace #-7 { "Accordion" } } """
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([-2], grace=True),
+        direction=abjad.UP,
+    ),
+    voice=score["accordion 1 voice"],
+)
 
 # piano music
 
