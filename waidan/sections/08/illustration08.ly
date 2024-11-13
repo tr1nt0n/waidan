@@ -90,6 +90,7 @@
                     \once \override NoteHead.duration-log = 2
                     \once \override NoteHead.transparent = ##t
                     c'1..
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
                       %! abjad.glissando(7)
@@ -304,6 +305,7 @@
                     \once \override NoteHead.duration-log = 2
                     \once \override NoteHead.transparent = ##t
                     c'1..
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
                       %! abjad.glissando(7)
@@ -506,6 +508,7 @@
                     \once \override NoteHead.duration-log = 2
                     \once \override NoteHead.transparent = ##t
                     c'1..
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
                       %! abjad.glissando(7)
@@ -766,6 +769,7 @@
                     \once \override NoteHead.transparent = ##t
                     \afterGrace
                     c'\breve
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
                       %! abjad.glissando(7)
@@ -850,6 +854,7 @@
                         \once \override NoteHead.duration-log = 2
                         \once \override NoteHead.transparent = ##t
                         c'1..
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                           %! abjad.glissando(7)
                         - \abjad-zero-padding-glissando
                           %! abjad.glissando(7)
@@ -1162,6 +1167,7 @@
                         \once \override NoteHead.transparent = ##t
                         \afterGrace
                         c'\breve
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                           %! abjad.glissando(7)
                         - \abjad-zero-padding-glissando
                           %! abjad.glissando(7)

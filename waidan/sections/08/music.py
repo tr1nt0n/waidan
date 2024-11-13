@@ -75,13 +75,20 @@ trinton.make_music(
     trinton.duration_line(),
     trinton.transparent_noteheads(selector=trinton.pleaves()),
     trinton.noteheads_only(),
-    trinton.attachment_command(
+    trinton.linear_attachment_command(
         attachments=[
+            trinton.boxed_markup(
+                string="Gran ON",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
             abjad.Markup(
                 r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Viola" } """
             ),
         ],
-        selector=trinton.select_leaves_by_index([-1], pitched=True),
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
         direction=abjad.UP,
     ),
     voice=score["viola voice"],
@@ -330,13 +337,30 @@ trinton.make_music(
         selector=trinton.pleaves(exclude=[-5, -4, -3, -2, -1])
     ),
     trinton.noteheads_only(selector=trinton.pleaves(exclude=[-5, -4, -3, -2, -1])),
-    trinton.attachment_command(
+    trinton.linear_attachment_command(
         attachments=[
             abjad.Markup(
                 r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { \hspace #-9 { "Baritone" } } """
             ),
         ],
         selector=trinton.select_leaves_by_index([-2], grace=True),
+        direction=abjad.UP,
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            trinton.boxed_markup(
+                string="Gran ON",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index(
+            [
+                0,
+            ]
+        ),
         direction=abjad.UP,
     ),
     voice=score["baritonesaxophone voice"],
@@ -507,6 +531,23 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([-3], grace=True),
         direction=abjad.UP,
     ),
+    trinton.linear_attachment_command(
+        attachments=[
+            trinton.boxed_markup(
+                string="Gran ON",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index(
+            [
+                0,
+            ]
+        ),
+        direction=abjad.UP,
+    ),
     voice=score["cello voice"],
 )
 
@@ -574,6 +615,23 @@ trinton.make_music(
     trinton.duration_line(),
     trinton.transparent_noteheads(selector=trinton.pleaves()),
     trinton.noteheads_only(),
+    trinton.linear_attachment_command(
+        attachments=[
+            trinton.boxed_markup(
+                string="Gran ON",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index(
+            [
+                0,
+            ]
+        ),
+        direction=abjad.UP,
+    ),
     voice=score["harp voice"],
 )
 
@@ -638,9 +696,6 @@ trinton.make_music(
 trinton.make_music(
     lambda _: trinton.select_target(_, (4,)),
     evans.RhythmHandler(evans.talea([1000], 4)),
-    # trinton.duration_line(),
-    # trinton.transparent_noteheads(selector=trinton.pleaves()),
-    # trinton.noteheads_only(),
     voice=score["accordion 1 voice"],
 )
 
@@ -765,6 +820,23 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([-2], grace=True),
         direction=abjad.UP,
     ),
+    trinton.linear_attachment_command(
+        attachments=[
+            trinton.boxed_markup(
+                string="Gran ON",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index(
+            [
+                0,
+            ]
+        ),
+        direction=abjad.UP,
+    ),
     voice=score["accordion 1 voice"],
 )
 
@@ -832,6 +904,23 @@ trinton.make_music(
     trinton.duration_line(),
     trinton.transparent_noteheads(selector=trinton.pleaves()),
     trinton.noteheads_only(),
+    trinton.linear_attachment_command(
+        attachments=[
+            trinton.boxed_markup(
+                string="Gran ON",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index(
+            [
+                0,
+            ]
+        ),
+        direction=abjad.UP,
+    ),
     voice=score["piano 1 voice"],
 )
 
