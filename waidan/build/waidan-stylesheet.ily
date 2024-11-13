@@ -283,7 +283,7 @@ afterGraceFraction = #(cons 15 16)
 
         \override Accidental.font-size = 2
 
-        \override MeasureSpanner.staff-padding = 30
+        \override MeasureSpanner.staff-padding = 12
     }
 
 }

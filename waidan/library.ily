@@ -243,6 +243,16 @@ big-half-harmonic = {
               \override #`(box-padding . ,box-padding) \box
               { #text } #}))
 
+#(define-markup-command (staffBox layout props myWidth myHeight) (number? number?)
+    (interpret-markup layout props
+      (markup #:line (#:with-dimensions (cons 0 0)(cons 0 0)
+        (#:path 0.2
+          (list (list (quote moveto) -1.7 1)
+          (list (quote lineto) myWidth 1)
+          (list (quote lineto) myWidth (* myHeight -1))
+          (list (quote lineto) -1.7 (* myHeight -1))
+          (list (quote closepath))))))))
+
 % arrow noteheads
 
 up-arrow = {
