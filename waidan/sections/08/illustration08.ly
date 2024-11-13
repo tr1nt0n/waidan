@@ -161,8 +161,69 @@
                         \undo \hide NoteHead
                         c'16
                     }
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 2
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 5
+                    \override Staff.Clef.stencil = #ly:text-interface::print
+                    \override Staff.Clef.text = \string-clef
+                    \set Staff.forceClef = ##t
+                    \override Staff.StaffSymbol.line-positions = #'(7 4 6 0 -7)
+                    \tweak text "vary idea until others finish casting stones" \startMeasureSpanner
+                    \clef "treble"
+                    d''4
+                    \times 4/5
+                    {
+                        a''4
+                        e''16
+                        \stopMeasureSpanner
+                    }
+                    \once \override Accidental.stencil = ##f
+                    \once \override Dots.staff-position = #2
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    \afterGrace
+                    b'1.
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        b'16
+                    }
                 }
             }
             \context Staff = "baritonesaxophone staff"

@@ -67,6 +67,133 @@ trinton.make_music(
     trinton.noteheads_only(),
     voice=score["viola voice"],
 )
+trinton.make_music(
+    lambda _: trinton.select_target(_, (5,)),
+    evans.RhythmHandler(evans.tuplet([(1,), (4, 1), (1,)])),
+    evans.PitchHandler(["d''", "a''", "e''", "b'"]),
+    library.change_viola_staff(
+        clef_name="string", selector=trinton.select_leaves_by_index([0], pitched=True)
+    ),
+    trinton.duration_line(
+        selector=trinton.select_logical_ties_by_index([-1], pitched=True, grace=False)
+    ),
+    trinton.noteheads_only(
+        selector=trinton.select_leaves_by_index([-2, -1], pitched=True)
+    ),
+    trinton.transparent_noteheads(
+        selector=trinton.select_leaves_by_index([-2, -1], pitched=True)
+    ),
+    # trinton.linear_attachment_command(
+    #     attachments=[
+    #         abjad.LilyPondLiteral(
+    #             [
+    #                 r"\override NoteHead.X-extent = #'(0 . 0)",
+    #                 r"\override NoteHead.transparent = ##t",
+    #                 r"\override NoteHead.no-ledgers = ##t",
+    #             ],
+    #             site="before",
+    #         ),
+    #         abjad.LilyPondLiteral(
+    #             [
+    #                 r"\revert NoteHead.X-extent",
+    #                 r"\revert NoteHead.transparent",
+    #                 r"\revert NoteHead.no-ledgers",
+    #             ],
+    #             site="absolute_after",
+    #         ),
+    #     ],
+    #     selector=trinton.select_leaves_by_index([0, -1], grace=False),
+    # ),
+    # trinton.attachment_command(
+    #     attachments=[abjad.Glissando(zero_padding=True)],
+    #     selector=trinton.select_leaves_by_index([0, 1], pitched=True, grace=False),
+    # ),
+    # trinton.linear_attachment_command(
+    #     attachments=[
+    #         abjad.BendAfter(2),
+    #     ],
+    #     selector=trinton.select_leaves_by_index([-1], pitched=True, grace=False),
+    # ),
+    # trinton.attachment_command(
+    #     attachments=[
+    #         abjad.Articulation(">"),
+    #     ],
+    #     selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    # ),
+    # trinton.linear_attachment_command(
+    #     attachments=[abjad.Dynamic("f"), abjad.Dynamic("mp"), abjad.Dynamic("mf")],
+    #     selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    # ),
+    # trinton.spanner_command(
+    #     strings=[
+    #         r"135°",
+    #         r"45°",
+    #         r"135°",
+    #     ],
+    #     selector=trinton.select_logical_ties_by_index([0, 1, 1, 2, 2, -1], first=True),
+    #     style="solid-line-with-arrow",
+    #     padding=6,
+    #     tweaks=None,
+    #     right_padding=0,
+    #     direction=None,
+    #     full_string=False,
+    #     command="Two",
+    #     end_hook=True,
+    #     end_hook_style="dashed-line-with-hook",
+    #     tag=None,
+    # ),
+    # trinton.hooked_spanner_command(
+    #     string=trinton.boxed_markup(
+    #         string="3/4 spazzolato",
+    #         # column="\center-column",
+    #         # font_name="Bodoni72 Book",
+    #         fontsize=-1,
+    #         string_only=True,
+    #     ),
+    #     selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+    #     padding=8.5,
+    #     direction=None,
+    #     right_padding=16,
+    #     full_string=True,
+    #     style="dashed-line-with-hook",
+    #     hspace=None,
+    #     command="One",
+    #     tag=abjad.Tag("+SCORE"),
+    #     tweaks=None,
+    # ),
+    # trinton.hooked_spanner_command(
+    #     string=trinton.boxed_markup(
+    #         string="3/4 spazzolato",
+    #         # column="\center-column",
+    #         # font_name="Bodoni72 Book",
+    #         fontsize=-1,
+    #         string_only=True,
+    #     ),
+    #     selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+    #     padding=8.5,
+    #     direction=None,
+    #     right_padding=6,
+    #     full_string=True,
+    #     style="dashed-line-with-hook",
+    #     hspace=None,
+    #     command="One",
+    #     tag=abjad.Tag("+PARTS"),
+    #     tweaks=None,
+    # ),
+    # trinton.invisible_accidentals_command(
+    #     selector=trinton.select_logical_ties_by_index(
+    #         [-1], first=True, pitched=True, grace=False
+    #     )
+    # ),
+    voice=score["viola voice"],
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            1,
+            1,
+            6,
+        )
+    ),
+)
 
 # first barline literals
 
