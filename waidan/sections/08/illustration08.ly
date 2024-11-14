@@ -333,8 +333,17 @@
                     \override NoteHead.no-ledgers = ##t
                     c'1..
                     \once \override Accidental.stencil = ##f
+                    \once \override Accidental.stencil = ##f
                     \once \override Dots.staff-position = #2
                     \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
                     \once \override RepeatTie.transparent = ##t
                     \once \override Stem.stencil = ##f
                     \once \override Beam.stencil = ##f
@@ -368,34 +377,68 @@
                           %! abjad.glissando(6)
                         \undo \hide NoteHead
                         c'16
-                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { \hspace #-9 { "Baritone" } } 
+                        ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { \hspace #-9 { "Soprano" } } 
                     }
-                    \repeat tremolo 4 {
-                        \staff-line-count 5
-                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
-                        \override NoteHead.no-ledgers = ##t
-                        \override NoteHead.stencil = #ly:text-interface::print
-                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
-                        \override Dots.stencil = ##f
-                        \once \override Staff.Clef.X-extent = ##f
-                        \once \override Staff.Clef.extra-offset = #'(-4 . 0)
-                        \clef "treble"
-                        d32
-                        - \tweak padding #6
-                        ^ \markup \staffBox #20.5 #16 %% #width #height
-                        - \tweak circled-tip ##t
-                        \<
-                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
-                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
-                        d32
-                        - \tweak Y-extent ##f
-                        - \tweak Y-offset 6.5
-                        - \bendAfter #'0
-                        - \tweak circled-tip ##t
-                        \>
-                        \revert Dots.stencil
-                        \revert NoteHead.stencil
-                        \revert NoteHead.no-ledgers
+                    \override Dots.staff-position = #2
+                    \staff-line-count 5
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override Staff.Clef.X-extent = ##f
+                    \once \override Staff.Clef.extra-offset = #'(-4 . 0)
+                    \override NoteHead.X-extent = #'(0 . 0)
+                    \once \override NoteHead.transparent = ##t
+                    \clef "treble"
+                    a8
+                    - \tweak padding #6
+                    ^ \markup \staffBox #18.25 #16 %% #width #height
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \<
+                    - \tweak padding #4
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { trumpet embouchure } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -2
+                    \startTextSpan
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    \afterGrace
+                    e8
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \>
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                        a16
+                        \!
+                        \stopTextSpan
+                        \revert NoteHead.X-extent
                     }
                     \once \override Accidental.stencil = ##f
                     \once \override Dots.staff-position = #2
@@ -408,8 +451,7 @@
                     \once \override Tie.stencil = ##f
                     \once \override NoteHead.duration-log = 2
                     \once \override NoteHead.transparent = ##t
-                    b'1
-                    \!
+                    c'1
                     ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { \hspace #2 { \raise #0.75 \with-dimensions-from \null { "when finished casting Stones, repeat and vary idea until other musicians finish" } } } 
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
@@ -437,7 +479,7 @@
                       %! abjad.glissando(1)
                     \override NoteHead.no-ledgers = ##t
                     \afterGrace
-                    b'4
+                    c'4
                     {
                         \once \override Accidental.stencil = ##f
                         \once \override Accidental.stencil = ##f
@@ -460,7 +502,7 @@
                         \revert NoteHead.no-ledgers
                           %! abjad.glissando(6)
                         \undo \hide NoteHead
-                        b'16
+                        c'16
                     }
                 }
             }
@@ -952,7 +994,7 @@
                             \tweak style #'cross
                             c'32 * 63/16
                             - \tweak padding #5.5
-                            ^ \markup \staffBox #81.5 #15 %% #width #height
+                            ^ \markup \staffBox #82.75 #15 %% #width #height
                             ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { \raise #7 \with-dimensions-from \null { "when finished casting Stones, repeat and vary idea until other musicians finish" } } 
                               %! rmakers.beam()
                             [
