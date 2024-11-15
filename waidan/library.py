@@ -82,12 +82,12 @@ def stone_arrow_noteheads(notehead_list, selector=trinton.pleaves()):
 
             abjad.attach(literal, selection)
 
-        termination_literal = abjad.LilyPondLiteral(
-            [r"\revert NoteHead.stencil", r"\revert NoteHead.stem-attachment"],
-            site="absolute_after",
-        )
+            termination_literal = abjad.LilyPondLiteral(
+                [r"\revert NoteHead.stencil", r"\revert NoteHead.stem-attachment"],
+                site="absolute_after",
+            )
 
-        abjad.attach(termination_literal, selections[-1])
+            abjad.attach(termination_literal, selection)
 
     return noteheads
 
