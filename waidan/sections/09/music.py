@@ -1243,6 +1243,7 @@ trinton.make_music(
                 29,
                 32,
                 33,
+                33,
             ],
             first=True,
             pitched=True,
@@ -1264,8 +1265,70 @@ trinton.make_music(
     evans.RhythmHandler(
         evans.tuplet(trinton.rotated_sequence(ametric_tuplets, 2), treat_tuplets=False)
     ),
+    evans.PitchHandler(
+        [["a,,", "g,,", "f,,", "e,,", "d,,", "c,,"]],
+    ),
+    trinton.change_notehead_command(notehead="cluster", selector=trinton.pleaves()),
+    trinton.duration_line(),
+    trinton.change_lines(lines=5, clef="bass", invisible_barlines=False),
     rmakers.duration_bracket,
     trinton.noteheads_only(),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.bundle(
+                abjad.Markup(
+                    r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Piano" } """
+                ),
+                r"- \tweak padding #4",
+            ),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [0], first=True, pitched=True, grace=False
+        ),
+        direction=abjad.UP,
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Articulation("tremolo-articulation")],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=False),
+    ),
+    trinton.hooked_spanner_command(
+        string=trinton.boxed_markup(
+            string="mallets on low strings",
+            # column="\center-column",
+            # font_name="Bodoni72 Book",
+            fontsize=-1,
+            string_only=True,
+        ),
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=4,
+        direction=None,
+        right_padding=10,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=None,
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.StartPianoPedal(),
+            abjad.LilyPondLiteral(
+                [
+                    r"\override TupletBracket.direction = #DOWN",
+                ],
+                site="before",
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\revert TupletBracket.direction",
+                ],
+                site="absolute_after",
+            ),
+            abjad.StopPianoPedal(),
+        ],
+        selector=trinton.select_leaves_by_index([0, 0, -1, -1]),
+    ),
     voice=score["piano 1 voice"],
     preprocessor=trinton.fuse_sixteenths_preprocessor((13,)),
 )

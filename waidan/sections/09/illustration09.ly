@@ -7536,6 +7536,7 @@
                             - \tweak bound-details.right.text \tremolo-stretto
                             - \tweak bound-details.right.padding 0.5
                             \startTextSpanTwo
+                            \>
                             ~
                             \once \override Dots.staff-position = #2
                             \once \override NoteHead.no-ledgers = ##t
@@ -7649,6 +7650,11 @@
                             }
                         \times 13/12
                         {
+                            \staff-line-count 5
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7656,10 +7662,73 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
+                            \override TupletBracket.direction = #DOWN
                             \set GrandStaff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Piano }
                               %! +SCORE
                             \set GrandStaff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ pno }
-                            c'8
+                            \clef "bass"
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            - \tremolo-articulation
+                            - \tweak padding #4
+                            ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Piano" } 
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            - \tweak padding #4
+                            - \abjad-dashed-line-with-hook
+                            - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mallets on low strings } \hspace #0.5 }
+                            - \tweak bound-details.right.padding -10
+                            \startTextSpan
+                            \sustainOn
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7667,8 +7736,30 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'2
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >2
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
                             ~
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -7678,7 +7769,51 @@
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
                             \once \override NoteHead.transparent = ##t
-                            c'8
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
                         }
                         \revert TupletNumber.text
                         \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
@@ -7721,6 +7856,10 @@
                             }
                         \times 13/8
                         {
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7728,7 +7867,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'8
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7736,8 +7928,30 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'4
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >4
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
                             ~
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -7747,7 +7961,55 @@
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
                             \once \override NoteHead.transparent = ##t
-                            c'16
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >16
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7755,7 +8017,56 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'16
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >16
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
                         }
                         \revert TupletNumber.text
                         \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
@@ -7798,6 +8109,10 @@
                             }
                         \times 13/21
                         {
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7805,7 +8120,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'8
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7813,7 +8181,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'2
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >2
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7821,7 +8242,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'4.
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >4.
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7829,8 +8303,30 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'4
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >4
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
                             ~
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -7840,7 +8336,51 @@
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
                             \once \override NoteHead.transparent = ##t
-                            c'16
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >16
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
                         }
                         \revert TupletNumber.text
                         \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
@@ -7883,6 +8423,10 @@
                             }
                         \times 13/12
                         {
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7890,7 +8434,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'8
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7898,8 +8495,30 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'2
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >2
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
                             ~
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -7909,7 +8528,51 @@
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
                             \once \override NoteHead.transparent = ##t
-                            c'8
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
                         }
                         \revert TupletNumber.text
                         \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
@@ -7952,6 +8615,10 @@
                             }
                         \times 13/8
                         {
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7959,7 +8626,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'8
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7967,8 +8687,30 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'4
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >4
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
                             ~
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -7978,7 +8720,55 @@
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
                             \once \override NoteHead.transparent = ##t
-                            c'16
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >16
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -7986,7 +8776,56 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'16
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >16
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
                         }
                         \revert TupletNumber.text
                         \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
@@ -8029,6 +8868,10 @@
                             }
                         \times 6/7
                         {
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -8036,7 +8879,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'16
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >16
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -8044,7 +8940,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'4
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >4
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -8052,7 +9001,60 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'8.
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8.
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(1)
+                                \hide NoteHead
+                                  %! abjad.glissando(1)
+                                \override Accidental.stencil = ##f
+                                  %! abjad.glissando(1)
+                                \override NoteColumn.glissando-skip = ##t
+                                  %! abjad.glissando(1)
+                                \override NoteHead.no-ledgers = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                            }
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
                             \once \override Beam.stencil = ##f
@@ -8060,8 +9062,30 @@
                             \once \override Dots.stencil = ##f
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
-                            c'8
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >8
+                            - \tremolo-articulation
+                              %! abjad.glissando(7)
+                            - \abjad-zero-padding-glissando
+                              %! abjad.glissando(7)
+                            \glissando
                             ~
+                            \once \override Dots.staff-position = #2
+                            \once \override NoteHead.X-offset = 0
+                            \once \override Staff.Accidental.stencil = ##f
+                            \once \override Staff.Glissando.thickness = #8.25
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -8071,7 +9095,54 @@
                             \once \override Tie.stencil = ##f
                             \once \override NoteHead.duration-log = 2
                             \once \override NoteHead.transparent = ##t
-                            c'32
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \afterGrace
+                            <
+                                \tweak style #'la
+                                c,,
+                                \tweak style #'la
+                                d,,
+                                \tweak style #'la
+                                e,,
+                                \tweak style #'la
+                                f,,
+                                \tweak style #'la
+                                g,,
+                                \tweak style #'la
+                                a,,
+                            >32
+                            {
+                                \once \override Accidental.stencil = ##f
+                                \once \override Dots.staff-position = #2
+                                \once \override NoteHead.no-ledgers = ##t
+                                \once \override RepeatTie.transparent = ##t
+                                \once \override Stem.stencil = ##f
+                                \once \override Beam.stencil = ##f
+                                \once \override Flag.stencil = ##f
+                                \once \override Dots.stencil = ##f
+                                \once \override Tie.stencil = ##f
+                                \once \override NoteHead.duration-log = 2
+                                \once \override NoteHead.transparent = ##t
+                                  %! abjad.glissando(6)
+                                \revert Accidental.stencil
+                                  %! abjad.glissando(6)
+                                \revert NoteColumn.glissando-skip
+                                  %! abjad.glissando(6)
+                                \revert NoteHead.no-ledgers
+                                  %! abjad.glissando(6)
+                                \undo \hide NoteHead
+                                <c,, d,, e,, f,, g,, a,,>16
+                                \stopTextSpan
+                                \sustainOff
+                                \revert TupletBracket.direction
+                            }
                         }
                         \revert TupletNumber.text
                     }
