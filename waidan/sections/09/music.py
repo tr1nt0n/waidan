@@ -513,59 +513,14 @@ trinton.make_music(
     evans.RhythmHandler(
         evans.tuplet(trinton.rotated_sequence(ametric_tuplets, 2), treat_tuplets=False)
     ),
-    trinton.pitch_with_selector_command(
-        pitch_list=["e,,"],
-        selector=trinton.patterned_tie_index_selector(
-            [0, 1, 2], 6, pitched=True, grace=False
-        ),
+    evans.PitchHandler(["b'"]),
+    library.contour_staff(
+        clef=None,
+        reset=False,
+        selector=trinton.select_leaves_by_index([0], pitched=True),
+        force_clef=False,
     ),
-    trinton.pitch_with_selector_command(
-        pitch_list=[["1/1", "28/3"]],
-        as_ratios=True,
-        selector=trinton.patterned_tie_index_selector(
-            [0, 1, 2], 6, pitched=True, grace=False
-        ),
-    ),
-    trinton.pitch_with_selector_command(
-        pitch_list=["g''"],
-        selector=trinton.patterned_tie_index_selector(
-            [3, 4, 5], 6, pitched=True, grace=False
-        ),
-    ),
-    trinton.duration_line(
-        selector=trinton.patterned_tie_index_selector(
-            [0, 1, 2], 6, pitched=True, grace=False
-        )
-    ),
-    trinton.force_accidentals_command(
-        selector=trinton.patterned_tie_index_selector(
-            [0, 1, 2], 6, first=True, pitched=True, grace=False
-        )
-    ),
-    trinton.attachment_command(
-        attachments=[abjad.Articulation("downbow")],
-        selector=trinton.patterned_tie_index_selector(
-            [0, 1, 2], 6, first=True, pitched=True, grace=False
-        ),
-        direction=abjad.UP,
-    ),
-    trinton.attachment_command(
-        attachments=[abjad.Clef("bass")], selector=trinton.select_leaves_by_index([0])
-    ),
-    trinton.attachment_command(
-        attachments=[
-            abjad.LilyPondLiteral(
-                [
-                    r"\once \override NoteHead.no-ledgers = ##t",
-                ],
-                site="before",
-            ),
-            abjad.Articulation(">"),
-        ],
-        selector=trinton.patterned_tie_index_selector(
-            [3, 4, 5], 6, first=True, pitched=True, grace=False
-        ),
-    ),
+    trinton.duration_line(),
     rmakers.duration_bracket,
     trinton.noteheads_only(),
     trinton.linear_attachment_command(
@@ -584,20 +539,6 @@ trinton.make_music(
             ),
         ],
         selector=trinton.select_leaves_by_index([0, -1], grace=False),
-    ),
-    trinton.linear_attachment_command(
-        attachments=[
-            abjad.Markup(
-                r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { "LH Finger Percussion:" } """
-            ),
-            abjad.Markup(
-                r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #0 { "( sim. )" } """
-            ),
-        ],
-        selector=trinton.select_logical_ties_by_index(
-            [3, 9], first=True, pitched=True, grace=False
-        ),
-        direction=abjad.UP,
     ),
     trinton.linear_attachment_command(
         attachments=[
@@ -659,6 +600,37 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[abjad.StopHairpin()],
         selector=trinton.select_leaves_by_index([-1], pitched=True),
+    ),
+    trinton.hooked_spanner_command(
+        string="\gridato-twist-bow",
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=0,
+        direction=None,
+        right_padding=0.5,
+        full_string=True,
+        style="dashed-line-with-up-hook",
+        hspace=None,
+        command="One",
+        tag=None,
+        tweaks=[r"- \tweak font-size -4" r"- \tweak Y-offset -1"],
+    ),
+    trinton.hooked_spanner_command(
+        string=trinton.boxed_markup(
+            string="back of body",
+            # column="\center-column",
+            # font_name="Bodoni72 Book",
+            fontsize=-1,
+            string_only=True,
+        ),
+        selector=trinton.select_leaves_by_index([0, -1], pitched=True),
+        padding=5,
+        direction=None,
+        right_padding=0.5,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="Two",
+        tag=None,
     ),
     voice=score["cello voice"],
     preprocessor=trinton.fuse_sixteenths_preprocessor((5,)),
@@ -1433,7 +1405,14 @@ library.write_short_instrument_names(score=score)
 
 # breaks
 
-for measure in [1, 2, 4, 5, 7, 8, 9]:
+for measure in [
+    1,
+    2,
+    4,
+    5,
+    7,
+    8,
+]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (measure,)),
         trinton.attachment_command(
