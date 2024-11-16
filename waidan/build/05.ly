@@ -1450,6 +1450,7 @@
                         \override Staff.Clef.stencil = #ly:text-interface::print
                         \override Staff.Clef.X-extent = #'(9 . 9)
                         \override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }
+                        \set Staff.forceClef = ##t
                         \slapped
                         \override NoteHead.no-ledgers = ##t
                         \clef "treble"
@@ -1675,11 +1676,17 @@
                                     )
                                 )
                             [
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             e''''8
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-up-arrow
                             e''''8
                             ]
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \once \override Rest.staff-position = 18
                             r16
                             \tweak text #tuplet-number::calc-fraction-text
@@ -1692,9 +1699,13 @@
                                 [
                                 \right-down-arrow
                                 e''''8
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \left-arrow
                                 e''''16
                                 ]
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                             }
                             \once \override Rest.staff-position = 18
                             r16
@@ -1706,6 +1717,8 @@
                                 [
                                 \right-up-arrow
                                 e''''8
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \right-down-arrow
                                 e''''16
                                 ]
@@ -2177,9 +2190,13 @@
                             [
                             \left-down-arrow
                             c'8
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'8
                             ]
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                         }
                         r16
                         \tweak text #tuplet-number::calc-fraction-text
@@ -2189,6 +2206,8 @@
                             [
                             \left-up-arrow
                             c'8
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-down-arrow
                             c'8
                             ]
@@ -2731,12 +2750,20 @@
                             )
                         ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Rub stones" } 
                         [
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-down-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-up-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \right-down-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \right-up-arrow
                         c'8
                         ]
@@ -2816,24 +2843,36 @@
                         [
                         \right-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-down-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-up-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         r16
                         ]
                         r8
                         [
                         \right-down-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \right-up-arrow
                         c'8
                         ]
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         r16
                         r8
                         [
                         \right-arrow
                         c'8
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-down-arrow
                         c'8
                         ]

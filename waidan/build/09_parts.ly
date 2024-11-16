@@ -4608,6 +4608,8 @@
                         - \abjad-zero-padding-glissando
                           %! abjad.glissando(7)
                         \glissando
+                        - \tweak circled-tip ##t
+                        \>
                         ~
                         \once \override Dots.staff-position = #2
                         \once \override NoteHead.no-ledgers = ##t
@@ -4657,6 +4659,7 @@
                               %! abjad.glissando(6)
                             \undo \hide NoteHead
                             <e,, g'>16
+                            \!
                         }
                         \revert TupletBracket.direction
                     }
@@ -7668,7 +7671,9 @@
                                 \tweak style #'la
                                 a,,
                             >8
+                            - \accent
                             - \tremolo-articulation
+                            \ppp
                             - \tweak padding #4
                             ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Piano" } 
                               %! abjad.glissando(7)
@@ -7680,6 +7685,7 @@
                             - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { mallets on low strings } \hspace #0.5 }
                             - \tweak bound-details.right.padding -10
                             \startTextSpan
+                            \<
                             \sustainOn
                             {
                                 \once \override Accidental.stencil = ##f
@@ -7736,11 +7742,15 @@
                                 \tweak style #'la
                                 a,,
                             >2
+                            - \accent
                             - \tremolo-articulation
+                            \pp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak stencil #abjad-flared-hairpin
+                            \>
                             ~
                             \once \override Dots.staff-position = #2
                             \once \override NoteHead.X-offset = 0
@@ -7868,11 +7878,15 @@
                                 \tweak style #'la
                                 a,,
                             >8
+                            - \accent
                             - \tremolo-articulation
+                            \ppp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak stencil #abjad-flared-hairpin
+                            \<
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -7928,11 +7942,15 @@
                                 \tweak style #'la
                                 a,,
                             >4
+                            - \accent
                             - \tremolo-articulation
+                            \p
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak stencil #constante-hairpin
+                            \<
                             ~
                             \once \override Dots.staff-position = #2
                             \once \override NoteHead.X-offset = 0
@@ -8018,11 +8036,13 @@
                                 \tweak style #'la
                                 a,,
                             >16
+                            - \accent
                             - \tremolo-articulation
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            \>
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -8121,11 +8141,15 @@
                                 \tweak style #'la
                                 a,,
                             >8
+                            - \accent
                             - \tremolo-articulation
+                            \ppp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak stencil #abjad-flared-hairpin
+                            \<
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -8182,11 +8206,15 @@
                                 \tweak style #'la
                                 a,,
                             >2
+                            - \accent
                             - \tremolo-articulation
+                            \p
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak circled-tip ##t
+                            \>
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -8243,11 +8271,15 @@
                                 \tweak style #'la
                                 a,,
                             >4.
+                            - \accent
                             - \tremolo-articulation
+                            \p
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak circled-tip ##t
+                            \>
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -8303,11 +8335,14 @@
                                 \tweak style #'la
                                 a,,
                             >4
+                            - \accent
                             - \tremolo-articulation
+                            \pp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            \<
                             ~
                             \once \override Dots.staff-position = #2
                             \once \override NoteHead.X-offset = 0
@@ -8435,11 +8470,15 @@
                                 \tweak style #'la
                                 a,,
                             >8
+                            - \accent
                             - \tremolo-articulation
+                            \mp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak stencil #constante-hairpin
+                            \<
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -8495,11 +8534,14 @@
                                 \tweak style #'la
                                 a,,
                             >2
+                            - \accent
                             - \tremolo-articulation
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            - \tweak circled-tip ##t
+                            \>
                             ~
                             \once \override Dots.staff-position = #2
                             \once \override NoteHead.X-offset = 0
@@ -8627,11 +8669,14 @@
                                 \tweak style #'la
                                 a,,
                             >8
+                            - \accent
                             - \tremolo-articulation
+                            \ppp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            \<
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -8687,11 +8732,14 @@
                                 \tweak style #'la
                                 a,,
                             >4
+                                _ #(make-dynamic-script (markup #:whiteout #:italic "mfpp"))
+                            - \accent
                             - \tremolo-articulation
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            \<
                             ~
                             \once \override Dots.staff-position = #2
                             \once \override NoteHead.X-offset = 0
@@ -8777,7 +8825,9 @@
                                 \tweak style #'la
                                 a,,
                             >16
+                            - \accent
                             - \tremolo-articulation
+                            \f
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
@@ -8880,6 +8930,7 @@
                                 \tweak style #'la
                                 a,,
                             >16
+                            - \accent
                             - \tremolo-articulation
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
@@ -8941,11 +8992,14 @@
                                 \tweak style #'la
                                 a,,
                             >4
+                            - \accent
                             - \tremolo-articulation
+                            \pp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            \<
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -9002,11 +9056,14 @@
                                 \tweak style #'la
                                 a,,
                             >8.
+                            - \accent
                             - \tremolo-articulation
+                            \fp
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)
                             \glissando
+                            \<
                             {
                                 \once \override Accidental.stencil = ##f
                                 \once \override Dots.staff-position = #2
@@ -9062,7 +9119,9 @@
                                 \tweak style #'la
                                 a,,
                             >8
+                            - \accent
                             - \tremolo-articulation
+                            \fff
                               %! abjad.glissando(7)
                             - \abjad-zero-padding-glissando
                               %! abjad.glissando(7)

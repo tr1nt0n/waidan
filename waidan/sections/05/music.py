@@ -1360,7 +1360,7 @@ trinton.make_music(
         clef="harp strings",
         reset=False,
         selector=trinton.select_leaves_by_index([0, -1], pitched=True),
-        force_clef=False,
+        force_clef=True,
     ),
     trinton.linear_attachment_command(
         attachments=[

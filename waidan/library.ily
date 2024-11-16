@@ -81,6 +81,9 @@ boxed-markup = #(
 三 = #(rgb-color 125/255 200/255 240/255)
 四 = #(rgb-color 133/255 176/255 147/255)
 
+% #(define-public guerrero-flared-hairpin
+%   (elbowed-hairpin '((1.0 . 0.0) (1.45 . 1.0)) - #t))
+
 % U+E078
 
 string-clef = \markup {

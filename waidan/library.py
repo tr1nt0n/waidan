@@ -469,7 +469,7 @@ all_instrument_names = [
 ]
 
 all_short_instrument_names = [
-    abjad.InstrumentName(
+    abjad.ShortInstrumentName(
         context="Staff",
         markup=abjad.Markup(
             '\markup \\fontsize #2 \override #\'(font-name . "Bodoni72 Book Italic") { Conductor }'
@@ -534,7 +534,13 @@ def write_short_instrument_names(score):
 
 
 def return_metronome_markup(
-    note_value, tempo, padding, metric_modulation=None, site="after", hspace=None
+    note_value,
+    tempo,
+    padding,
+    metric_modulation=None,
+    site="after",
+    hspace=None,
+    string_only=False,
 ):
     _note_value_to_number_pair = {
         "sixteenth": (4, 0),
@@ -573,21 +579,31 @@ def return_metronome_markup(
         )
 
     else:
+        literal_strings = [
+            r"^ \markup {",
+            r"  \hspace #-9",
+            rf"  \raise #{padding} \with-dimensions-from \null",
+            r"  \override #'(font-size . 5.5)",
+            r"  \concat {",
+            f"  [{abjad.lilypond(metric_modulation)[8:]}]",
+            r"      \hspace #1",
+            f"      {tempo_markup}",
+            r"  }",
+            r"}",
+        ]
+
         mark = abjad.LilyPondLiteral(
-            [
-                r"^ \markup {",
-                r"  \hspace #-9",
-                rf"  \raise #{padding} \with-dimensions-from \null",
-                r"  \override #'(font-size . 5.5)",
-                r"  \concat {",
-                f"  [{abjad.lilypond(metric_modulation)[8:]}]",
-                r"      \hspace #1",
-                f"      {tempo_markup}",
-                r"  }",
-                r"}",
-            ],
+            literal_strings,
             site=site,
         )
+
+    if string_only is True:
+        mark = """\markup {"""
+
+        for single_string in literal_strings:
+            if single_string != r"^ \markup {" and single_string != r"  \hspace #-9":
+                mark += "\n"
+                mark += single_string
 
     return mark
 
