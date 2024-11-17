@@ -81,7 +81,7 @@
                 {
                     \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                       %! +SCORE
-                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
+                    \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 1/2
                     s1 * 3/4
                     s1 * 2/5
@@ -461,15 +461,25 @@
                         [
                         - \tweak circled-tip ##t
                         \>
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \right-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \up-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \down-arrow
                         c'64
                         ]
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                     }
                     r8.
                     \!
@@ -483,14 +493,24 @@
                             [
                             - \tweak circled-tip ##t
                             \>
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \up-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \down-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                         }
                         r8.
                         \!
@@ -501,12 +521,20 @@
                             \mf
                             - \tweak circled-tip ##t
                             \>
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \up-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \down-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             c'64
                             ]
@@ -1167,15 +1195,25 @@
                         [
                         - \tweak circled-tip ##t
                         \>
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \right-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \up-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \down-arrow
                         c'64
                         ]
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                     }
                     r8.
                     \!
@@ -1189,14 +1227,24 @@
                             [
                             - \tweak circled-tip ##t
                             \>
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \up-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \down-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                         }
                         r8.
                         \!
@@ -1207,12 +1255,20 @@
                             \mf
                             - \tweak circled-tip ##t
                             \>
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \up-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \down-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             c'64
                             ]
@@ -1390,7 +1446,7 @@
                                                 }
                                             }
                                         }
-                    ^ \somatic-position-two
+                    ^ \somatic-position-one
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
@@ -1526,15 +1582,25 @@
                         [
                         - \tweak circled-tip ##t
                         \>
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \right-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \left-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \up-arrow
                         c'64
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                         \down-arrow
                         c'64
                         ]
+                        \revert NoteHead.stencil
+                        \revert NoteHead.stem-attachment
                     }
                     r8.
                     \!
@@ -1548,14 +1614,24 @@
                             [
                             - \tweak circled-tip ##t
                             \>
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \up-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \down-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                         }
                         r8.
                         \!
@@ -1566,12 +1642,20 @@
                             \mf
                             - \tweak circled-tip ##t
                             \>
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \up-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \down-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             c'64
                             ]
@@ -1657,7 +1741,7 @@
                                                 }
                                             }
                                         }
-                    ^ \somatic-position-two
+                    ^ \somatic-position-three
                     s1 * 1/2
                     s1 * 1/2
                     s1 * 1/2
@@ -1798,15 +1882,25 @@
                             [
                             - \tweak circled-tip ##t
                             \>
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \right-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \left-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \up-arrow
                             c'64
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                             \down-arrow
                             c'64
                             ]
+                            \revert NoteHead.stencil
+                            \revert NoteHead.stem-attachment
                         }
                         r8.
                         \!
@@ -1820,14 +1914,24 @@
                                 [
                                 - \tweak circled-tip ##t
                                 \>
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \left-arrow
                                 c'64
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \up-arrow
                                 c'64
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \down-arrow
                                 c'64
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \right-arrow
                                 c'64
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                             }
                             r8.
                             \!
@@ -1838,12 +1942,20 @@
                                 \mf
                                 - \tweak circled-tip ##t
                                 \>
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \up-arrow
                                 c'64
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \down-arrow
                                 c'64
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \right-arrow
                                 c'64
+                                \revert NoteHead.stencil
+                                \revert NoteHead.stem-attachment
                                 \left-arrow
                                 c'64
                                 ]
@@ -2018,7 +2130,7 @@
                                                     }
                                                 }
                                             }
-                        ^ \somatic-position-two
+                        ^ \somatic-position-one
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2
@@ -2222,7 +2334,7 @@
                                                     }
                                                 }
                                             }
-                        ^ \somatic-position-two
+                        ^ \somatic-position-three
                         s1 * 1/2
                         s1 * 1/2
                         s1 * 1/2

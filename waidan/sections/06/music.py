@@ -82,7 +82,7 @@ for voice_name in [
 
 # measure 8 somatics
 
-for voice_name in ["cello voice", "harp voice", "accordion 1 voice", "piano 1 voice"]:
+for voice_name in ["harp voice", "piano 1 voice"]:
     trinton.make_music(
         lambda _: trinton.select_target(_, (8,)),
         evans.RhythmHandler(rmakers.note),
@@ -90,7 +90,37 @@ for voice_name in ["cello voice", "harp voice", "accordion 1 voice", "piano 1 vo
         trinton.transparent_noteheads(selector=trinton.pleaves()),
         trinton.attachment_command(
             attachments=[
-                abjad.Markup(r"\somatic-position-two"),
+                abjad.Markup(r"\somatic-position-three"),
+                abjad.Markup(
+                    r"""\markup {
+                        \override #'(font-name . "Bodoni72 Book Italic")
+                        \center-column {
+                            \line {
+                                "sempre"
+                            }
+                            \line {
+                                "hold position until next instruction"
+                            }
+                        }
+                    }"""
+                ),
+            ],
+            selector=trinton.select_leaves_by_index([0]),
+            direction=abjad.UP,
+        ),
+        voice=score[voice_name],
+    )
+
+
+for voice_name in ["cello voice", "accordion 1 voice"]:
+    trinton.make_music(
+        lambda _: trinton.select_target(_, (8,)),
+        evans.RhythmHandler(rmakers.note),
+        trinton.noteheads_only(),
+        trinton.transparent_noteheads(selector=trinton.pleaves()),
+        trinton.attachment_command(
+            attachments=[
+                abjad.Markup(r"\somatic-position-one"),
                 abjad.Markup(
                     r"""\markup {
                         \override #'(font-name . "Bodoni72 Book Italic")
