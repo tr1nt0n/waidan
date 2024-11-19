@@ -19,8 +19,8 @@
             \time 8/4
             s1 * 2
             \stopMeasureSpanner
-            \time 6/8
-            s1 * 3/4
+            \time 3/8
+            s1 * 3/8
                 ^ \markup {
                   \raise #11.5 \with-dimensions-from \null
                   \override #'(font-size . 5.5)
@@ -30,38 +30,22 @@
                 }
             ^ \markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #19 \with-dimensions-from \null { "die flirrende . . ." } }
             \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
+            \time 3/8
+            s1 * 3/8
             \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
+            \time 3/8
+            s1 * 3/8
             \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
+            \time 3/8
+            s1 * 3/8
             \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
+            \time 3/8
+            s1 * 3/8
             \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 6/8
-            s1 * 3/4
+            \time 3/8
+            s1 * 3/8
             \tweak text "×3" \startMeasureSpanner
             \bar ".|:"
-            \once \override Score.TimeSignature.stencil = ##f
             \override Score.BarLine.X-extent = #'(2 . 2)
             \time 6/8
             s1 * 3/4
@@ -95,17 +79,12 @@
                 %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 2
                     s1 * 2
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
                     s1 * 3/4
                     s1 * 9/8
                     \once \override MultiMeasureRest.transparent = ##t
@@ -838,7 +817,6 @@
                     }
                     r16
                     r4
-                    r4.
                     \once \override Dots.staff-position = #2
                     \afterGrace
                     <c'' e''>8
@@ -878,7 +856,6 @@
                         \stopTextSpanOne
                     }
                     r4
-                    r4.
                     \once \override Dots.staff-position = #2
                     \afterGrace
                     <c'' e''>8.
@@ -918,7 +895,6 @@
                         \stopTextSpanOne
                     }
                     r8.
-                    r4.
                     \once \override Dots.staff-position = #2
                     \afterGrace
                     <c'' e''>4
@@ -958,7 +934,6 @@
                         \stopTextSpanOne
                     }
                     r8
-                    r4.
                     \once \override Dots.staff-position = #2
                     <c'' e''>4
                       %! abjad.glissando(7)
@@ -1000,7 +975,6 @@
                         \stopTextSpanOne
                     }
                     r16
-                    r4.
                     \once \override Dots.staff-position = #2
                     \afterGrace
                     <c'' e''>4.
@@ -1039,218 +1013,8 @@
                         <c'' e''>16
                         \stopTextSpanOne
                     }
-                    r4.
                     \once \override Dots.staff-position = #2
                     <c'' e''>4.
-                      %! abjad.glissando(7)
-                    - \abjad-zero-padding-glissando
-                      %! abjad.glissando(7)
-                    \glissando
-                    - \tweak padding #7.5
-                    - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { XFB, molto tast. } \hspace #0.5 }
-                    - \tweak bound-details.right.padding -0.5
-                    \startTextSpanOne
-                    \once \override Dots.staff-position = #2
-                      %! abjad.glissando(1)
-                    \hide NoteHead
-                      %! abjad.glissando(1)
-                    \override Accidental.stencil = ##f
-                      %! abjad.glissando(1)
-                    \override NoteColumn.glissando-skip = ##t
-                      %! abjad.glissando(1)
-                    \override NoteHead.no-ledgers = ##t
-                    \afterGrace
-                    <c'' e''>16
-                    {
-                        \once \override Accidental.stencil = ##f
-                        \once \override Dots.staff-position = #2
-                        \once \override Flag.stroke-style = #"grace"
-                        \once \override NoteHead.no-ledgers = ##t
-                        \once \override NoteHead.transparent = ##t
-                        \once \override NoteHead.X-extent = #'(0 . 0)
-                          %! abjad.glissando(6)
-                        \revert Accidental.stencil
-                          %! abjad.glissando(6)
-                        \revert NoteColumn.glissando-skip
-                          %! abjad.glissando(6)
-                        \revert NoteHead.no-ledgers
-                          %! abjad.glissando(6)
-                        \undo \hide NoteHead
-                        <c'' e''>16
-                        \stopTextSpanOne
-                    }
-                    r16
-                    r4
-                    \once \override Dots.staff-position = #2
-                    <c'' e''>4.
-                      %! abjad.glissando(7)
-                    - \abjad-zero-padding-glissando
-                      %! abjad.glissando(7)
-                    \glissando
-                    - \tweak padding #7.5
-                    - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { XFB, molto tast. } \hspace #0.5 }
-                    - \tweak bound-details.right.padding -0.5
-                    \startTextSpanOne
-                    \once \override Dots.staff-position = #2
-                      %! abjad.glissando(1)
-                    \hide NoteHead
-                      %! abjad.glissando(1)
-                    \override Accidental.stencil = ##f
-                      %! abjad.glissando(1)
-                    \override NoteColumn.glissando-skip = ##t
-                      %! abjad.glissando(1)
-                    \override NoteHead.no-ledgers = ##t
-                    \afterGrace
-                    <c'' e''>8
-                    {
-                        \once \override Accidental.stencil = ##f
-                        \once \override Dots.staff-position = #2
-                        \once \override Flag.stroke-style = #"grace"
-                        \once \override NoteHead.no-ledgers = ##t
-                        \once \override NoteHead.transparent = ##t
-                        \once \override NoteHead.X-extent = #'(0 . 0)
-                          %! abjad.glissando(6)
-                        \revert Accidental.stencil
-                          %! abjad.glissando(6)
-                        \revert NoteColumn.glissando-skip
-                          %! abjad.glissando(6)
-                        \revert NoteHead.no-ledgers
-                          %! abjad.glissando(6)
-                        \undo \hide NoteHead
-                        <c'' e''>16
-                        \stopTextSpanOne
-                    }
-                    r4
-                    \once \override Dots.staff-position = #2
-                    <c'' e''>4.
-                      %! abjad.glissando(7)
-                    - \abjad-zero-padding-glissando
-                      %! abjad.glissando(7)
-                    \glissando
-                    - \tweak padding #7.5
-                    - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { XFB, molto tast. } \hspace #0.5 }
-                    - \tweak bound-details.right.padding -0.5
-                    \startTextSpanOne
-                    \once \override Dots.staff-position = #2
-                      %! abjad.glissando(1)
-                    \hide NoteHead
-                      %! abjad.glissando(1)
-                    \override Accidental.stencil = ##f
-                      %! abjad.glissando(1)
-                    \override NoteColumn.glissando-skip = ##t
-                      %! abjad.glissando(1)
-                    \override NoteHead.no-ledgers = ##t
-                    \afterGrace
-                    <c'' e''>8.
-                    {
-                        \once \override Accidental.stencil = ##f
-                        \once \override Dots.staff-position = #2
-                        \once \override Flag.stroke-style = #"grace"
-                        \once \override NoteHead.no-ledgers = ##t
-                        \once \override NoteHead.transparent = ##t
-                        \once \override NoteHead.X-extent = #'(0 . 0)
-                          %! abjad.glissando(6)
-                        \revert Accidental.stencil
-                          %! abjad.glissando(6)
-                        \revert NoteColumn.glissando-skip
-                          %! abjad.glissando(6)
-                        \revert NoteHead.no-ledgers
-                          %! abjad.glissando(6)
-                        \undo \hide NoteHead
-                        <c'' e''>16
-                        \stopTextSpanOne
-                    }
-                    r8.
-                    \once \override Dots.staff-position = #2
-                    <c'' e''>4.
-                      %! abjad.glissando(7)
-                    - \abjad-zero-padding-glissando
-                      %! abjad.glissando(7)
-                    \glissando
-                    - \tweak padding #7.5
-                    - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { XFB, molto tast. } \hspace #0.5 }
-                    - \tweak bound-details.right.padding -0.5
-                    \startTextSpanOne
-                    \once \override Dots.staff-position = #2
-                      %! abjad.glissando(1)
-                    \hide NoteHead
-                      %! abjad.glissando(1)
-                    \override Accidental.stencil = ##f
-                      %! abjad.glissando(1)
-                    \override NoteColumn.glissando-skip = ##t
-                      %! abjad.glissando(1)
-                    \override NoteHead.no-ledgers = ##t
-                    \afterGrace
-                    <c'' e''>4
-                    {
-                        \once \override Accidental.stencil = ##f
-                        \once \override Dots.staff-position = #2
-                        \once \override Flag.stroke-style = #"grace"
-                        \once \override NoteHead.no-ledgers = ##t
-                        \once \override NoteHead.transparent = ##t
-                        \once \override NoteHead.X-extent = #'(0 . 0)
-                          %! abjad.glissando(6)
-                        \revert Accidental.stencil
-                          %! abjad.glissando(6)
-                        \revert NoteColumn.glissando-skip
-                          %! abjad.glissando(6)
-                        \revert NoteHead.no-ledgers
-                          %! abjad.glissando(6)
-                        \undo \hide NoteHead
-                        <c'' e''>16
-                        \stopTextSpanOne
-                    }
-                    r8
-                    \once \override Dots.staff-position = #2
-                    <c'' e''>4.
-                      %! abjad.glissando(7)
-                    - \abjad-zero-padding-glissando
-                      %! abjad.glissando(7)
-                    \glissando
-                    - \tweak padding #7.5
-                    - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { XFB, molto tast. } \hspace #0.5 }
-                    - \tweak bound-details.right.padding -0.5
-                    \startTextSpanOne
-                    \once \override Dots.staff-position = #2
-                      %! abjad.glissando(1)
-                    \hide NoteHead
-                      %! abjad.glissando(1)
-                    \override Accidental.stencil = ##f
-                      %! abjad.glissando(1)
-                    \override NoteColumn.glissando-skip = ##t
-                      %! abjad.glissando(1)
-                    \override NoteHead.no-ledgers = ##t
-                    <c'' e''>4
-                    \once \override Dots.staff-position = #2
-                    \afterGrace
-                    <c'' e''>16
-                    {
-                        \once \override Accidental.stencil = ##f
-                        \once \override Dots.staff-position = #2
-                        \once \override Flag.stroke-style = #"grace"
-                        \once \override NoteHead.no-ledgers = ##t
-                        \once \override NoteHead.transparent = ##t
-                        \once \override NoteHead.X-extent = #'(0 . 0)
-                          %! abjad.glissando(6)
-                        \revert Accidental.stencil
-                          %! abjad.glissando(6)
-                        \revert NoteColumn.glissando-skip
-                          %! abjad.glissando(6)
-                        \revert NoteHead.no-ledgers
-                          %! abjad.glissando(6)
-                        \undo \hide NoteHead
-                        <c'' e''>16
-                        \stopTextSpanOne
-                    }
-                    r16
-                    \once \override Dots.staff-position = #2
-                    \afterGrace
-                    <c'' e''>2.
                         _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
@@ -1261,20 +1025,24 @@
                     - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { XFB, molto tast. } \hspace #0.5 }
                     - \tweak bound-details.right.padding -0.5
                     \startTextSpanOne
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    <c'' e''>4.
+                        _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
                     {
                         \once \override Accidental.stencil = ##f
                         \once \override Dots.staff-position = #2
                         \once \override Flag.stroke-style = #"grace"
                         \once \override NoteHead.no-ledgers = ##t
                         \once \override NoteHead.transparent = ##t
-                          %! abjad.glissando(1)
-                        \hide NoteHead
-                          %! abjad.glissando(1)
-                        \override Accidental.stencil = ##f
-                          %! abjad.glissando(1)
-                        \override NoteColumn.glissando-skip = ##t
-                          %! abjad.glissando(1)
-                        \override NoteHead.no-ledgers = ##t
                         \once \override NoteHead.X-extent = #'(0 . 0)
                           %! abjad.glissando(6)
                         \revert Accidental.stencil
@@ -1289,7 +1057,7 @@
                     }
                     \once \override Dots.staff-position = #2
                     <c'' e''>2.
-                        _ #(make-dynamic-script (markup #:whiteout #:italic "mf"))
+                    \mf
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
                       %! abjad.glissando(7)
@@ -1299,6 +1067,8 @@
                     - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { XFB, molto tast. } \hspace #0.5 }
                     - \tweak bound-details.right.padding -0.5
                     \startTextSpanOne
+                    - \tweak stencil #constante-hairpin
+                    \<
                     \once \override Dots.staff-position = #2
                       %! abjad.glissando(1)
                     \hide NoteHead
@@ -1326,6 +1096,7 @@
                           %! abjad.glissando(6)
                         \undo \hide NoteHead
                         <c'' e''>16
+                        \!
                         \stopTextSpanOne
                     }
                     \once \override MultiMeasureRest.transparent = ##t
@@ -1514,19 +1285,248 @@
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
                     r2
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 9/8
+                    \repeat tremolo 1 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        \p
+                        - \tweak padding #5
+                        ^ \markup {
+                                                    \hspace #1 {
+                                                        ( \note {16} #2 )
+                                                    }
+                                                }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    r16
+                    r4
+                    \repeat tremolo 2 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        - \tweak padding #5
+                        ^ \markup {
+                                                    \hspace #1 {
+                                                        ( \note {8} #2 )
+                                                    }
+                                                }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    r4
+                    \repeat tremolo 3 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        - \tweak padding #5
+                        ^ \markup {
+                                                    \hspace #1 {
+                                                        ( \note {8} #2 \fontsize #6 "."  )
+                                                    }
+                                                }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    r8.
+                    \repeat tremolo 4 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        - \tweak padding #5
+                        ^ \markup {
+                                                    \hspace #1 {
+                                                        ( \note {4} #2 )
+                                                    }
+                                                }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    r8
+                    \repeat tremolo 4 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        - \tweak padding #5
+                        ^ \markup {
+                                                \hspace #1 {
+                                                    ( \note {4} #2 \hspace #2 + \hspace #2 \note {16} #2 )
+                                                }
+                                            }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'16
+                    r16
+                    \repeat tremolo 6 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        - \tweak padding #5
+                        ^ \markup {
+                                                    \hspace #1 {
+                                                        ( \note {4} #2 \fontsize #6 "."  )
+                                                    }
+                                                }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    \repeat tremolo 6 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                            _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                        - \tweak padding #5
+                        ^ \markup {
+                                                \hspace #1 {
+                                                    ( \note {4} #2 \fontsize #6 "." )
+                                                }
+                                            }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    \repeat tremolo 6 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                            _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                        - \tweak padding #5
+                        ^ \markup {
+                                                \hspace #1 {
+                                                    ( \note {4} #2 \fontsize #6 "." )
+                                                }
+                                            }
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    \repeat tremolo 12 {
+                        \once \override NoteHead.X-extent = #'(-1.5 . 2)
+                        \override NoteHead.no-ledgers = ##t
+                        \override NoteHead.stencil = #ly:text-interface::print
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . (low-c))) }\once \override NoteHead.X-offset = 0.5
+                        \override Dots.stencil = ##f
+                        d32
+                        \mf
+                        - \tweak padding #5
+                        ^ \markup {
+                                                \hspace #1 {
+                                                    ( \note {2} #2 \fontsize #6 "." + \note {4} #2 \fontsize #6 "."  )
+                                                }
+                                            }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        \once \override NoteHead.X-extent = #'(-1.5 . -1.5)
+                        \once \override NoteHead.text = \markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }
+                        d32
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 6.5
+                        - \bendAfter #'0
+                        \revert Dots.stencil
+                        \revert NoteHead.stencil
+                        \revert NoteHead.no-ledgers
+                    }
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'4.
+                    \!
                     \once \override MultiMeasureRest.transparent = ##t
                     \once \override Rest.transparent = ##t
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -2096,17 +2096,12 @@
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
                     r16.
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
                     s1 * 3/4
                     s1 * 9/8
                     \once \override MultiMeasureRest.transparent = ##t
@@ -2401,17 +2396,12 @@
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
                     r32
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
-                    s1 * 3/4
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
+                    s1 * 3/8
                     s1 * 3/4
                     s1 * 9/8
                     \once \override MultiMeasureRest.transparent = ##t
@@ -2600,17 +2590,12 @@
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r2
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
                         s1 * 3/4
                         s1 * 9/8
                         \once \override MultiMeasureRest.transparent = ##t
@@ -2788,17 +2773,12 @@
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r2
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
                         s1 * 3/4
                         s1 * 9/8
                         \once \override MultiMeasureRest.transparent = ##t
@@ -2953,17 +2933,12 @@
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r2
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
                         s1 * 3/4
                         s1 * 9/8
                         \once \override MultiMeasureRest.transparent = ##t
@@ -3128,17 +3103,12 @@
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r2
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
-                        s1 * 3/4
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
+                        s1 * 3/8
                         s1 * 3/4
                         s1 * 9/8
                         \once \override MultiMeasureRest.transparent = ##t

@@ -184,9 +184,9 @@ def change_viola_staff(
 def multiphonic_trem_noteheads(selector, preprolated=True):
     def multi_trem(argument):
         selections = selector(argument)
-        ties = abjad.select.logical_ties(selections)
-        for tie in ties:
-            tie_duration = abjad.get.duration(tie, preprolated=preprolated)
+        # ties = abjad.select.logical_ties(selections)
+        for selection in selections:
+            tie_duration = abjad.get.duration(selection, preprolated=preprolated)
             tremolo_count = tie_duration * 16
             tremolo_count = int(tremolo_count)
 
@@ -237,7 +237,7 @@ def multiphonic_trem_noteheads(selector, preprolated=True):
 
             abjad.attach(bend_after_bundle, tremolo_container_leaves[-1])
 
-            abjad.mutate.replace(tie, tremolo_container)
+            abjad.mutate.replace(selection, tremolo_container)
 
     return multi_trem
 
