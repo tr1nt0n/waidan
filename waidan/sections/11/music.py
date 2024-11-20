@@ -800,7 +800,7 @@ trinton.make_music(
     ),
     trinton.hooked_spanner_command(
         string=trinton.boxed_markup(
-            string="body above waist",
+            string="sponge on body",
             # column="\center-column",
             # font_name="Bodoni72 Book",
             fontsize=-1,
@@ -840,7 +840,7 @@ trinton.make_music(
     trinton.linear_attachment_command(
         attachments=[
             abjad.StartHairpin("o<|"),
-            abjad.Dynamic('"ff"'),
+            abjad.Dynamic("mf"),
             abjad.StartHairpin(">o"),
             abjad.StopHairpin(),
         ],

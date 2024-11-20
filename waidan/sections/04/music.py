@@ -449,16 +449,6 @@ trinton.make_music(
     preprocessor=trinton.fuse_preprocessor((2,)),
 )
 
-trinton.make_music(
-    lambda _: trinton.select_target(_, (11,)),
-    evans.RhythmHandler(
-        evans.talea(
-            [],
-        )
-    ),
-    voice=score["baritonesaxophone voice"],
-)
-
 # cello music
 
 trinton.make_music(
@@ -659,7 +649,7 @@ trinton.make_music(
     library.contour_staff(
         clef="harp strings",
         reset=False,
-        force_clef=False,
+        force_clef=True,
     ),  # for section only
     trinton.linear_attachment_command(
         attachments=[

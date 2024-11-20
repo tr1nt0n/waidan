@@ -577,6 +577,9 @@ trinton.make_music(
 trinton.make_music(
     lambda _: trinton.select_target(_, (1,)),
     evans.RhythmHandler(evans.talea([-1, 2, 1, -100], 16)),
+    trinton.change_notehead_command(
+        notehead="la", selector=trinton.select_leaves_by_index([0], pitched=True)
+    ),
     trinton.aftergrace_command(
         invisible=True, selector=trinton.select_leaves_by_index([-1], pitched=True)
     ),
@@ -1358,7 +1361,7 @@ trinton.make_music(
                     \override #'(font-name . "Bodoni72 Book Italic")
                     \column {
                         \line {
-                            "trilling between notated pitch and random adjacent diads"
+                            "trilling between notated pitches and random adjacent diads"
                         }
                         \line {
                             "maintaining basic chord shape through glissando"

@@ -1848,7 +1848,7 @@ trinton.make_music(
                     \override #'(font-name . "Bodoni72 Book Italic")
                     \column {
                         \line {
-                            "trilling between notated pitch and random adjacent diads"
+                            "trilling between notated pitches and random adjacent diads"
                         }
                     }
                 }"""

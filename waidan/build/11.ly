@@ -1952,7 +1952,7 @@
                     \startTextSpanTwo
                     - \tweak padding #6
                     - \abjad-dashed-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { body above waist } \hspace #0.5 }
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { sponge on body } \hspace #0.5 }
                     - \tweak bound-details.right.padding -1.5
                     \startTextSpanOne
                     \once \override Dots.staff-position = #2
@@ -1975,18 +1975,7 @@
                         \once \override Dots.staff-position = #2
                         \revert Staff.Stem.stemlet-length
                         c'32
-                        _ #(make-dynamic-script
-                            (markup
-                                #:whiteout
-                                #:line (
-                                    #:general-align Y -2 #:normal-text #:larger "“"
-                                    #:hspace -0.4
-                                    #:dynamic "ff"
-                                    #:hspace -0.2
-                                    #:general-align Y -2 #:normal-text #:larger "”"
-                                    )
-                                )
-                            )
+                        \mf
                         \stopTextSpanTwo
                         ]
                         - \tweak circled-tip ##t

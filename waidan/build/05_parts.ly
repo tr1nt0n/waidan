@@ -123,7 +123,7 @@
                 {
                     \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                       %! +SCORE
-                %%% \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
+                %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 7/4
                     s1 * 9/8
                     s1 * 3/4
@@ -1870,7 +1870,7 @@
                                             \override #'(font-name . "Bodoni72 Book Italic")
                                             \column {
                                                 \line {
-                                                    "trilling between notated pitch and random adjacent diads"
+                                                    "trilling between notated pitches and random adjacent diads"
                                                 }
                                             }
                                         }

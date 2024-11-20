@@ -47,7 +47,7 @@
                 {
                     \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                       %! +SCORE
-                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
+                    \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 5/4
                     s1 * 3/8
                     s1 * 1/2
@@ -726,6 +726,7 @@
                         \override Staff.Clef.stencil = #ly:text-interface::print
                         \override Staff.Clef.X-extent = #'(9 . 9)
                         \override Staff.Clef.text = \markup \fontsize #-1 { \override #'(font-name . "Bodoni72 Book") \raise #4.1 \center-column { \line { "upper frame" } \line { \fontsize #27 \with-color #white "." } \line { "lower frame" } } }
+                        \set Staff.forceClef = ##t
                         \slapped
                         \override NoteHead.no-ledgers = ##t
                         \once \override Beam.grow-direction = #left
@@ -808,6 +809,7 @@
                     \context Voice = "accordion 1 voice"
                     {
                         \staff-line-count 1
+                        \once \override Dots.staff-position = #2
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
                         \once \override Beam.stencil = ##f
@@ -841,6 +843,7 @@
                         - \tweak stencil #constante-hairpin
                         \<
                         ~
+                        \once \override Dots.staff-position = #2
                         \once \override NoteHead.no-ledgers = ##t
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
@@ -862,6 +865,7 @@
                         c'4
                         {
                             \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -882,6 +886,7 @@
                             c'16
                             \stopTextSpanTwo
                         }
+                        \once \override Dots.staff-position = #2
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
                         \once \override Beam.stencil = ##f
@@ -904,6 +909,7 @@
                         \<
                         {
                             \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -1040,6 +1046,7 @@
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r2
+                        \once \override Dots.staff-position = #2
                         \once \override NoteHead.X-offset = 0
                         \once \override Staff.Accidental.stencil = ##f
                         \once \override Staff.Glissando.thickness = #8.25
@@ -1080,6 +1087,7 @@
                         \<
                         \sustainOn
                         ~
+                        \once \override Dots.staff-position = #2
                         \once \override NoteHead.no-ledgers = ##t
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
@@ -1103,6 +1111,7 @@
                         \>
                         {
                             \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f

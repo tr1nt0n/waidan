@@ -76,7 +76,7 @@
                 {
                     \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                       %! +SCORE
-                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
+                    \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 3/8
                     s1 * 3/8
                     s1 * 3/8
@@ -980,6 +980,7 @@
                     r16
                     \override Dots.staff-position = #2
                     \override Staff.Stem.stemlet-length = 0.75
+                    \tweak style #'la
                     c'8
                     _ #(make-dynamic-script
                         (markup
@@ -2333,7 +2334,7 @@
                                             \override #'(font-name . "Bodoni72 Book Italic")
                                             \column {
                                                 \line {
-                                                    "trilling between notated pitch and random adjacent diads"
+                                                    "trilling between notated pitches and random adjacent diads"
                                                 }
                                                 \line {
                                                     "maintaining basic chord shape through glissando"
@@ -2473,6 +2474,7 @@
                         }
                         \revert NoteHead.X-extent
                         \revert NoteHead.transparent
+                        \once \override Dots.staff-position = #2
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
                         \once \override Beam.stencil = ##f
@@ -2501,6 +2503,7 @@
                         - \tweak details.squiggle-speed-factor -0.8
                         - \tweak thickness 0.005
                         \slow-fast-trill
+                        \once \override Dots.staff-position = #2
                         \once \override NoteHead.no-ledgers = ##t
                         \once \override RepeatTie.transparent = ##t
                         \once \override Stem.stencil = ##f
@@ -2522,6 +2525,7 @@
                         <fs ds'>4
                         {
                             \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f
@@ -3075,6 +3079,7 @@
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r16
+                        \once \override Dots.staff-position = #2
                         \once \override NoteHead.X-offset = 0
                         \once \override Staff.Accidental.stencil = ##f
                         \once \override Staff.Glissando.thickness = #8.25
@@ -3118,6 +3123,7 @@
                         \sustainOn
                         {
                             \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
                             \once \override NoteHead.no-ledgers = ##t
                             \once \override RepeatTie.transparent = ##t
                             \once \override Stem.stencil = ##f

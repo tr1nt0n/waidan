@@ -422,7 +422,7 @@ trinton.make_music(
                 abjad.Markup(
                     r"""\markup {
                         \hspace #1 {
-                            ( \note {4} #2 \hspace #2 + \hspace #2 \note {16} #2 )
+                            ( \note {4} #2 + \note {16} #2 )
                         }
                     }"""
                 ),
@@ -442,19 +442,16 @@ trinton.make_music(
     library.multiphonic_trem_noteheads(
         selector=trinton.logical_ties(first=True, pitched=True), preprolated=True
     ),
-    trinton.transparent_noteheads(
-        selector=trinton.select_leaves_by_index([-1], pitched=True)
+    trinton.aftergrace_command(
+        selector=trinton.select_leaves_by_index([-1], pitched=True, grace=False),
+        invisible=True,
     ),
-    trinton.noteheads_only(selector=trinton.select_leaves_by_index([-1], pitched=True)),
-    # trinton.duration_line(
-    #     selector=trinton.select_logical_ties_by_index([0, 1], grace=False, pitched=True),
-    #     visible_grace=True,
-    #     sustained=True
-    # ),
-    # trinton.duration_line(
-    #     selector=trinton.select_logical_ties_by_index([2], grace=False, pitched=True),
-    #     visible_grace=True
-    # ),
+    trinton.transparent_noteheads(
+        selector=trinton.select_leaves_by_index([-1], grace=False, pitched=True)
+    ),
+    trinton.noteheads_only(
+        selector=trinton.select_leaves_by_index([-1], grace=False, pitched=True)
+    ),
     trinton.linear_attachment_command(
         attachments=[
             trinton.make_custom_dynamic("mfp"),
@@ -1239,6 +1236,126 @@ trinton.make_music(
     voice=score["accordion 2 voice"],
 )
 
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3, 9)),
+    evans.RhythmHandler(
+        evans.talea(
+            [
+                -4,
+                1,
+                -5,
+                2,
+                -4,
+                3,
+                -3,
+                4,
+                -2,
+                5,
+                -1,
+                6,
+                6,
+                6,
+            ],
+            16,
+        )
+    ),
+    trinton.rewrite_meter_command(),
+    evans.PitchHandler([["ef''''", "f''''", "gf''''"]]),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.Markup(
+                r"""\markup {
+                    \override #'(font-name . "Bodoni72 Book Italic")
+                    {
+                        \hspace #1.5
+                        \column {
+                            \line { "trilling between notated pitches" }
+                            \line { "and random adjacent diads" }
+                        }
+                    }
+                }"""
+            ),
+            abjad.LilyPondLiteral(
+                [
+                    r"\once \override Staff.Clef.X-extent = ##f"
+                    r"\once \override Staff.Clef.X-offset = -5",
+                ],
+                site="before",
+            ),
+            abjad.Clef("treble"),
+            abjad.Dynamic("p"),
+            abjad.Markup(
+                r"""\markup {
+                    \override #'(font-name . "Bodoni72 Book Italic")
+                    {
+                        "( sim. )"
+                    }
+                }"""
+            ),
+            trinton.make_custom_dynamic("mfp"),
+            trinton.make_custom_dynamic("mfp"),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 0, 0, 0, 1, -2, -1], first=True, pitched=True, grace=False
+        ),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.StartTrillSpan()],
+        selector=trinton.logical_ties(
+            first=True, pitched=True, grace=False, exclude=[-2, -1]
+        ),
+    ),
+    trinton.duration_line(
+        visible_grace=True,
+        selector=trinton.logical_ties(pitched=True, grace=False, exclude=[-3, -2, -1]),
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.StopTrillSpan()],
+        selector=trinton.logical_ties(first=True, pitched=True, grace=True),
+    ),
+    voice=score["accordion 1 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (10,)),
+    evans.RhythmHandler(evans.talea([100], 16)),
+    trinton.rewrite_meter_command(),
+    evans.PitchHandler([["ef''''", "f''''", "gf''''"]]),
+    voice=score["accordion 1 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (8, 10)),
+    trinton.duration_line(
+        sustained=True,
+        visible_grace=True,
+        selector=trinton.select_logical_ties_by_index(
+            [-4, -3, -2, -1], pitched=True, grace=False
+        ),
+    ),
+    trinton.linear_attachment_command(
+        attachments=[
+            abjad.Dynamic("mf"),
+            abjad.StartHairpin("--"),
+            abjad.StopHairpin(),
+        ],
+        selector=trinton.select_leaves_by_index([-3, -3, -1], pitched=True),
+    ),
+    voice=score["accordion 1 voice"],
+)
+
+trinton.make_music(
+    lambda _: trinton.select_target(_, (3, 10)),
+    trinton.ottava_command(
+        octave=2, selector=trinton.select_leaves_by_index([0, -1], pitched=True)
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.StopTrillSpan()],
+        selector=trinton.select_leaves_by_index([-1], pitched=True),
+    ),
+    voice=score["accordion 1 voice"],
+)
+
 # piano music
 
 trinton.make_music(
@@ -1663,7 +1780,7 @@ trinton.make_music(
                 r"""\markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #19 \with-dimensions-from \null { "die flirrende . . ." } }"""
             ),
             library.return_metronome_markup(
-                note_value="eighth", tempo=44, padding=11.5, site="closing"
+                note_value="eighth", tempo=44, padding=11.5, site="closing", hspace=0.5
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),
