@@ -8,7 +8,6 @@
             s1 * 2
             - \tweak padding #17
             ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Tape I ON }
-            ^ \markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #22 \with-dimensions-from \null { "Zeit zog dich in einem Bann" } }
               %! +SCORE
         %%% \pageBreak
             \stopMeasureSpanner

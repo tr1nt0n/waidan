@@ -29,27 +29,42 @@
                   }
                 }
             ^ \markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #19 \with-dimensions-from \null { "die flirrende . . ." } }
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \pageBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 3/8
             s1 * 3/8
+              %! +SCORE
+        %%% \noBreak
             \tweak text "×3" \startMeasureSpanner
             \bar ".|:"
+            \once \override TimeSignature.X-offset = -2.7
             \override Score.BarLine.X-extent = #'(2 . 2)
             \time 6/8
             s1 * 3/4
             \bar ":|.|:"
+              %! +SCORE
+        %%% \noPageBreak
             \stopMeasureSpanner
             \tweak text "×9" \startMeasureSpanner
             \bar ":|.|:"
@@ -2036,6 +2051,7 @@
                     \once \override NoteHead.duration-log = 2
                     \once \override NoteHead.transparent = ##t
                     d1
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
                     - \tweak circled-tip ##t
                     \>
                     ~
@@ -2096,14 +2112,274 @@
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
                     r16.
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/4
-                    s1 * 9/8
+                    r4
+                    \once \override Dots.staff-position = #2
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 4
+                    \override Staff.Clef.stencil = #ly:text-interface::print
+                    \override Staff.Clef.text = \stringing-clef
+                    \set Staff.forceClef = ##t
+                    \clef "treble"
+                    \afterGrace
+                    <f' a'>16
+                    \p
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak padding #12
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #-1 { \column { \line { 1/2 legno tratto } \line { wood MSP } \line { hair behind the bridge }  } } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -2
+                    \startTextSpanOne
+                    - \tweak padding #6.5
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \hspace #-5 { "au talon" } } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup { "punta d'arco" } 
+                    - \tweak bound-details.right.padding -1
+                    \startTextSpanTwo
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <f' a'>16
+                        \stopTextSpanTwo
+                    }
+                    r16
+                    r4
+                    \once \override Dots.staff-position = #2
+                    \afterGrace
+                    <f' a'>8
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak padding #6.5
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \hspace #-4 { "au talon" } } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup { "punta d'arco" } 
+                    \startTextSpanTwo
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <f' a'>16
+                        \stopTextSpanTwo
+                    }
+                    r4
+                    \once \override Dots.staff-position = #2
+                    <f' a'>8
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak padding #6.5
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \hspace #-2 { "au talon" } } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup { "punta d'arco" } 
+                    \startTextSpanTwo
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    <f' a'>16
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <f' a'>16
+                        \stopTextSpanTwo
+                    }
+                    r8.
+                    \once \override Dots.staff-position = #2
+                    <f' a'>8
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak padding #6.5
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \hspace #-2 { "au talon" } } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup { "punta d'arco" } 
+                    - \tweak bound-details.right.padding 5
+                    \startTextSpanTwo
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    <f' a'>8
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <f' a'>16
+                        \stopTextSpanTwo
+                    }
+                    r8
+                    \once \override Dots.staff-position = #2
+                    <f' a'>8
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak padding #6.5
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \hspace #-2 { "au talon" } } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup { "punta d'arco" } 
+                    - \tweak bound-details.right.padding 5
+                    \startTextSpanTwo
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    <f' a'>8.
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <f' a'>16
+                        \stopTextSpanTwo
+                    }
+                    r16
+                    \once \override Dots.staff-position = #2
+                    <f' a'>8
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    <f' a'>4
+                    \once \override Dots.staff-position = #2
+                    <f' a'>8
+                        _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                    \once \override Dots.staff-position = #2
+                    <f' a'>4
+                    \once \override Dots.staff-position = #2
+                    <f' a'>8
+                        _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                    \once \override Dots.staff-position = #2
+                    <f' a'>2.
+                    \mf
+                    - \tweak stencil #constante-hairpin
+                    \<
+                    \once \override Dots.staff-position = #2
+                    \afterGrace
+                    <f' a'>4.
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <f' a'>16
+                        \!
+                        \stopTextSpanOne
+                    }
                     \once \override MultiMeasureRest.transparent = ##t
                     \once \override Rest.transparent = ##t
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -2333,6 +2609,7 @@
                     \once \override NoteHead.duration-log = 2
                     \once \override NoteHead.transparent = ##t
                     c'1
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
                     - \tweak circled-tip ##t
                     \>
                     ~
@@ -2396,14 +2673,255 @@
                     \once \override Dots.transparent = ##t
                     \once \override Rest.transparent = ##t
                     r32
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/8
-                    s1 * 3/4
-                    s1 * 9/8
+                    r8
+                    \staff-line-count 5
+                    \once \override Dots.staff-position = #2
+                    \once \override Staff.Clef.X-extent = ##f\once \override Staff.Clef.X-offset = -5
+                    \clef "treble"
+                    \afterGrace
+                    <ds b fs' c'' e'' f''>16
+                    :128
+                    \arpeggio
+                    \p
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <ds b fs' c'' e'' f''>16
+                        :128
+                    }
+                    r8.
+                    r8
+                    \once \override Dots.staff-position = #2
+                    \afterGrace
+                    <ds b fs' c'' e'' f''>8
+                    :64
+                    \arpeggio
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <ds b fs' c'' e'' f''>16
+                        :128
+                    }
+                    r8
+                    r8
+                    \once \override Dots.staff-position = #2
+                    \afterGrace
+                    <ds b fs' c'' e'' f''>8.
+                    :64
+                    \arpeggio
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <ds b fs' c'' e'' f''>16
+                        :128
+                    }
+                    r16
+                    r8
+                    \once \override Dots.staff-position = #2
+                    \afterGrace
+                    <ds b fs' c'' e'' f''>4
+                    :32
+                    \arpeggio
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <ds b fs' c'' e'' f''>16
+                        :128
+                    }
+                    r8
+                    \once \override Dots.staff-position = #2
+                    <ds b fs' c'' e'' f''>4
+                    :32
+                    \arpeggio
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    <ds b fs' c'' e'' f''>16
+                    :128
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <ds b fs' c'' e'' f''>16
+                        :128
+                    }
+                    r16
+                    \once \override Dots.staff-position = #2
+                    <ds b fs' c'' e'' f''>4
+                    :32
+                    \arpeggio
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    \once \override Dots.staff-position = #2
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    <ds b fs' c'' e'' f''>8
+                    :64
+                    \once \override Dots.staff-position = #2
+                    <ds b fs' c'' e'' f''>4
+                        _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                    :32
+                    \once \override Dots.staff-position = #2
+                    <ds b fs' c'' e'' f''>8
+                    :64
+                    \once \override Dots.staff-position = #2
+                    <ds b fs' c'' e'' f''>4
+                        _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                    :32
+                    \once \override Dots.staff-position = #2
+                    <ds b fs' c'' e'' f''>2.
+                    :32
+                    \mf
+                    - \tweak stencil #constante-hairpin
+                    \<
+                    \once \override Dots.staff-position = #2
+                    \afterGrace
+                    <ds b fs' c'' e'' f''>4.
+                    :32
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override Flag.stroke-style = #"grace"
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \once \override NoteHead.X-extent = #'(0 . 0)
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        <ds b fs' c'' e'' f''>16
+                        \!
+                    }
                     \once \override MultiMeasureRest.transparent = ##t
                     \once \override Rest.transparent = ##t
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -2562,6 +3080,7 @@
                         \override NoteHead.no-ledgers = ##t
                         \afterGrace
                         d1.
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
                         - \tweak circled-tip ##t
                         \>
                         {
@@ -2817,7 +3336,7 @@
                         - \tweak padding #1
                         - \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #3 \column { \line { "While playing, bare your teeth, widen your eyes," } \line { "furrow and arch your eyebrows," } \line { "and shout like a furious animal." } } } 
                         - \tweak padding #12
-                        ^ \markup \staffBox #45.5 #46.5 %% #width #height
+                        ^ \markup \staffBox #45.5 #48.5 %% #width #height
                         ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #-6 { "shake Chains above strings" } } 
                         - \tweak padding #11
                         - \abjad-dashed-line-with-hook
@@ -2905,6 +3424,7 @@
                         \override NoteHead.no-ledgers = ##t
                         \afterGrace
                         c'1.
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
                         - \tweak circled-tip ##t
                         \>
                         {
@@ -2933,14 +3453,239 @@
                         \once \override Dots.transparent = ##t
                         \once \override Rest.transparent = ##t
                         r2
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/8
-                        s1 * 3/4
-                        s1 * 9/8
+                        r8
+                        \staff-line-count 5
+                        \once \override Dots.staff-position = #2
+                        \once \override Staff.Clef.X-extent = ##f\once \override Staff.Clef.X-offset = -3.5
+                        \clef "treble"
+                        \afterGrace
+                        <b fs' c'' e'' f''>16
+                        \p
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        - \tweak padding #9.5
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { Jewellery Wire, XFB } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -2
+                        \startTextSpan
+                        \sustainOn
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <b fs' c'' e'' f''>16
+                        }
+                        r8.
+                        r8
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        <b fs' c'' e'' f''>8
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <b fs' c'' e'' f''>16
+                        }
+                        r8
+                        r8
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        <b fs' c'' e'' f''>8.
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <b fs' c'' e'' f''>16
+                        }
+                        r16
+                        r8
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        <b fs' c'' e'' f''>4
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                              %! abjad.glissando(1)
+                            \hide NoteHead
+                              %! abjad.glissando(1)
+                            \override Accidental.stencil = ##f
+                              %! abjad.glissando(1)
+                            \override NoteColumn.glissando-skip = ##t
+                              %! abjad.glissando(1)
+                            \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <b fs' c'' e'' f''>16
+                        }
+                        r8
+                        \once \override Dots.staff-position = #2
+                        <b fs' c'' e'' f''>4
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        \once \override Dots.staff-position = #2
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        \afterGrace
+                        <b fs' c'' e'' f''>16
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <b fs' c'' e'' f''>16
+                        }
+                        r16
+                        \once \override Dots.staff-position = #2
+                        <b fs' c'' e'' f''>4
+                          %! abjad.glissando(7)
+                        - \abjad-zero-padding-glissando
+                          %! abjad.glissando(7)
+                        \glissando
+                        \once \override Dots.staff-position = #2
+                          %! abjad.glissando(1)
+                        \hide NoteHead
+                          %! abjad.glissando(1)
+                        \override Accidental.stencil = ##f
+                          %! abjad.glissando(1)
+                        \override NoteColumn.glissando-skip = ##t
+                          %! abjad.glissando(1)
+                        \override NoteHead.no-ledgers = ##t
+                        <b fs' c'' e'' f''>8
+                        \once \override Dots.staff-position = #2
+                        <b fs' c'' e'' f''>4
+                            _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                        \once \override Dots.staff-position = #2
+                        <b fs' c'' e'' f''>8
+                        \once \override Dots.staff-position = #2
+                        <b fs' c'' e'' f''>4
+                            _ #(make-dynamic-script (markup #:whiteout #:italic "mfp"))
+                        \once \override Dots.staff-position = #2
+                        <b fs' c'' e'' f''>2.
+                        \mf
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        \once \override Dots.staff-position = #2
+                        \afterGrace
+                        <b fs' c'' e'' f''>4.
+                        {
+                            \once \override Accidental.stencil = ##f
+                            \once \override Dots.staff-position = #2
+                            \once \override Flag.stroke-style = #"grace"
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override NoteHead.transparent = ##t
+                            \once \override NoteHead.X-extent = #'(0 . 0)
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            <b fs' c'' e'' f''>16
+                            \!
+                            \stopTextSpan
+                            \sustainOff
+                        }
                         \once \override MultiMeasureRest.transparent = ##t
                         \once \override Rest.transparent = ##t
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -2996,6 +3741,7 @@
                         >8
                         - \accent
                         \stopTextSpan
+                        \sustainOn
                         \once \override NoteHead.X-offset = 0
                         \once \override Staff.Accidental.stencil = ##f
                         \once \override Staff.Glissando.thickness = #8.25
@@ -3012,6 +3758,7 @@
                             \tweak style #'la
                             e,,
                         >8
+                        \sustainOff
                         - \abjad-zero-padding-glissando
                         \glissando
                         - \tweak padding #4
@@ -3038,6 +3785,7 @@
                         >8
                         - \accent
                         \stopTextSpan
+                        \sustainOn
                         \ottava 0
                         \once \override Accidental.stencil = ##f
                         \once \override Dots.staff-position = #2
@@ -3051,6 +3799,7 @@
                         \once \override NoteHead.duration-log = 2
                         \once \override NoteHead.transparent = ##t
                         d1.
+                        \sustainOff
                           %! abjad.glissando(7)
                         - \abjad-zero-padding-glissando
                           %! abjad.glissando(7)

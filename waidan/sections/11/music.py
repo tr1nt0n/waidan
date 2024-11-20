@@ -2044,9 +2044,9 @@ trinton.make_music(
     lambda _: trinton.select_target(_, (1,)),
     trinton.attachment_command(
         attachments=[
-            abjad.Markup(
-                r"""\markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #22 \with-dimensions-from \null { "Zeit zog dich in einem Bann" } }"""
-            ),
+            # abjad.Markup(
+            #     r"""\markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #22 \with-dimensions-from \null { "Zeit zog dich in einem Bann" } }"""
+            # ),
             abjad.bundle(
                 trinton.boxed_markup(
                     string="Tape I ON",
