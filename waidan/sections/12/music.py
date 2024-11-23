@@ -172,6 +172,22 @@ trinton.make_music(
             ]
         ),
     ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                trinton.boxed_markup(
+                    string="Gran OFF",
+                    # column="\center-column",
+                    # font_name="Bodoni72 Book",
+                    fontsize=0,
+                    string_only=False,
+                ),
+                r"- \tweak padding #4.5",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+    ),
     trinton.hooked_spanner_command(
         string=trinton.boxed_markup(
             string="XFB, molto tast.",
@@ -342,11 +358,24 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #45.5 #13 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #45.5 #13.5 %% #width #height"),
                 r"- \tweak padding #5",
             ),
         ],
         selector=trinton.select_leaves_by_index([0], pitched=True, grace=False),
+        direction=abjad.UP,
+    ),
+    trinton.attachment_command(
+        attachments=[
+            trinton.boxed_markup(
+                string="Gran OFF",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([-2], pitched=True),
         direction=abjad.UP,
     ),
     voice=score["baritonesaxophone voice"],
@@ -583,6 +612,13 @@ trinton.make_music(
                     "assume natural facial expression.",
                 ],
                 column="\column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+            trinton.boxed_markup(
+                string="Gran OFF",
+                # column="\center-column",
                 # font_name="Bodoni72 Book",
                 fontsize=0,
                 string_only=False,
@@ -906,6 +942,13 @@ trinton.make_music(
                 fontsize=0,
                 string_only=False,
             ),
+            trinton.boxed_markup(
+                string="Gran OFF",
+                # column="\center-column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
         ],
         selector=trinton.select_leaves_by_index(
             [
@@ -1115,6 +1158,13 @@ trinton.make_music(
                     "assume natural facial expression.",
                 ],
                 column="\column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+            trinton.boxed_markup(
+                string="Gran OFF",
+                # column="\center-column",
                 # font_name="Bodoni72 Book",
                 fontsize=0,
                 string_only=False,
@@ -1400,6 +1450,13 @@ trinton.make_music(
                     "assume natural facial expression.",
                 ],
                 column="\column",
+                # font_name="Bodoni72 Book",
+                fontsize=0,
+                string_only=False,
+            ),
+            trinton.boxed_markup(
+                string="Gran OFF",
+                # column="\center-column",
                 # font_name="Bodoni72 Book",
                 fontsize=0,
                 string_only=False,
@@ -1777,10 +1834,20 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.Markup(
-                r"""\markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #19 \with-dimensions-from \null { "die flirrende . . ." } }"""
+                r"""\markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #26 \with-dimensions-from \null { "die flirrende . . ." } }"""
             ),
             library.return_metronome_markup(
                 note_value="eighth", tempo=44, padding=11.5, site="closing", hspace=0.5
+            ),
+            abjad.bundle(
+                trinton.boxed_markup(
+                    string="ALL SIT",
+                    # column="\center-column",
+                    # font_name="Bodoni72 Book",
+                    fontsize=4,
+                    string_only=False,
+                ),
+                r"- \tweak padding #19",
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),

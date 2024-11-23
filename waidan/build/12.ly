@@ -29,7 +29,9 @@
                       \abjad-metronome-mark-markup #3 #0 #2 #" 44 " 
                   }
                 }
-            ^ \markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #19 \with-dimensions-from \null { "die flirrende . . ." } }
+            - \tweak padding #19
+            ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #4 \box \line { ALL SIT }
+            ^ \markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #26 \with-dimensions-from \null { "die flirrende . . ." } }
               %! +SCORE
             \noBreak
             \once \override Score.TimeSignature.stencil = ##f
@@ -751,6 +753,8 @@
                     \afterGrace
                     <c'' e''>\breve
                     \pppp
+                    - \tweak padding #4.5
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
                       %! abjad.glissando(7)
@@ -1143,7 +1147,7 @@
                     cs'4
                     \ffff
                     - \tweak padding #5
-                    ^ \markup \staffBox #45.5 #13 %% #width #height
+                    ^ \markup \staffBox #45.5 #13.5 %% #width #height
                       %! abjad.glissando(7)
                     - \abjad-zero-padding-glissando
                       %! abjad.glissando(7)
@@ -1273,6 +1277,7 @@
                     \override NoteHead.no-ledgers = ##t
                     \afterGrace
                     b'1.
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                     - \tweak circled-tip ##t
                     \>
                     {
@@ -2062,6 +2067,7 @@
                     \once \override NoteHead.transparent = ##t
                     d1
                     ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                     - \tweak circled-tip ##t
                     \>
                     ~
@@ -2620,6 +2626,7 @@
                     \once \override NoteHead.transparent = ##t
                     c'1
                     ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                     - \tweak circled-tip ##t
                     \>
                     ~
@@ -3091,6 +3098,7 @@
                         \afterGrace
                         d1.
                         ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                         - \tweak circled-tip ##t
                         \>
                         {
@@ -3683,6 +3691,7 @@
                         \afterGrace
                         c'1.
                         ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \column { \line { Immediately stop shouting, } \line { assume natural facial expression. }  } }
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran OFF }
                         - \tweak circled-tip ##t
                         \>
                         {

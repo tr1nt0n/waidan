@@ -541,6 +541,22 @@ trinton.make_music(
         tag=None,
         tweaks=None,
     ),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                trinton.boxed_markup(
+                    string="Gran ON",
+                    # column="\center-column",
+                    # font_name="Bodoni72 Book",
+                    fontsize=0,
+                    string_only=False,
+                ),
+                r"- \tweak padding #16",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+    ),
     voice=score["viola voice"],
     preprocessor=trinton.fuse_sixteenths_preprocessor(
         (
@@ -2009,44 +2025,10 @@ trinton.fermata_measures(
     tag=None,
 )
 
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (5, 6)),
-#     trinton.spanner_command(
-#         strings=[
-#             r"""\markup \override #'(font-name . "Bodoni72 Book Italic") \fontsize #3 { "Rit." } """,
-#             library.return_metronome_markup(
-#                 note_value="sixteenth",
-#                 tempo=90,
-#                 padding=0,
-#                 metric_modulation=abjad.MetricModulation(
-#                     left_rhythm=abjad.Tuplet("3:2", "c'8"),
-#                     right_rhythm=abjad.Note("c'16"),
-#                 ),
-#                 site="after",
-#                 hspace=None,
-#                 string_only=True,
-#             ),
-#         ],
-#         selector=trinton.select_leaves_by_index([0, -1]),
-#         style="solid-line-with-arrow",
-#         padding=6,
-#         tweaks=None,
-#         right_padding=0,
-#         direction=None,
-#         full_string=True,
-#         command="",
-#         tag=None,
-#     ),
-#     voice=score["Global Context"],
-# )
-
 trinton.make_music(
     lambda _: trinton.select_target(_, (1,)),
     trinton.attachment_command(
         attachments=[
-            # abjad.Markup(
-            #     r"""\markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #22 \with-dimensions-from \null { "Zeit zog dich in einem Bann" } }"""
-            # ),
             abjad.bundle(
                 trinton.boxed_markup(
                     string="Tape I ON",
@@ -2248,8 +2230,26 @@ trinton.make_music(
     voice=score["Global Context"],
 )
 
-library.write_instrument_names(score=score)
-library.write_short_instrument_names(score=score)
+trinton.make_music(
+    lambda _: trinton.select_target(_, (17,)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.bundle(
+                trinton.boxed_markup(
+                    string=["remaining", "instruments:", "Gran ON"],
+                    # column="\center-column",
+                    # font_name="Bodoni72 Book",
+                    fontsize=0,
+                    string_only=False,
+                ),
+                r"- \tweak padding #10",
+            ),
+        ],
+        selector=trinton.select_leaves_by_index([0]),
+        direction=abjad.UP,
+    ),
+    voice=score["Global Context"],
+)
 
 for measure in [1, 6]:
     trinton.make_music(
@@ -2265,6 +2265,9 @@ for measure in [1, 6]:
         ),
         voice=score["Global Context"],
     )
+
+library.write_instrument_names(score=score)
+library.write_short_instrument_names(score=score)
 
 # breaks
 

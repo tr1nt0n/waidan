@@ -117,6 +117,8 @@
             - \tweak font-size #'12
             - \tweak padding -10
             _ \short-fermata
+            - \tweak padding #10
+            ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \box \fontsize #0 { \center-column { \line { remaining } \line { instruments: } \line { Gran ON }  } }
               %! +SCORE
             \pageBreak
             \once \override Score.BarLine.transparent = ##f
@@ -586,6 +588,8 @@
                     \ffff
                     - \tweak padding #1
                     - \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { \hspace #3 \column { \line { "While playing, bare your teeth," } \line { "widen your eyes, furrow and arch your eyebrows," } \line { "and shout like a furious animal." } } } 
+                    - \tweak padding #16
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
                     ^ \markup \center-align { \center-column { \line { \concat { -14 }  }\line { \concat { -33 }  } } }
                     [
                     - \tweak padding #13.5
