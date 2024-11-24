@@ -83,7 +83,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #45.5 #37 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #48.5 #37 %% #width #height"),
                 r"- \tweak padding #21",
             ),
         ],
@@ -358,7 +358,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #45.5 #13.5 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #48.5 #13.5 %% #width #height"),
                 r"- \tweak padding #5",
             ),
         ],
@@ -684,7 +684,7 @@ trinton.make_music(
     trinton.attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #48 #32 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #51 #32 %% #width #height"),
                 r"- \tweak padding #14",
             ),
         ],
@@ -895,31 +895,18 @@ trinton.make_music(
 trinton.make_music(
     lambda _: trinton.select_target(_, (1, 2)),
     evans.RhythmHandler(
-        evans.talea([5, 1, 1, 1, 1, 1, 1, 1, 1, 94, -1000], 32),
+        evans.talea([1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 94, -1000], 32),
     ),
-    trinton.change_lines(lines=1, clef="percussion", invisible_barlines=False),
-    trinton.change_notehead_command(
-        notehead="cross", selector=trinton.select_leaves_by_index([0])
+    evans.PitchHandler(["d"]),
+    trinton.pitch_with_selector_command(
+        pitch_list=["e,,", "ff,,"],
+        selector=trinton.select_leaves_by_index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
     ),
-    library.stone_arrow_noteheads(
-        notehead_list=[
-            "up",
-            "right-down",
-            "left-down",
-            "down",
-            "up",
-            "right-up",
-            "left-up",
-            "down",
-        ],
-        selector=trinton.select_logical_ties_by_index(
-            [1, 2, 3, 4, 5, 6, 7, 8], first=True, pitched=True, grace=False
-        ),
-    ),
+    trinton.change_lines(lines=5, clef="bass", invisible_barlines=False),
     trinton.transparent_noteheads(
-        selector=trinton.pleaves(exclude=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+        selector=trinton.pleaves(exclude=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     ),
-    trinton.duration_line(selector=trinton.pleaves(exclude=[2, 3, 4, 5, 6, 7, 8, 9])),
+    trinton.duration_line(),
     trinton.noteheads_only(),
     trinton.invisible_rests(),
     trinton.linear_attachment_command(
@@ -961,43 +948,19 @@ trinton.make_music(
     trinton.linear_attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #39 #17 %% #width #height"),
-                r"- \tweak padding #5",
-            ),
-            abjad.bundle(
-                abjad.Markup(
-                    r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { "Soundboard" } """
-                ),
-                r"- \tweak padding #3",
-            ),
-            abjad.bundle(
-                abjad.Markup(
-                    r"""\markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #-1 { "strike + scrape Stones" } """
-                ),
-                r"- \tweak padding #2",
+                abjad.Markup(r"\markup \staffBox #42 #22 %% #width #height"),
+                r"- \tweak padding #5.5",
             ),
         ],
         selector=trinton.select_logical_ties_by_index(
-            [0, 0, 1], first=True, pitched=True, grace=False
+            [
+                0,
+            ],
+            first=True,
+            pitched=True,
+            grace=False,
         ),
         direction=abjad.UP,
-    ),
-    trinton.spanner_command(
-        strings=[
-            r"\tremolo-largo",
-            r"\tremolo-stretto",
-        ],
-        selector=trinton.select_logical_ties_by_index([0, 1], pitched=True, first=True),
-        style="solid-line-with-arrow",
-        padding=2,
-        tweaks=None,
-        right_padding=-1,
-        direction=None,
-        full_string=True,
-        command="Two",
-        end_hook=False,
-        end_hook_style="dashed-line-with-hook",
-        tag=None,
     ),
     trinton.attachment_command(
         attachments=[
@@ -1009,6 +972,34 @@ trinton.make_music(
             ),
         ],
         selector=trinton.select_leaves_by_index([0]),
+    ),
+    trinton.hooked_spanner_command(
+        string=trinton.boxed_markup(
+            string="bow",
+            # column="\center-column",
+            # font_name="Bodoni72 Book",
+            fontsize=-1,
+            string_only=True,
+        ),
+        selector=trinton.select_leaves_by_index([0, 10], pitched=True, grace=False),
+        padding=5,
+        direction=None,
+        right_padding=2,
+        full_string=True,
+        style="dashed-line-with-hook",
+        hspace=None,
+        command="",
+        tag=None,
+        tweaks=None,
+    ),
+    trinton.ottava_command(octave=-2, selector=trinton.select_leaves_by_index([0, 21])),
+    trinton.attachment_command(
+        attachments=[
+            abjad.Articulation(">"),
+        ],
+        selector=trinton.select_logical_ties_by_index(
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], first=True, pitched=True, grace=False
+        ),
     ),
     voice=score["harp voice"],
 )
@@ -1181,7 +1172,7 @@ trinton.make_music(
     trinton.linear_attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #45.5 #43 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #48.5 #43 %% #width #height"),
                 r"- \tweak padding #7",
             ),
         ],
@@ -1481,7 +1472,7 @@ trinton.make_music(
     trinton.linear_attachment_command(
         attachments=[
             abjad.bundle(
-                abjad.Markup(r"\markup \staffBox #45.5 #48.5 %% #width #height"),
+                abjad.Markup(r"\markup \staffBox #48.5 #48.5 %% #width #height"),
                 r"- \tweak padding #12",
             ),
         ],

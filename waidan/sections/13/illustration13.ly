@@ -357,15 +357,508 @@
                             \sustainOff
                         }
                         s1 * 5/8
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1
+                        <<
+                            \context Voice = "piano 1 voice temp"
+                            {
+                                \voiceTwo
+                                r4
+                                r16
+                                \staff-line-count 5
+                                \once \override Staff.Accidental.stencil = ##f
+                                \clef "treble"
+                                d'''64
+                                _ \natural-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                e'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                a'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                r64
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                ]
+                                r64
+                                r16
+                                r4..
+                                \once \override Staff.Accidental.stencil = ##f
+                                b'''64
+                                _ \natural-articulation
+                                [
+                                r32.
+                                \once \override Staff.Accidental.stencil = ##f
+                                c''''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                cs'''64
+                                _ \sharp-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                af'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                g'''64
+                                _ \natural-articulation
+                                ]
+                                r8
+                                \once \override Staff.Accidental.stencil = ##f
+                                cs'''64
+                                _ \sharp-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                r32
+                                \once \override Staff.Accidental.stencil = ##f
+                                a'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                af'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                g'''64
+                                _ \natural-articulation
+                                ]
+                                r64
+                                r8.
+                                r8
+                                \once \override Staff.Accidental.stencil = ##f
+                                af'''64
+                                _ \flat-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                cs'''64
+                                _ \sharp-articulation
+                                r64
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                r64
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                ]
+                                r32
+                                r4
+                                \once \override Staff.Accidental.stencil = ##f
+                                a'''64
+                                _ \natural-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                f'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                af'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                c'''64
+                                _ \natural-articulation
+                                ]
+                                r32.
+                                r8.
+                                \once \override Staff.Accidental.stencil = ##f
+                                f'''64
+                                _ \natural-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                c''''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                cs'''64
+                                _ \sharp-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                g'''64
+                                _ \natural-articulation
+                                ]
+                                r64
+                                r16
+                                  %! applying invisibility
+                                \once \override Rest.transparent = ##t
+                                r1 * 1/2
+                                r8
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                [
+                                r64
+                                \once \override Staff.Accidental.stencil = ##f
+                                a'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                r64
+                                \once \override Staff.Accidental.stencil = ##f
+                                cs'''64
+                                _ \sharp-articulation
+                                ]
+                                r32
+                                r16
+                                \once \override Staff.Accidental.stencil = ##f
+                                f'''64
+                                _ \natural-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                r64
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                c'''64
+                                _ \natural-articulation
+                                r64
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                ]
+                                r16
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                b'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                f'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                g'''64
+                                _ \natural-articulation
+                                ]
+                                r16
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                [
+                                r16
+                                \once \override Staff.Accidental.stencil = ##f
+                                f'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                fs'''64
+                                _ \sharp-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                ]
+                                r16
+                                \once \override Staff.Accidental.stencil = ##f
+                                c''''64
+                                _ \natural-articulation
+                                [
+                                r32.
+                                \once \override Staff.Accidental.stencil = ##f
+                                f'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                bf'''64
+                                _ \flat-articulation
+                                ]
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                [
+                                \once \override Staff.Accidental.stencil = ##f
+                                ef'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                f'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                d'''64
+                                _ \natural-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                af'''64
+                                _ \flat-articulation
+                                \once \override Staff.Accidental.stencil = ##f
+                                b'''64
+                                _ \natural-articulation
+                                ]
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r32
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r2...
+                            }
+                            \context Voice = "piano polyrhythm voice"
+                            {
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                \voiceOne
+                                r4
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r16
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    \ottava 2
+                                    d'''32
+                                    ^ \natural-articulation
+                                    [
+                                    r32
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    f'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    d'''32
+                                    ^ \natural-articulation
+                                    ]
+                                    r32
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r2
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    b'''32
+                                    ^ \natural-articulation
+                                    [
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    g'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    b''32
+                                    ^ \natural-articulation
+                                    ]
+                                    r16
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r8
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    cs'''32
+                                    ^ \sharp-articulation
+                                    [
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    fs'''32
+                                    ^ \sharp-articulation
+                                    r16
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    cs'''32
+                                    ^ \sharp-articulation
+                                    ]
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r4
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r16
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    af'''32
+                                    ^ \flat-articulation
+                                    [
+                                    r16
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    d'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    d'''32
+                                    ^ \natural-articulation
+                                    ]
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r4
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    a'''32
+                                    ^ \natural-articulation
+                                    [
+                                    r16
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    b'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    bf'''32
+                                    ^ \flat-articulation
+                                    ]
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r8.
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    f'''32
+                                    ^ \natural-articulation
+                                    [
+                                    r16.
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    cs'''32
+                                    ^ \sharp-articulation
+                                    ]
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r2
+                                  %! applying indicators
+                                \once \override Dots.transparent = ##t
+                                  %! applying invisibility
+                                \once \override Rest.transparent = ##t
+                                  %! applying indicators
+                                \once \override Rest.transparent = ##t
+                                r1 * 3/16
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    bf'''32
+                                    ^ \flat-articulation
+                                    [
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    af'''32
+                                    ^ \flat-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    e'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    g'''32
+                                    ^ \natural-articulation
+                                    ]
+                                    r32
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r16
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    f'''32
+                                    ^ \natural-articulation
+                                    [
+                                    r32
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    a'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    g'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    af'''32
+                                    ^ \flat-articulation
+                                    ]
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r16
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    bf'''32
+                                    ^ \flat-articulation
+                                    [
+                                    r32
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    f'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    b''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    c''''32
+                                    ^ \natural-articulation
+                                    ]
+                                }
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    ef'''32
+                                    ^ \flat-articulation
+                                    [
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    g'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    cs'''32
+                                    ^ \sharp-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    bf'''32
+                                    ^ \flat-articulation
+                                    ]
+                                    r32
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r16
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    c''''32
+                                    ^ \natural-articulation
+                                    [
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    a'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    ef'''32
+                                    ^ \flat-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    cs'''32
+                                    ^ \sharp-articulation
+                                    ]
+                                    r32
+                                }
+                                \times 4/5
+                                {
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    d'''32
+                                    ^ \natural-articulation
+                                    [
+                                    r16
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    c'''32
+                                    ^ \natural-articulation
+                                    \once \override Staff.Accidental.stencil = ##f
+                                    cs'''32
+                                    ^ \sharp-articulation
+                                    ]
+                                    \ottava 0
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r2...
+                            }
+                        >>
+                        \oneVoice
                         \once \override MultiMeasureRest.transparent = ##t
                         \once \override Rest.transparent = ##t
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -380,14 +873,306 @@
                         s1 * 3/4
                         s1 * 5/8
                         s1 * 5/8
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
-                        s1 * 1/2
+                        r4
+                        r16
+                        \override Staff.PianoPedalBracket.shorten-pair = #'(0 . 0)
+                        \clef "bass"
+                        <ef a bf c' d' f'>8.
+                        - \tenuto
+                        \laissezVibrer
+                        \sustainOn
+                        \afterGrace
+                        r4..
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        <ef af bf df' g'>16
+                        - \tenuto
+                        \laissezVibrer
+                        \sustainOn
+                        \afterGrace
+                        r8.
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        <ef a bf c' d' f'>8.
+                        - \tenuto
+                        \laissezVibrer
+                        \sustainOn
+                        r8
+                        \afterGrace
+                        r8
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        <ef af bf df' g'>8
+                        - \tenuto
+                        \laissezVibrer
+                        \sustainOn
+                        \afterGrace
+                        r4
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        <ef a bf c' d' f'>8
+                        - \tenuto
+                        \laissezVibrer
+                        \sustainOn
+                        \afterGrace
+                        r8.
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \afterGrace
+                        <ef af bf df' g'>8.
+                        - \tenuto
+                        \laissezVibrer
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >16
+                        [
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >16
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >16
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        \afterGrace
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                        >8
+                        - \tenuto
+                        ]
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >16
+                        [
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >16
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        <
+                            \tweak style #'la
+                            f,,
+                            \tweak style #'la
+                            g,,
+                            \tweak style #'la
+                            a,,
+                        >16
+                        \once \override NoteHead.X-offset = 0
+                        \once \override Staff.Accidental.stencil = ##f
+                        \once \override Staff.Glissando.thickness = #8.25
+                        \afterGrace
+                        <
+                            \tweak style #'la
+                            c,,
+                            \tweak style #'la
+                            d,,
+                            \tweak style #'la
+                            e,,
+                        >8
+                        - \tenuto
+                        ]
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \afterGrace
+                        <ef a bf c' d' f'>8.
+                        - \tenuto
+                        \laissezVibrer
+                        [
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \afterGrace
+                        <ef af bf df' g'>8.
+                        - \tenuto
+                        \laissezVibrer
+                        ]
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \afterGrace
+                        <ef a bf c' d' f'>8
+                        - \tenuto
+                        \laissezVibrer
+                        [
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \afterGrace
+                        <ef af bf df' g'>8.
+                        - \tenuto
+                        \laissezVibrer
+                        ]
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \afterGrace
+                        <ef a bf c' d' f'>8
+                        - \tenuto
+                        \laissezVibrer
+                        [
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
+                        \afterGrace
+                        <ef af bf df' g'>16
+                        - \tenuto
+                        \laissezVibrer
+                        ]
+                        \sustainOn
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \once \override NoteHead.transparent = ##t
+                            c'16
+                            \sustainOff
+                        }
                         s1 * 1
                         \once \override MultiMeasureRest.transparent = ##t
                         \once \override Rest.transparent = ##t

@@ -4,6 +4,7 @@ import evans
 import trinton
 from abjadext import rmakers
 from abjadext import microtones
+from itertools import cycle
 from waidan import library
 
 # piano and harp chords
@@ -84,3 +85,31 @@ for pitch in new_piano_chords:
         final_section_chords_harp.append(10)
 
 final_section_chords_harp = trinton.remove_adjacent(final_section_chords_harp)
+
+
+def vertical_moment_pitching(voices, pitch_list):
+    components = abjad.select.leaves(voices, pitched=True, grace=False)
+    components.sort(key=lambda _: abjad.get.timespan(_).start_offset)
+
+    for component, pitch in zip(components, pitch_list):
+        component_index = components.index(component)
+        next_component_index = component_index + 1
+        next_component_index = next_component_index % len(components)
+        next_component = components[next_component_index]
+        previous_component = components[component_index - 1]
+
+        component_start_offset = abjad.get.timespan(component).start_offset
+        next_component_start_offset = abjad.get.timespan(next_component).start_offset
+        previous_component_start_offset = abjad.get.timespan(
+            previous_component
+        ).start_offset
+
+        handler = evans.PitchHandler([pitch])
+        if (
+            component_start_offset == next_component_start_offset
+            and component_start_offset != previous_component_start_offset
+        ):
+            handler(component)
+            handler(next_component)
+        elif component_start_offset != previous_component_start_offset:
+            handler(component)
