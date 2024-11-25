@@ -12,6 +12,8 @@
                       \abjad-metronome-mark-markup #3 #0 #2 #" 72 " 
                   }
                 }
+              %! +SCORE
+        %%% \noBreak
             \time 5/8
             s1 * 5/8
                 ^ \markup {
@@ -24,6 +26,8 @@
                       \abjad-metronome-mark-markup #3 #0 #2 #" 54 " 
                   }
                 }
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 5/8
             s1 * 5/8
@@ -32,24 +36,34 @@
             ^ \markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #17.5 \with-dimensions-from \null { " \"it's never just a shape alone\" " } }
             \time 4/8
             s1 * 1/2
+              %! +SCORE
+        %%% \noBreak
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 4/8
+            s1 * 1/2
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
+              %! +SCORE
+        %%% \noBreak
+            \once \override Score.TimeSignature.stencil = ##f
+            \time 4/8
+            s1 * 1/2
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 4/8
-            s1 * 1/2
-            \once \override Score.TimeSignature.stencil = ##f
-            \time 4/8
-            s1 * 1/2
+              %! +SCORE
+        %%% \noBreak
             \once \override Score.TimeSignature.stencil = ##f
             \time 4/8
             s1 * 1/2
@@ -200,16 +214,755 @@
                 %%% \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic"){ hp }
                     s1 * 3/4
                     s1 * 5/8
-                    s1 * 5/8
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1
+                    ^ \markup { \harp-pedal "-v^|^--^" }
+                    \clef "treble"
+                    ef4.
+                    - \tweak circled-tip ##t
+                    \<
+                    - \tweak padding #3.5
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { bow } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -2
+                    \startTextSpan
+                    ~
+                    \afterGrace
+                    ef4
+                    {
+                        \once \override Stem.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.transparent = ##t
+                        ef16
+                        \!
+                        \stopTextSpan
+                    }
+                    <<
+                        \context Voice = "harp voice temp"
+                        {
+                            \once \override Rest.staff-position = #0
+                            \voiceTwo
+                            r4
+                            \once \override Rest.staff-position = #0
+                            r16
+                            \once \override Staff.Accidental.stencil = ##f
+                            d''64
+                            _ \natural-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            ef'''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            af''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            ef''64
+                            _ \flat-articulation
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf'64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            d'64
+                            _ \natural-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Rest.staff-position = #-5
+                            r16
+                            \once \override Rest.staff-position = #0
+                            r4..
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf'64
+                            _ \flat-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Rest.staff-position = #-5
+                            r32.
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            af''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            g''64
+                            _ \natural-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs''64
+                            _ \sharp-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r8
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf'64
+                            _ \flat-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            f''64
+                            _ \natural-articulation
+                            \once \override Rest.staff-position = #-5
+                            r32
+                            \once \override Staff.Accidental.stencil = ##f
+                            g''64
+                            _ \natural-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs''64
+                            _ \sharp-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            af''64
+                            _ \flat-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Rest.staff-position = #-5
+                            r8.
+                            \once \override Rest.staff-position = #0
+                            r8
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            d'''64
+                            _ \natural-articulation
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf''64
+                            _ \flat-articulation
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Staff.Accidental.stencil = ##f
+                            af''64
+                            _ \flat-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r32
+                            \once \override Rest.staff-position = #-5
+                            r4
+                            \once \override Staff.Accidental.stencil = ##f
+                            f''64
+                            _ \natural-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            af'64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs''64
+                            _ \sharp-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf'64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            f''64
+                            _ \natural-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r32.
+                            \once \override Rest.staff-position = #-5
+                            r8.
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            g''64
+                            _ \natural-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs''64
+                            _ \sharp-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf'64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            ef''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            af''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            ef''64
+                            _ \flat-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Rest.staff-position = #-5
+                            r16
+                              %! applying indicators
+                            \once \override Rest.staff-position = #-5
+                              %! applying invisibility
+                            \once \override Rest.transparent = ##t
+                            r1 * 1/2
+                            \once \override Rest.staff-position = #0
+                            r8
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs''64
+                            _ \sharp-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            d'''64
+                            _ \natural-articulation
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Staff.Accidental.stencil = ##f
+                            g''64
+                            _ \natural-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r32
+                            \once \override Rest.staff-position = #-5
+                            r16
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            d'''64
+                            _ \natural-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf''64
+                            _ \flat-articulation
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            g''64
+                            _ \natural-articulation
+                            \once \override Rest.staff-position = #-5
+                            r64
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf'64
+                            _ \flat-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r16
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            af''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            g''64
+                            _ \natural-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r16
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Rest.staff-position = #-5
+                            r16
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            ef'''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            d'''64
+                            _ \natural-articulation
+                            ]
+                            \once \override Rest.staff-position = #-5
+                            r16
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf''64
+                            _ \flat-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Rest.staff-position = #-5
+                            r32.
+                            \once \override Staff.Accidental.stencil = ##f
+                            f'''64
+                            _ \natural-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            af'''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf''64
+                            _ \flat-articulation
+                            ]
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            - \tweak Beam.positions #'(-12 . -12)
+                            [
+                            \once \override Staff.Accidental.stencil = ##f
+                            f'''64
+                            _ \natural-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            cs'''64
+                            _ \sharp-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            bf''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            ef'''64
+                            _ \flat-articulation
+                            \once \override Staff.Accidental.stencil = ##f
+                            g''64
+                            _ \natural-articulation
+                            ]
+                            \once \override Dots.transparent = ##t
+                            \once \override Rest.staff-position = #-5
+                            \once \override Rest.transparent = ##t
+                            r32
+                            \once \override Dots.transparent = ##t
+                            \once \override Rest.staff-position = #-5
+                            \once \override Rest.transparent = ##t
+                            r2...
+                        }
+                        \context Voice = "harp polyrhythm voice"
+                        {
+                            <<
+                                \context Voice = "harp polyrhythm voice temp"
+                                {
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    \voiceOne
+                                    \voiceOne
+                                    r4
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r16
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        d''32
+                                        ^ \natural-articulation
+                                        ^ \ppp
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak padding #22.5
+                                        - \abjad-dashed-line-with-hook
+                                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { normale } \hspace #0.5 }
+                                        - \tweak bound-details.right.padding -1.5
+                                        \startTextSpan
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Rest.staff-position = #13
+                                        r32
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        f''32
+                                        ^ \natural-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        d''32
+                                        ^ \natural-articulation
+                                        ]
+                                        \once \override Rest.staff-position = #13
+                                        r32
+                                        ^ \mp
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r2
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        bf'32
+                                        ^ \flat-articulation
+                                        ^ \ppp
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        g''32
+                                        ^ \natural-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        bf''32
+                                        ^ \flat-articulation
+                                        ]
+                                        \once \override Rest.staff-position = #13
+                                        r16
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r8
+                                    ^ \mp
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        bf'32
+                                        ^ \flat-articulation
+                                        ^ \ppp
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        af'32
+                                        ^ \flat-articulation
+                                        \once \override Rest.staff-position = #13
+                                        r16
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        f''32
+                                        ^ \natural-articulation
+                                        ]
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r4
+                                    ^ \mp
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r16
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs'''32
+                                        ^ \ppp
+                                        ^ \sharp-articulation
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Rest.staff-position = #13
+                                        r16
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        d''32
+                                        ^ \natural-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        ef'''32
+                                        ^ \flat-articulation
+                                        ]
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r4
+                                    ^ \mp
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        f''32
+                                        ^ \natural-articulation
+                                        ^ \ppp
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Rest.staff-position = #13
+                                        r16
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        bf''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        ef''32
+                                        ^ \flat-articulation
+                                        ]
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r8.
+                                    ^ \mp
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs'''32
+                                        ^ \ppp
+                                        ^ \sharp-articulation
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Rest.staff-position = #13
+                                        r16.
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        g''32
+                                        ^ \natural-articulation
+                                        ]
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r2
+                                    ^ \mp
+                                      %! applying indicators
+                                    \once \override Dots.transparent = ##t
+                                      %! applying indicators
+                                    \once \override Rest.staff-position = #13
+                                      %! applying invisibility
+                                    \once \override Rest.transparent = ##t
+                                      %! applying indicators
+                                    \once \override Rest.transparent = ##t
+                                    r1 * 3/16
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs''32
+                                        ^ \ppp
+                                        ^ \sharp-articulation
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs'''32
+                                        ^ \sharp-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        af''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        ef'''32
+                                        ^ \flat-articulation
+                                        ]
+                                        \once \override Rest.staff-position = #13
+                                        r32
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r16
+                                    ^ \mp
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs'''32
+                                        ^ \ppp
+                                        ^ \sharp-articulation
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Rest.staff-position = #13
+                                        r32
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        d''32
+                                        ^ \natural-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        f''32
+                                        ^ \natural-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        f''32
+                                        ^ \natural-articulation
+                                        ]
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r16
+                                    ^ \mp
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs'''32
+                                        ^ \ppp
+                                        ^ \sharp-articulation
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Rest.staff-position = #13
+                                        r32
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        bf''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        f''32
+                                        ^ \natural-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        d'''32
+                                        ^ \mp
+                                        ^ \natural-articulation
+                                        ]
+                                    }
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs'''32
+                                        ^ \ppp
+                                        ^ \sharp-articulation
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        af''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        ef''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        f''32
+                                        ^ \natural-articulation
+                                        ]
+                                        \once \override Rest.staff-position = #13
+                                        r32
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r16
+                                    ^ \mp
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        bf''32
+                                        ^ \flat-articulation
+                                        ^ \ppp
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        af''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        ef'''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        d'''32
+                                        ^ \natural-articulation
+                                        ]
+                                        \once \override Rest.staff-position = #13
+                                        r32
+                                        ^ \mp
+                                    }
+                                    \times 4/5
+                                    {
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        cs'''32
+                                        ^ \ppp
+                                        ^ \sharp-articulation
+                                        - \tweak Beam.positions #'(12 . 12)
+                                        [
+                                        - \tweak stencil #abjad-flared-hairpin
+                                        ^ \<
+                                        \once \override Rest.staff-position = #13
+                                        r16
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        af''32
+                                        ^ \flat-articulation
+                                        \once \override Staff.Accidental.stencil = ##f
+                                        ef''32
+                                        ^ \flat-articulation
+                                        \stopTextSpan
+                                        ]
+                                    }
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.staff-position = #13
+                                    \once \override Rest.transparent = ##t
+                                    r2...
+                                    ^ \mp
+                                }
+                                \context Voice = "harp bowing voice"
+                                {
+                                    \textSpannerDown
+                                    \voiceTwo
+                                    ef2
+                                    \mf
+                                    - \tweak padding #14
+                                    - \abjad-dashed-line-with-up-hook
+                                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { bow } \hspace #0.5 }
+                                    - \tweak bound-details.right.padding -1.5
+                                    \startTextSpan
+                                    ~
+                                    ef2
+                                    ~
+                                    ef2
+                                    ~
+                                    ef2
+                                    ~
+                                    ef2
+                                    ~
+                                    ef2
+                                    ~
+                                    ef2
+                                    ~
+                                    ef2
+                                    ~
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Stem.stencil = ##f
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                    ef2
+                                      %! abjad.glissando(7)
+                                    - \abjad-zero-padding-glissando
+                                      %! abjad.glissando(7)
+                                    \glissando
+                                    - \tweak circled-tip ##t
+                                    \>
+                                    ~
+                                    \once \override Dots.staff-position = #2
+                                    \once \override RepeatTie.transparent = ##t
+                                    \once \override Stem.stencil = ##f
+                                    \once \override Beam.stencil = ##f
+                                    \once \override Flag.stencil = ##f
+                                    \once \override Dots.stencil = ##f
+                                    \once \override Tie.stencil = ##f
+                                    \once \override NoteHead.duration-log = 2
+                                      %! abjad.glissando(1)
+                                    \hide NoteHead
+                                      %! abjad.glissando(1)
+                                    \override Accidental.stencil = ##f
+                                      %! abjad.glissando(1)
+                                    \override NoteColumn.glissando-skip = ##t
+                                      %! abjad.glissando(1)
+                                    \override NoteHead.no-ledgers = ##t
+                                    \afterGrace
+                                    ef2
+                                    {
+                                        \once \override Stem.stencil = ##f
+                                        \once \override Flag.stencil = ##f
+                                        \once \override NoteHead.no-ledgers = ##t
+                                        \once \override Accidental.stencil = ##f
+                                        \once \override NoteHead.transparent = ##t
+                                          %! abjad.glissando(6)
+                                        \revert Accidental.stencil
+                                          %! abjad.glissando(6)
+                                        \revert NoteColumn.glissando-skip
+                                          %! abjad.glissando(6)
+                                        \revert NoteHead.no-ledgers
+                                          %! abjad.glissando(6)
+                                        \undo \hide NoteHead
+                                        ef16
+                                        \!
+                                        \stopTextSpan
+                                        \textSpannerUp
+                                    }
+                                }
+                            >>
+                            \oneVoice
+                        }
+                    >>
+                    \oneVoice
                     \once \override MultiMeasureRest.transparent = ##t
                     \once \override Rest.transparent = ##t
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -349,251 +1102,164 @@
                                 \voiceTwo
                                 r4
                                 r16
-                                \staff-line-count 5
-                                \once \override Staff.Accidental.stencil = ##f
-                                \clef "treble"
-                                d'''64
-                                _ \natural-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                e'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                a'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                r64
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                ]
-                                r64
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    \staff-line-count 5
+                                    \clef "treble"
+                                    c'64
+                                    [
+                                    c'64
+                                    c'64
+                                    c'64
+                                    ]
+                                    r32.
+                                }
                                 r16
                                 r4..
-                                \once \override Staff.Accidental.stencil = ##f
-                                b'''64
-                                _ \natural-articulation
-                                [
-                                r32.
-                                \once \override Staff.Accidental.stencil = ##f
-                                c''''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                cs'''64
-                                _ \sharp-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                af'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                g'''64
-                                _ \natural-articulation
-                                ]
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    r64
+                                    c'64
+                                    r64
+                                    c'64
+                                    c'64
+                                    c'64
+                                    ]
+                                }
                                 r8
-                                \once \override Staff.Accidental.stencil = ##f
-                                cs'''64
-                                _ \sharp-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                r32
-                                \once \override Staff.Accidental.stencil = ##f
-                                a'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                af'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                g'''64
-                                _ \natural-articulation
-                                ]
-                                r64
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    c'64
+                                    c'64
+                                    r32.
+                                    c'64
+                                    ]
+                                }
                                 r8.
                                 r8
-                                \once \override Staff.Accidental.stencil = ##f
-                                af'''64
-                                _ \flat-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                cs'''64
-                                _ \sharp-articulation
-                                r64
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                r64
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                ]
-                                r32
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    r16
+                                    c'64
+                                    c'64
+                                    ]
+                                }
                                 r4
-                                \once \override Staff.Accidental.stencil = ##f
-                                a'''64
-                                _ \natural-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                f'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                af'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                c'''64
-                                _ \natural-articulation
-                                ]
-                                r32.
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    c'64
+                                    r32
+                                    c'64
+                                    ]
+                                    r32
+                                }
                                 r8.
-                                \once \override Staff.Accidental.stencil = ##f
-                                f'''64
-                                _ \natural-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                c''''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                cs'''64
-                                _ \sharp-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                g'''64
-                                _ \natural-articulation
-                                ]
-                                r64
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    r16
+                                    r64
+                                    c'64
+                                    ]
+                                }
                                 r16
                                   %! applying invisibility
                                 \once \override Rest.transparent = ##t
                                 r1 * 1/2
                                 r8
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                [
-                                r64
-                                \once \override Staff.Accidental.stencil = ##f
-                                a'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                r64
-                                \once \override Staff.Accidental.stencil = ##f
-                                cs'''64
-                                _ \sharp-articulation
-                                ]
-                                r32
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    r64
+                                    c'64
+                                    c'64
+                                    c'64
+                                    c'64
+                                    ]
+                                    r64
+                                }
                                 r16
-                                \once \override Staff.Accidental.stencil = ##f
-                                f'''64
-                                _ \natural-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                r64
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                c'''64
-                                _ \natural-articulation
-                                r64
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                ]
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    c'64
+                                    c'64
+                                    c'64
+                                    r32
+                                    c'64
+                                    ]
+                                }
                                 r16
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                b'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                f'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                g'''64
-                                _ \natural-articulation
-                                ]
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    c'64
+                                    c'64
+                                    c'64
+                                    c'64
+                                    c'64
+                                    ]
+                                    r64
+                                }
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    r32.
+                                    c'64
+                                    c'64
+                                    c'64
+                                    ]
+                                }
                                 r16
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                [
-                                r16
-                                \once \override Staff.Accidental.stencil = ##f
-                                f'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                fs'''64
-                                _ \sharp-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                ]
-                                r16
-                                \once \override Staff.Accidental.stencil = ##f
-                                c''''64
-                                _ \natural-articulation
-                                [
-                                r32.
-                                \once \override Staff.Accidental.stencil = ##f
-                                f'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                bf'''64
-                                _ \flat-articulation
-                                ]
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                [
-                                \once \override Staff.Accidental.stencil = ##f
-                                ef'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                f'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                d'''64
-                                _ \natural-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                af'''64
-                                _ \flat-articulation
-                                \once \override Staff.Accidental.stencil = ##f
-                                b'''64
-                                _ \natural-articulation
-                                ]
-                                \once \override Dots.transparent = ##t
-                                \once \override Rest.transparent = ##t
-                                r32
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    c'64
+                                    c'64
+                                    c'64
+                                    c'64
+                                    r64
+                                    c'64
+                                    ]
+                                }
+                                \tweak text #tuplet-number::calc-fraction-text
+                                \times 8/7
+                                {
+                                    c'64
+                                    [
+                                    r32.
+                                    c'64
+                                    c'64
+                                    \once \override Dots.transparent = ##t
+                                    \once \override Rest.transparent = ##t
+                                    c'64
+                                    ]
+                                }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r2...
@@ -607,57 +1273,41 @@
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r16
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    \ottava 2
-                                    d'''32
-                                    ^ \natural-articulation
+                                    c'32
                                     [
-                                    r32
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    f'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    d'''32
-                                    ^ \natural-articulation
+                                    r16
+                                    c'32
+                                    c'32
+                                    c'32
                                     ]
-                                    r32
                                 }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r2
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    b'''32
-                                    ^ \natural-articulation
+                                    c'32
                                     [
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    g'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    b''32
-                                    ^ \natural-articulation
-                                    ]
+                                    c'32
                                     r16
+                                    c'32
+                                    ]
+                                    r32
                                 }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r8
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    cs'''32
-                                    ^ \sharp-articulation
+                                    c'32
                                     [
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    fs'''32
-                                    ^ \sharp-articulation
-                                    r16
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    cs'''32
-                                    ^ \sharp-articulation
+                                    r32
+                                    c'32
+                                    r32
+                                    c'32
+                                    c'32
                                     ]
                                 }
                                 \once \override Dots.transparent = ##t
@@ -666,53 +1316,43 @@
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r16
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    af'''32
-                                    ^ \flat-articulation
+                                    c'32
                                     [
-                                    r16
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    d'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    d'''32
-                                    ^ \natural-articulation
+                                    c'32
+                                    c'32
+                                    c'32
                                     ]
+                                    r16
                                 }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r4
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    a'''32
-                                    ^ \natural-articulation
+                                    c'32
                                     [
-                                    r16
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    b'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    bf'''32
-                                    ^ \flat-articulation
+                                    c'32
+                                    r32
+                                    c'32
+                                    c'32
                                     ]
+                                    r32
                                 }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r8.
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    f'''32
-                                    ^ \natural-articulation
+                                    c'32
                                     [
-                                    r16.
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    cs'''32
-                                    ^ \sharp-articulation
+                                    c'32
+                                    c'32
+                                    c'32
+                                    c'32
                                     ]
+                                    r32
                                 }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
@@ -724,120 +1364,71 @@
                                   %! applying indicators
                                 \once \override Rest.transparent = ##t
                                 r1 * 3/16
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    bf'''32
-                                    ^ \flat-articulation
+                                    c'32
                                     [
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    af'''32
-                                    ^ \flat-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    e'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    g'''32
-                                    ^ \natural-articulation
-                                    ]
-                                    r32
-                                }
-                                \once \override Dots.transparent = ##t
-                                \once \override Rest.transparent = ##t
-                                r16
-                                \times 4/5
-                                {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    f'''32
-                                    ^ \natural-articulation
-                                    [
-                                    r32
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    a'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    g'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    af'''32
-                                    ^ \flat-articulation
+                                    c'32
+                                    c'32
+                                    r16
+                                    c'32
                                     ]
                                 }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
                                 r16
-                                \times 4/5
+                                \times 4/6
                                 {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    bf'''32
-                                    ^ \flat-articulation
-                                    [
-                                    r32
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    f'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    b''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    c''''32
-                                    ^ \natural-articulation
-                                    ]
-                                }
-                                \times 4/5
-                                {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    ef'''32
-                                    ^ \flat-articulation
-                                    [
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    g'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    cs'''32
-                                    ^ \sharp-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    bf'''32
-                                    ^ \flat-articulation
-                                    ]
-                                    r32
-                                }
-                                \once \override Dots.transparent = ##t
-                                \once \override Rest.transparent = ##t
-                                r16
-                                \times 4/5
-                                {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    c''''32
-                                    ^ \natural-articulation
-                                    [
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    a'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    ef'''32
-                                    ^ \flat-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    cs'''32
-                                    ^ \sharp-articulation
-                                    ]
-                                    r32
-                                }
-                                \times 4/5
-                                {
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    d'''32
-                                    ^ \natural-articulation
+                                    c'32
                                     [
                                     r16
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    c'''32
-                                    ^ \natural-articulation
-                                    \once \override Staff.Accidental.stencil = ##f
-                                    cs'''32
-                                    ^ \sharp-articulation
+                                    c'32
+                                    c'32
+                                    c'32
                                     ]
-                                    \ottava 0
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r16
+                                \times 4/6
+                                {
+                                    c'32
+                                    [
+                                    r8
+                                    c'32
+                                    ]
+                                }
+                                \times 4/6
+                                {
+                                    c'32
+                                    [
+                                    c'32
+                                    c'32
+                                    r16
+                                    c'32
+                                    ]
+                                }
+                                \once \override Dots.transparent = ##t
+                                \once \override Rest.transparent = ##t
+                                r16
+                                \times 4/6
+                                {
+                                    c'32
+                                    [
+                                    r16.
+                                    c'32
+                                    c'32
+                                    ]
+                                }
+                                \times 4/6
+                                {
+                                    c'32
+                                    [
+                                    c'32
+                                    c'32
+                                    c'32
+                                    ]
+                                    r16
                                 }
                                 \once \override Dots.transparent = ##t
                                 \once \override Rest.transparent = ##t
