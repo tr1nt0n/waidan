@@ -95,7 +95,7 @@ trinton.make_music(
             pitched=False,
         ),
     ),
-    trinton.annotate_leaves_locally(selector=trinton.logical_ties(first=True)),
+    # trinton.annotate_leaves_locally(selector=trinton.logical_ties(first=True)),
     trinton.linear_attachment_command(
         attachments=cycle(
             [abjad.Dynamic("mp"), abjad.StartHairpin(">o"), abjad.Dynamic("mf")]

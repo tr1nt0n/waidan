@@ -995,13 +995,10 @@
                         s1 * 5/8
                         s1 * 5/8
                         r4
-                        ^ \markup 0
                         r16
-                        ^ \markup 1
                         \pitchedTrill
                         af''8.
                         \mp
-                        ^ \markup 2
                         - \tweak circled-tip ##t
                         \>
                         ~
@@ -1009,16 +1006,12 @@
                         af''16
                         r16
                         \mf
-                        ^ \markup 3
                         \stopTrillSpan
                         r4
-                        ^ \markup 4
                         r16
-                        ^ \markup 5
                         \pitchedTrill
                         a''16
                         \mp
-                        ^ \markup 6
                         - \tweak circled-tip ##t
                         \>
                         ~
@@ -1026,13 +1019,11 @@
                         a''8
                         r16
                         \mf
-                        ^ \markup 7
                         \stopTrillSpan
                         \override Staff.Stem.stemlet-length = 0.75
                         \pitchedTrill
                         a''16
                         \mp
-                        ^ \markup 8
                         [
                         - \tweak circled-tip ##t
                         \>
@@ -1043,36 +1034,29 @@
                         ]
                         r16
                         \mf
-                        ^ \markup 9
                         \stopTrillSpan
                         r8
-                        ^ \markup 10
                         \pitchedTrill
                         c'''4
                         \mp
-                        ^ \markup 11
                         - \tweak circled-tip ##t
                         \>
                         \startTrillSpan d'''
                         r8
                         \mf
-                        ^ \markup 12
                         \stopTrillSpan
                         \pitchedTrill
                         b''4
                         \mp
-                        ^ \markup 13
                         - \tweak circled-tip ##t
                         \>
                         \startTrillSpan cs'''
                         r16
                         \mf
-                        ^ \markup 14
                         \stopTrillSpan
                         \pitchedTrill
                         fs'''8.
                         \mp
-                        ^ \markup 15
                         - \tweak circled-tip ##t
                         \>
                         ~
@@ -1080,16 +1064,13 @@
                         fs'''16
                         r4..
                         \mf
-                        ^ \markup 16
                         \stopTrillSpan
                         r8
-                        ^ \markup 17
                         \stopTrillSpan
                         \override Staff.Stem.stemlet-length = 0.75
                         \pitchedTrill
                         g''8.
                         \mp
-                        ^ \markup 18
                         [
                         - \tweak circled-tip ##t
                         \>
@@ -1098,7 +1079,6 @@
                         \pitchedTrill
                         d'''8.
                         \mp
-                        ^ \markup 19
                         ]
                         - \tweak circled-tip ##t
                         \>
@@ -1107,17 +1087,14 @@
                         \pitchedTrill
                         f'''8
                         \!
-                        ^ \markup 20
                         [
                         \startTrillSpan ef'''
                         \pitchedTrill
                         ef'''8.
-                        ^ \markup 21
                         \startTrillSpan d'''
                         \revert Staff.Stem.stemlet-length
                         \pitchedTrill
                         e'''8.
-                        ^ \markup 22
                         ]
                         \startTrillSpan f'''
                         \once \override Dots.transparent = ##t
