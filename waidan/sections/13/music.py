@@ -267,11 +267,11 @@ trinton.make_music(
     voice=score["piano polyrhythm voice"],
 )
 
-# pitch.vertical_moment_pitching(
-#     voices=[score["piano 1 voice temp"], score["piano polyrhythm voice"]],
-#     pitch_list=pitch.final_section_chords_piano,
-# )
-#
+pitch.vertical_moment_pitching(
+    voices=[score["piano 1 voice temp"], score["piano polyrhythm voice"]],
+    pitch_list=pitch.final_section_chords_piano,
+)
+
 piano_sextuplets = abjad.select.tuplets(score["piano 1 voice temp"])
 
 for tuplet in piano_sextuplets:
@@ -284,11 +284,56 @@ trinton.make_music(
     lambda _: trinton.select_target(_, (4, 12)),
     evans.RewriteMeterCommand(),
     trinton.invisible_rests(selector=trinton.select_leaves_by_index([-2, -1])),
-    # trinton.octavation(octave=2, selector=trinton.pleaves()),
-    # trinton.vertical_accidentals(selector=trinton.pleaves(), direction=abjad.DOWN),
+    trinton.octavation(octave=2, selector=trinton.pleaves()),
+    # trinton.annotate_leaves_locally(selector=trinton.pleaves(), direction=abjad.DOWN),
+    trinton.octavation(
+        octave=1,
+        selector=trinton.select_leaves_by_index(
+            [
+                1,
+                3,
+                7,
+                22,
+                27,
+                28,
+                29,
+                30,
+                33,
+                35,
+                38,
+                40,
+            ],
+            pitched=True,
+        ),
+    ),
+    trinton.octavation(
+        octave=-1,
+        selector=trinton.select_leaves_by_index(
+            [
+                10,
+                15,
+                20,
+                44,
+            ],
+            pitched=True,
+        ),
+    ),
+    trinton.vertical_accidentals(selector=trinton.pleaves(), direction=abjad.DOWN),
     trinton.attachment_command(
         attachments=[abjad.LilyPondLiteral(r"\voiceTwo", site="before")],
         selector=trinton.select_leaves_by_index([0]),
+    ),
+    library.manual_beam_positions(positions=(-12, -12)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Rest.staff-position = #-5", site="before"
+            )
+        ],
+        selector=trinton.logical_ties(first=True, pitched=False),
+    ),
+    trinton.ottava_command(
+        octave=1, selector=trinton.select_leaves_by_index([0, -1], pitched=True)
     ),
     voice=score["piano 1 voice temp"],
 )
@@ -300,15 +345,92 @@ for tuplet in piano_septuplets:
     abjad.attach(abjad.StartBeam(), tuplet_pleaves[0])
     abjad.attach(abjad.StopBeam(), tuplet_pleaves[-1])
 #
-# trinton.make_music(
-#     lambda _: trinton.select_target(_, (4, 12)),
-#     trinton.octavation(octave=2, selector=trinton.pleaves()),
-#     trinton.ottava_command(
-#         octave=2, selector=trinton.select_leaves_by_index([0, -1], pitched=True)
-#     ),
-#     trinton.vertical_accidentals(selector=trinton.pleaves(), direction=abjad.UP),
-#     voice=score["piano polyrhythm voice"],
-# )
+trinton.make_music(
+    lambda _: trinton.select_target(_, (4, 12)),
+    trinton.octavation(octave=2, selector=trinton.pleaves()),
+    # trinton.annotate_leaves_locally(selector=trinton.pleaves()),
+    trinton.octavation(
+        octave=1,
+        selector=trinton.select_leaves_by_index(
+            [
+                2,
+                17,
+                27,
+                30,
+                35,
+                44,
+            ],
+            pitched=True,
+        ),
+    ),
+    trinton.octavation(
+        octave=-1,
+        selector=trinton.select_leaves_by_index(
+            [
+                6,
+                5,
+            ],
+            pitched=True,
+        ),
+    ),
+    trinton.vertical_accidentals(selector=trinton.pleaves(), direction=abjad.UP),
+    library.manual_beam_positions(positions=(12, 12)),
+    trinton.attachment_command(
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\once \override Rest.staff-position = #13", site="before"
+            )
+        ],
+        selector=trinton.logical_ties(first=True, pitched=False),
+    ),
+    # trinton.annotate_leaves_locally(),
+    trinton.linear_attachment_command(
+        attachments=cycle(
+            [abjad.Dynamic("ppp"), abjad.StartHairpin("<|"), abjad.Dynamic("mp")]
+        ),
+        selector=trinton.select_leaves_by_index(
+            [
+                2,
+                2,
+                7,
+                8,
+                8,
+                13,
+                14,
+                14,
+                20,
+                22,
+                22,
+                27,
+                28,
+                28,
+                33,
+                35,
+                35,
+                41,
+                43,
+                43,
+                48,
+                49,
+                49,
+                54,
+                55,
+                55,
+                57,
+                58,
+                58,
+                63,
+                64,
+                64,
+                67,
+                68,
+                68,
+                73,
+            ]
+        ),
+    ),
+    voice=score["piano polyrhythm voice"],
+)
 
 # piano lh music
 
@@ -402,7 +524,11 @@ trinton.make_music(
         selector=trinton.select_leaves_by_index([0], pitched=True),
     ),
     trinton.attachment_command(
-        attachments=[abjad.Articulation("tenuto"), abjad.StartPianoPedal()],
+        attachments=[
+            abjad.Dynamic("mf"),
+            abjad.Articulation("tenuto"),
+            abjad.StartPianoPedal(),
+        ],
         selector=trinton.logical_ties(
             exclude=[6, 7, 8, 10, 11, 12], first=True, pitched=True, grace=False
         ),
@@ -448,6 +574,12 @@ trinton.make_music(
     ),
     trinton.attachment_command(
         attachments=[abjad.StopPianoPedal()], selector=trinton.pleaves(grace=True)
+    ),
+    trinton.attachment_command(
+        attachments=[abjad.Dynamic("mp"), abjad.StartHairpin("<")],
+        selector=trinton.select_logical_ties_by_index(
+            [6, 10], first=True, pitched=True, grace=False
+        ),
     ),
     voice=score["piano 2 voice"],
 )
