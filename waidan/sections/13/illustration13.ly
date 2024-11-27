@@ -778,9 +778,12 @@
                     {
                         \once \override Accidental.stencil = ##f
                         \once \override NoteHead.no-ledgers = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Accidental.stencil = ##f
                         \revert Dots.staff-position
                         \once \override NoteHead.transparent = ##t
-                        \once \override Flag.stroke-style = #"grace"
                           %! abjad.glissando(6)
                         \revert Accidental.stencil
                           %! abjad.glissando(6)
@@ -790,22 +793,578 @@
                           %! abjad.glissando(6)
                         \undo \hide NoteHead
                         a''16
-                        :128
                         \fff
                         \stopTextSpanOne
                         \stopTextSpanTwo
                     }
-                    r4
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
-                    \once \revert Staff.StaffSymbol.line-positions
-                    s1 * 1/2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    g''32.
+                    - \bendAfter #'-6
+                    - \tweak Beam.positions #'(-8 . -8)
+                    [
+                    - \tweak padding #6
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { \upright { "" } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \upright { "135°" }
+                    - \tweak bound-details.right.padding 1
+                    \startTextSpanTwo
+                    - \tweak padding #8.5
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { spz. } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -2
+                    \startTextSpanOne
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    e''32.
+                    - \bendAfter #'-6
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    d''32.
+                    - \bendAfter #'-6
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    g''32.
+                    - \bendAfter #'-6
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    e''32.
+                    - \bendAfter #'-6
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \set stemLeftBeamCount = 4
+                    \set stemRightBeamCount = 1
+                    \once \override NoteHead.transparent = ##t
+                    d''64
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \set stemLeftBeamCount = 1
+                    \set stemRightBeamCount = 3
+                    \once \override NoteHead.transparent = ##t
+                    d''32
+                    - \bendAfter #'-6
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    g''32.
+                    - \bendAfter #'-6
+                    \>
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    e''32.
+                    - \bendAfter #'-6
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    d''32.
+                    - \bendAfter #'-6
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    g''32.
+                    - \bendAfter #'-6
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
+                    ]
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    \once \override Glissando.style = #'zigzag
+                    e''32
+                    :256
+                    \mf
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak padding #6
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { \upright { "45°" } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \upright { "100°" }
+                    - \tweak bound-details.right.padding 3
+                    \startTextSpanTwo
+                    - \tweak padding #8.5
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { 1/2 spz. } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { spz. }
+                    - \tweak bound-details.right.padding 2.5
+                    \startTextSpanOne
+                    \<
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    e''16.
+                    :128
+                    ~
+                    \times 2/3
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        \afterGrace
+                        e''16
+                        :128
+                        {
+                            \once \override Stem.stencil = ##f
+                            \once \override Flag.stencil = ##f
+                            \once \override NoteHead.no-ledgers = ##t
+                            \once \override Accidental.stencil = ##f
+                            \revert Dots.staff-position
+                            \once \override NoteHead.transparent = ##t
+                              %! abjad.glissando(6)
+                            \revert Accidental.stencil
+                              %! abjad.glissando(6)
+                            \revert NoteColumn.glissando-skip
+                              %! abjad.glissando(6)
+                            \revert NoteHead.no-ledgers
+                              %! abjad.glissando(6)
+                            \undo \hide NoteHead
+                            e''16
+                            \stopTextSpanOne
+                            \stopTextSpanTwo
+                        }
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                        \ff
+                        [
+                        - \tweak padding #6
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \upright { "135°" } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -3
+                        \startTextSpanTwo
+                        - \tweak padding #8.5
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { 3/4 spz. } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -3
+                        \startTextSpanOne
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 2
+                        \set stemRightBeamCount = 1
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                    }
+                    \times 2/3
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 2
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 2
+                        \set stemRightBeamCount = 1
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                    }
+                    \times 2/3
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 2
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                        - \bendAfter #'1.5
+                        \stopTextSpanOne
+                        \stopTextSpanTwo
+                        ]
+                    }
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'32
+                    \mf
+                    [
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak padding #6
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { \upright { "" } \hspace #0.5 }
+                    - \tweak bound-details.right.padding 0.5
+                    \startTextSpanTwo
+                    - \tweak padding #8.5
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { "" } \hspace #0.5 }
+                    - \tweak bound-details.right.padding 1
+                    \startTextSpanOne
+                    \<
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    b'32
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \set stemLeftBeamCount = 2
+                    \set stemRightBeamCount = 1
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(6)
+                    \revert Accidental.stencil
+                      %! abjad.glissando(6)
+                    \revert NoteColumn.glissando-skip
+                      %! abjad.glissando(6)
+                    \revert NoteHead.no-ledgers
+                      %! abjad.glissando(6)
+                    \undo \hide NoteHead
+                    d''16.
+                    \f
+                    \stopTextSpanTwo
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \>
+                    - \tweak padding #6
+                    - \abjad-solid-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { \upright { "45°" } \hspace #0.5 }
+                    - \tweak bound-details.right.padding 0.5
+                    \startTextSpanTwo
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \set stemLeftBeamCount = 1
+                    \set stemRightBeamCount = 3
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    d''32
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(6)
+                    \revert Accidental.stencil
+                      %! abjad.glissando(6)
+                    \revert NoteColumn.glissando-skip
+                      %! abjad.glissando(6)
+                    \revert NoteHead.no-ledgers
+                      %! abjad.glissando(6)
+                    \undo \hide NoteHead
+                    a'32
+                    \fff
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    \once \override Glissando.style = #'zigzag
+                    \afterGrace
+                    e''16
+                    :128
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
+                    ]
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak padding #6
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \upright { "90°" } \hspace #0.5 }
+                    \startTextSpanTwo
+                    - \tweak padding #8.5
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { spz. } \hspace #0.5 }
+                    \startTextSpanOne
+                    {
+                        \once \override Stem.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Accidental.stencil = ##f
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                        e''16
+                        \stopTextSpanOne
+                        \stopTextSpanTwo
+                    }
+                    \revert NoteHead.X-extent
+                    \revert NoteHead.transparent
+                    \revert NoteHead.no-ledgers
+                    \revert Stem.X-offset
+                    \revert NoteHead.X-offset
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 4
+                    \override Staff.Clef.stencil = #ly:text-interface::print
+                    \override Staff.Clef.text = \stringing-clef
+                    \set Staff.forceClef = ##t
+                    \revert Staff.StaffSymbol.line-positions
+                    \clef "treble"
+                    a'16
+                    [
+                    a'16
+                    a'16
+                    f'8
+                    ]
+                    a'16
+                    [
+                    a'16
+                    a'16
+                    f'8
+                    ]
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \override NoteHead.X-extent = #'(0 . 0)
+                    \override NoteHead.transparent = ##t
+                    \override NoteHead.no-ledgers = ##t
+                    \override Stem.X-offset = 1.6
+                    \override NoteHead.X-offset = 1.6
+                    \override Staff.NoteHead.no-ledgers = ##t\staff-line-count 5
+                    \override Staff.Clef.stencil = #ly:text-interface::print
+                    \override Staff.Clef.text = \string-clef
+                    \set Staff.forceClef = ##t
+                    \override Staff.StaffSymbol.line-positions = #'(7 4 6 0 -7)
+                    \once \override NoteHead.transparent = ##t
+                    \clef "treble"
+                    \afterGrace
+                    g''8.
+                    [
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Accidental.stencil = ##f
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                        f''16
+                    }
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    g''8.
+                    ]
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    g''16
+                    {
+                        \override Dots.staff-position = #2
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Accidental.stencil = ##f
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        f''16
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                    }
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 8/7
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        c'64
+                        [
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        d'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        g'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        e'32
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 3
+                        \set stemRightBeamCount = 1
+                        \once \override NoteHead.transparent = ##t
+                        g'32
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                    }
+                    \times 4/5
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 4
+                        \once \override NoteHead.transparent = ##t
+                        c'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        d'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        g'32.
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        e'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        g'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        f'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        a'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 4
+                        \set stemRightBeamCount = 1
+                        \once \override NoteHead.transparent = ##t
+                        g'64
+                        - \abjad-zero-padding-glissando
+                        \glissando
+                    }
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \set stemLeftBeamCount = 1
+                    \set stemRightBeamCount = 4
+                    \once \override NoteHead.transparent = ##t
+                    b'32
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    a'32
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    c''32
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \override Dots.staff-position = #2
+                    \once \override NoteHead.transparent = ##t
+                    \afterGrace
+                    e''16.
+                    ]
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override Accidental.stencil = ##f
+                        \revert Dots.staff-position
+                        \once \override NoteHead.transparent = ##t
+                        c''16
+                    }
                     \once \revert Staff.StaffSymbol.line-positions
                     s1 * 1
                     \once \revert Staff.StaffSymbol.line-positions

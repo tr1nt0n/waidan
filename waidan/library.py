@@ -154,6 +154,9 @@ def change_viola_staff(
                     f"\override Staff.StaffSymbol.line-positions = #'{clef_line_positions}"
                 )
 
+            if clef_name == "stringing":
+                literal_strings.append(r"\revert Staff.StaffSymbol.line-positions")
+
             literal = abjad.LilyPondLiteral(
                 literal_strings,
                 site="before",
