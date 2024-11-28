@@ -69,6 +69,10 @@ bari_multiphonic_1 = r"\markup \override #'(size . .7) { \woodwind-diagram #'bar
 
 bari_multiphonic_2 = r"\markup \override #'(size . .7) { \woodwind-diagram #'baritone-saxophone #'((cc . (one two three four five)) (lh . ()) (rh . ())) }"
 
+bari_multiphonic_3 = r"\markup \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three five six)) (lh . (cis)) (rh . (low-c))) }"
+
+bari_multiphonic_4 = r"\markup \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three)) (lh . ()) (rh . ())) }"
+
 # notation tools
 
 

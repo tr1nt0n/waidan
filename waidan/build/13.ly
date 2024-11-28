@@ -72,6 +72,8 @@
             s1 * 1
             - \tweak padding #17.5
             ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #4 \box \line { ALL STAND }
+              %! +SCORE
+            \noBreak
             \once \override Score.BarLine.transparent = ##f
             \once \override MultiMeasureRest.transparent = ##t
             \once \override Score.TimeSignature.stencil = ##f
@@ -82,6 +84,8 @@
             _ \extremely-long-fermata
             - \tweak padding #10
             ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #4 \box \line { ALL SIT }
+              %! +SCORE
+            \noBreak
             \once \override Score.BarLine.transparent = ##f
             \once \override Score.BarLine.transparent = ##f
             \once \override MultiMeasureRest.transparent = ##t
@@ -355,6 +359,8 @@
                         \undo \hide NoteHead
                         a''16
                         \pp
+                        - \tweak padding #7
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Env ON }
                         \stopTextSpanOne
                         \stopTextSpanTwo
                         [
@@ -1458,14 +1464,771 @@
                     s1 * 5/8
                     s1 * 5/8
                     s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1/2
-                    s1 * 1
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 8/7
+                    {
+                        r32.
+                        \staff-line-count 1
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \override Dots.staff-position = #-2
+                        \once \override NoteHead.transparent = ##t
+                        \clef "treble"
+                        b'16
+                        - \tweak padding #12
+                        ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Env ON }
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . 0) (1.0 . -7))
+                        - \tweak padding #8.5
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three)) (lh . ()) (rh . ())) } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -4.5
+                        \startTextSpanOne
+                        ~
+                    }
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'8
+                    ~
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 8/7
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopTextSpanOne
+                        [
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'32.
+                        \stopBowSpan
+                        ]
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -6) (0.01818181818181818 . -4) (0.03636363636363636 . -7) (0.05454545454545454 . -5) (0.09090909090909091 . -8) (0.1090909090909091 . -5) (0.1272727272727273 . -7) (0.14545454545454548 . -6) (0.18181818181818182 . -8) (0.2181818181818182 . -7) (0.2363636363636364 . -8) (0.2545454545454546 . -3) (0.27272727272727276 . -5) (0.29090909090909095 . -4) (0.3454545454545455 . -6) (0.3636363636363637 . -5) (0.4000000000000001 . -7) (0.43636363636363645 . -6) (0.45454545454545464 . -8) (0.47272727272727283 . -2) (0.490909090909091 . -7) (0.5090909090909091 . -4) (0.5272727272727273 . -5) (0.5454545454545455 . -3) (0.5818181818181819 . -8) (0.6000000000000001 . -5) (0.6363636363636365 . -8) (0.6545454545454547 . -6) (0.690909090909091 . -7) (0.7454545454545456 . -3) (0.7636363636363638 . -8) (0.781818181818182 . -3) (0.8363636363636365 . -5) (0.8545454545454547 . -2) (0.8727272727272729 . -6) (0.8909090909090911 . -5) (0.9090909090909093 . -7) (0.9454545454545457 . -6) (0.9636363636363638 . -8) (0.981818181818182 . -2) (1.0000000000000002 . 0))
+                        - \tweak padding #10.5
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three five six)) (lh . (cis)) (rh . (low-c))) } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -0.5
+                        \startTextSpanOne
+                        ~
+                    }
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'8
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'4
+                    ~
+                    \times 4/6
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \stopTextSpanOne
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        [
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        - \tweak padding #10
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three)) (lh . ()) (rh . ())) } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -0.5
+                        \startTextSpanOne
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 3
+                        \set stemRightBeamCount = 1
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        ~
+                    }
+                    \times 4/6
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 3
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        \stopTextSpanOne
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        - \tweak padding #10.5
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three five six)) (lh . (cis)) (rh . (low-c))) } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -3
+                        \startTextSpanOne
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 3
+                        \set stemRightBeamCount = 1
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        ~
+                    }
+                    \times 4/6
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 3
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 3
+                        \set stemRightBeamCount = 1
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        ~
+                    }
+                    \times 4/6
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \set stemLeftBeamCount = 1
+                        \set stemRightBeamCount = 3
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'32
+                        \stopBowSpan
+                        \stopTextSpanOne
+                        ]
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -7) (0.4 . -3) (1.0 . 0))
+                    }
+                    r32
+                    \stopBowSpan
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'16.
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . -2) (0.02631578947368421 . -1) (0.05263157894736842 . -3) (0.07894736842105263 . -2) (0.13157894736842105 . -5) (0.15789473684210525 . -4) (0.18421052631578946 . -5) (0.21052631578947367 . -3) (0.2631578947368421 . -7) (0.3157894736842105 . -1) (0.3421052631578947 . -3) (0.36842105263157887 . -2) (0.39473684210526305 . -4) (0.42105263157894723 . -3) (0.4999999999999999 . -5) (0.5263157894736841 . -4) (0.5789473684210524 . -6) (0.6315789473684208 . -5) (0.657894736842105 . -7) (0.6842105263157892 . -3) (0.7105263157894733 . -5) (0.7368421052631575 . -2) (0.7631578947368417 . -6) (0.7894736842105259 . -5) (0.8421052631578942 . -7) (0.8684210526315784 . -6) (0.9210526315789469 . -8) (0.9473684210526311 . -2) (0.9999999999999996 . 0))
+                    - \tweak padding #8.5
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three)) (lh . ()) (rh . ())) } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -4.5
+                    \startTextSpanOne
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'16
+                    \stopTextSpanOne
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'16
+                    \stopBowSpan
+                    [
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . 0) (0.9375 . -4) (1.0 . -5))
+                    - \tweak padding #11
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three five six)) (lh . (cis)) (rh . (low-c))) } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -4
+                    \startTextSpanOne
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \set stemLeftBeamCount = 1
+                    \set stemRightBeamCount = 2
+                    \once \override NoteHead.transparent = ##t
+                    b'16
+                    \stopBowSpan
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . 0) (0.9375 . -4) (1.0 . -5))
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'16
+                    \stopBowSpan
+                    \stopTextSpanOne
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . 0) (0.9375 . -4) (1.0 . -5))
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'16
+                    \stopBowSpan
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . 0) (0.9375 . -4) (1.0 . -5))
+                    - \tweak padding #9
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three)) (lh . ()) (rh . ())) } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -6
+                    \startTextSpanOne
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'16
+                    \stopBowSpan
+                    ]
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . 0) (0.9375 . -4) (1.0 . -5))
+                    \times 4/5
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'8
+                        \stopBowSpan
+                        \stopTextSpanOne
+                        [
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . 0) (1.0 . -3))
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'8
+                        \stopBowSpan
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . -3) (1.0 . 0))
+                        - \tweak padding #7.5
+                        - \abjad-dashed-line-with-hook
+                        - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three five six)) (lh . (cis)) (rh . (low-c))) } \hspace #0.5 }
+                        - \tweak bound-details.right.padding -11
+                        \startTextSpanOne
+                        \once \override Accidental.stencil = ##f
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                        b'16
+                        \stopBowSpan
+                        \stopTextSpanOne
+                        ]
+                        - \tweak Y-extent ##f
+                        - \tweak Y-offset 0
+                        - \tweak padding 2
+                        \startBowSpan #'((0 . 0) (0.04 . -7) (0.08 . -8) (0.12 . -6) (0.16 . -7) (0.2 . -6) (0.24000000000000002 . -8) (0.28 . -6) (0.36000000000000004 . -7) (0.44000000000000006 . -6) (0.48000000000000004 . -8) (0.52 . -7) (0.6 . -8) (0.64 . -7) (0.72 . -8) (0.76 . -7) (0.84 . -8) (0.9199999999999999 . -7) (0.96 . -8) (1.0 . 0))
+                    }
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r16
+                    \stopBowSpan
+                    \fancy-gliss
+                       #'(
+                          (0 0 0.5 2 1 0)
+                          (1 0 1.5 -2 2 0)
+                          (2 0 2.5 2 3 0)
+                          (3 0 3.5 -2 4 0)
+                          (4 0 4.5 2 5 0)
+                          (5 0 5.5 -2 6 0)
+                          (6 0 6.5 2 7 0)
+                          (7 0 7.5 -2 8 0)
+                          (8 0 8.5 2 9 0)
+                          (9 0 9.5 -2 10 0)
+                          (10 0 10.5 2 11 0)
+                          (11 0 11.5 -2 12 0)
+                          (12 0 12.5 2 13 0)
+                          (13 0 13.5 -2 14 0)
+                          (14 0 14.5 2 15 0)
+                          (15 0 15.5 -2 16 0)
+                          (16 0 16.5 2 17 0)
+                          (17 0 17.5 -2 18 0)
+                          (18 0 18.5 2 19 0)
+                          (19 0 19.5 -2 20 0)
+                          (20 0 20.5 2 21 0)
+                          (21 0 21.5 -2 22 0)
+                          (22 0 22.5 2 23 0)
+                          (23 0 23.5 -2 24 0)
+                          (24 0 24.5 2 25 0)
+                          (25 0 25.5 -2 26 0)
+                          (26 0 26.5 2 27 0)
+                          (27 0 27.5 -2 28 0)
+                          (28 0 28.5 2 29 0)
+                          (29 0 29.5 -2 30 0)
+                          (30 0 30.5 2 31 0)
+                          (31 0 31.5 -2 32 0)
+                          (32 0 32.5 2 33 0)
+                          (33 0 33.5 -2 34 0)
+                          (34 0 34.5 2 35 0)
+                          (35 0 35.5 -2 36 0)
+                          (36 0 36.5 2 37 0)
+                          (37 0 37.5 -2 38 0)
+                          (38 0 38.5 2 39 0)
+                          (39 0 39.5 -2 40 0)
+                          (40 0 40.5 2 41 0)
+                          (41 0 41.5 -2 42 0)
+                          (42 0 42.5 2 43 0)
+                          (43 0 43.5 -2 44 0)
+                          (44 0 44.5 2 45 0)
+                          (45 0 45.5 -2 46 0)
+                          (46 0 46.5 2 47 0)
+                          (47 0 47.5 -2 48 0)
+                          (48 0 48.5 2 49 0)
+                          (49 0 49.5 -2 50 0)
+                          (50 0 50.5 2 51 0)
+                          (51 0 51.5 -2 52 0)
+                          (52 0 52.5 2 53 0)
+                          (53 0 53.5 -2 54 0)
+                          (54 0 54.5 2 55 0)
+                          (55 0 55.5 -2 56 0)
+                          (56 0 56.5 2 57 0)
+                          (57 0 57.5 -2 58 0)
+                          (58 0 58.5 2 59 0)
+                          (59 0 59.5 -2 60 0)
+                          (60 0 60.5 2 61 0)
+                          (61 0 61.5 -2 62 0)
+                          (62 0 62.5 2 63 0)
+                          (63 0 63.5 -2 64 0)
+                          (64 0 64.5 2 65 0)
+                          (65 0 65.5 -2 66 0)
+                          (66 0 66.5 2 67 0)
+                          (67 0 67.5 -2 68 0)
+                          (68 0 68.5 2 69 0)
+                          (69 0 69.5 -2 70 0)
+                          (70 0 70.5 2 71 0)
+                          (71 0 71.5 -2 72 0)
+                          (72 0 72.5 2 73 0)
+                          (73 0 73.5 -2 74 0)
+                          (74 0 74.5 2 75 0)
+                          (75 0 75.5 -2 76 0)
+                          (76 0 76.5 2 77 0)
+                          (77 0 77.5 -2 78 0)
+                          (78 0 78.5 2 79 0)
+                          (79 0 79.5 -2 80 0)
+                          (80 0 80.5 2 81 0)
+                          (81 0 81.5 -2 82 0)
+                          (82 0 82.5 2 83 0)
+                          (83 0 83.5 -2 84 0)
+                     )
+                     #0.5
+                    \once \override Dots.staff-position = #2
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.no-ledgers = ##t
+                    e'''8..
+                      %! abjad.glissando(7)
+                    - \abjad-zero-padding-glissando
+                      %! abjad.glissando(7)
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \<
+                    - \tweak padding #7.5
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { teeth on reed } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -0.5
+                    \startTextSpanOne
+                    \once \override Dots.staff-position = #2
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.no-ledgers = ##t
+                      %! abjad.glissando(1)
+                    \hide NoteHead
+                      %! abjad.glissando(1)
+                    \override Accidental.stencil = ##f
+                      %! abjad.glissando(1)
+                    \override NoteColumn.glissando-skip = ##t
+                      %! abjad.glissando(1)
+                    \override NoteHead.no-ledgers = ##t
+                    \afterGrace
+                    e'''8..
+                    \f
+                    - \tweak circled-tip ##t
+                    \>
+                    {
+                        \once \override Accidental.stencil = ##f
+                        \once \override Dots.staff-position = #2
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override RepeatTie.transparent = ##t
+                        \once \override Stem.stencil = ##f
+                        \once \override Beam.stencil = ##f
+                        \once \override Flag.stencil = ##f
+                        \once \override Dots.stencil = ##f
+                        \once \override Tie.stencil = ##f
+                        \once \override NoteHead.duration-log = 2
+                        \once \override NoteHead.no-ledgers = ##t
+                        \once \override NoteHead.transparent = ##t
+                          %! abjad.glissando(6)
+                        \revert Accidental.stencil
+                          %! abjad.glissando(6)
+                        \revert NoteColumn.glissando-skip
+                          %! abjad.glissando(6)
+                        \revert NoteHead.no-ledgers
+                          %! abjad.glissando(6)
+                        \undo \hide NoteHead
+                        e'''16
+                        \!
+                        \stopTextSpanOne
+                    }
+                    r8
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    \override Staff.Stem.stemlet-length = 0.75
+                    b'8.
+                    [
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . -8) (0.9090909090909091 . -6) (1.0 . 0))
+                    - \tweak padding #11
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(size . .6) { \woodwind-diagram #'baritone-saxophone #'((cc . (two three five six)) (lh . (cis)) (rh . (low-c))) } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -14
+                    \startTextSpanOne
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    \revert Staff.Stem.stemlet-length
+                    b'8.
+                    \stopBowSpan
+                    ]
+                    - \tweak Y-extent ##f
+                    - \tweak Y-offset 0
+                    - \tweak padding 2
+                    \startBowSpan #'((0 . -8) (0.9090909090909091 . -6) (1.0 . 0))
+                    ~
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    b'16
+                    \stopTextSpanOne
+                    r4..
+                    \!
+                    ^ \markup \override #'(font-name . "Bodoni72 Book italic") \fontsize #2 { "Soprano" } 
+                    \stopBowSpan
+                    \override Dots.staff-position = #2
+                    \staff-line-count 5
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \override NoteHead.X-extent = #'(0 . 0)
+                    \override NoteHead.transparent = ##t
+                    \override NoteHead.no-ledgers = ##t
+                    \once \override NoteHead.transparent = ##t
+                    \clef "treble"
+                    b'''32
+                    \mp
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak padding #9
+                    - \abjad-dashed-line-with-hook
+                    - \tweak bound-details.left.text \markup \concat { \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #-1 \box \line { trumpet embouchure } \hspace #0.5 }
+                    - \tweak bound-details.right.padding -1
+                    \startTextSpan
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \revert Dots.staff-position
+                    \once \override NoteHead.transparent = ##t
+                    c'''32
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r32
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    d'''16
+                    \mp
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \>
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \revert Dots.staff-position
+                    \once \override NoteHead.transparent = ##t
+                    f'32
+                    \!
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r8
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    d''16
+                    \pp
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \>
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \revert Dots.staff-position
+                    \once \override NoteHead.transparent = ##t
+                    f'32
+                    \!
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r32
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    a'16.
+                    \mf
+                    - \tweak padding #9
+                    ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak stencil #constante-hairpin
+                    \<
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \revert Dots.staff-position
+                    \once \override NoteHead.transparent = ##t
+                    b'''32
+                    \!
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r8
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    c'''16
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    - \tweak circled-tip ##t
+                    \<
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    d'''32
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \revert Dots.staff-position
+                    \once \override NoteHead.transparent = ##t
+                    f'32
+                    \mp
+                    \once \override Dots.transparent = ##t
+                    \once \override Rest.transparent = ##t
+                    r8
+                    \override Dots.staff-position = #2
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \once \override NoteHead.transparent = ##t
+                    d''32
+                    \ppp
+                    - \abjad-zero-padding-glissando
+                    \glissando
+                    \once \override Accidental.stencil = ##f
+                    \once \override NoteHead.no-ledgers = ##t
+                    \once \override RepeatTie.transparent = ##t
+                    \once \override Stem.stencil = ##f
+                    \once \override Beam.stencil = ##f
+                    \once \override Flag.stencil = ##f
+                    \once \override Dots.stencil = ##f
+                    \once \override Tie.stencil = ##f
+                    \once \override NoteHead.duration-log = 2
+                    \revert Dots.staff-position
+                    \once \override NoteHead.transparent = ##t
+                    f'32
+                    \stopTextSpan
+                    \revert NoteHead.X-extent
+                    \revert NoteHead.transparent
+                    \revert NoteHead.no-ledgers
                     s1 * 1/8
                     \once \override MultiMeasureRest.transparent = ##t
                     \once \override Rest.transparent = ##t
@@ -4120,6 +4883,8 @@
                         \once \override Rest.transparent = ##t
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         s1 * 1/8
+                        - \tweak X-extent ##f
+                        _ \markup \fontsize #4 { \right-column \override #'(font-name . "Bodoni72 Book Italic") { \line { "July 2024 - June 2025" } \line { "Leipzig - Dresden" } \line { "Luxembourg - Cape Carteret NC" } } }
                     }
                 }
                 \context Staff = "piano 2 staff"
