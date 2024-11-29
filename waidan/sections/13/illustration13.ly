@@ -40,6 +40,7 @@
                       \abjad-metronome-mark-markup #3 #0 #2 #" 54 " 
                   }
                 }
+            ^ \markup \fontsize #6 { \hspace #29 \override #'(font-name . "Bodoni72 Book Italic") \raise #23.5 \with-dimensions-from \null { \center-column { \line { " \"Je n'ai plus peur de perdre mon temps." } \line { " \"Je n'ai plus peur de perdre mes dents.\" " } } } }
               %! +SCORE
             \noBreak
             \once \override Score.TimeSignature.stencil = ##f
@@ -47,7 +48,6 @@
             s1 * 5/8
             - \tweak padding #12
             ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Tape IV ON }
-            ^ \markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #17.5 \with-dimensions-from \null { " \"it's never just a shape alone\" " } }
             \time 4/8
             s1 * 1/2
               %! +SCORE

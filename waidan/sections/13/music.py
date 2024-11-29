@@ -3931,6 +3931,9 @@ trinton.make_music(
                     right_rhythm=abjad.Note("c'8"),
                 ),
             ),
+            abjad.Markup(
+                r"""\markup \fontsize #6 { \hspace #29 \override #'(font-name . "Bodoni72 Book Italic") \raise #23.5 \with-dimensions-from \null { \center-column { \line { " \"Je n'ai plus peur de perdre mon temps." } \line { " \"Je n'ai plus peur de perdre mes dents.\" " } } } }"""
+            ),
         ],
         selector=trinton.select_leaves_by_index([0]),
         direction=abjad.UP,
@@ -3942,9 +3945,6 @@ trinton.make_music(
     lambda _: trinton.select_target(_, (3,)),
     trinton.attachment_command(
         attachments=[
-            abjad.Markup(
-                r"""\markup \fontsize #6 { \override #'(font-name . "Bodoni72 Book Italic") \raise #17.5 \with-dimensions-from \null { " \"it's never just a shape alone\" " } }"""
-            ),
             abjad.bundle(
                 trinton.boxed_markup(
                     string="Tape IV ON",
