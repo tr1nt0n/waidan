@@ -67,7 +67,7 @@
                 {
                     \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                       %! +SCORE
-                    \set Staff.instrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
+                    \set Staff.shortInstrumentName = \markup \fontsize #2 \override #'(font-name . "Bodoni72 Book Italic") { Conductor }
                     s1 * 2
                     s1 * 3/4
                     s1 * 9/8
@@ -150,6 +150,7 @@
                     \override Staff.Clef.stencil = #ly:text-interface::print
                     \override Staff.Clef.text = \stringing-clef
                     \set Staff.forceClef = ##t
+                    \revert Staff.StaffSymbol.line-positions
                     \clef "treble"
                     \afterGrace
                     <a' c''>2
@@ -318,13 +319,13 @@
                             a,16
                             b,16
                             e16
+                            \set stemLeftBeamCount = 2
+                            \set stemRightBeamCount = 1
                             c16
                         }
-                        \set stemLeftBeamCount = 2
-                        \set stemRightBeamCount = 1
-                        e32
                         \set stemLeftBeamCount = 1
                         \set stemRightBeamCount = 3
+                        e32
                         c32
                         \<
                         f32
