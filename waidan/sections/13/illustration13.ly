@@ -3542,7 +3542,7 @@
                         \startTrillSpan e'''
                         af''16
                         r16
-                        \mf
+                        \!
                         \stopTrillSpan
                         r4
                         r16
@@ -3555,7 +3555,7 @@
                         \startTrillSpan b''
                         a''8
                         r16
-                        \mf
+                        \!
                         \stopTrillSpan
                         \override Staff.Stem.stemlet-length = 0.75
                         \pitchedTrill
@@ -3570,7 +3570,7 @@
                         a''8.
                         ]
                         r16
-                        \mf
+                        \!
                         \stopTrillSpan
                         r8
                         \pitchedTrill
@@ -3580,7 +3580,7 @@
                         \>
                         \startTrillSpan d'''
                         r8
-                        \mf
+                        \!
                         \stopTrillSpan
                         \pitchedTrill
                         b''4
@@ -3589,7 +3589,7 @@
                         \>
                         \startTrillSpan cs'''
                         r16
-                        \mf
+                        \!
                         \stopTrillSpan
                         \pitchedTrill
                         fs'''8.
@@ -3600,7 +3600,7 @@
                         \startTrillSpan a'''
                         fs'''16
                         r4..
-                        \mf
+                        \!
                         \stopTrillSpan
                         r8
                         \stopTrillSpan

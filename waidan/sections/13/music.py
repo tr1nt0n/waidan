@@ -3070,7 +3070,7 @@ trinton.make_music(
     # trinton.annotate_leaves_locally(selector=trinton.logical_ties(first=True)),
     trinton.linear_attachment_command(
         attachments=cycle(
-            [abjad.Dynamic("mp"), abjad.StartHairpin(">o"), abjad.Dynamic("mf")]
+            [abjad.Dynamic("mp"), abjad.StartHairpin(">o"), abjad.StopHairpin()]
         ),
         selector=trinton.select_logical_ties_by_index(
             [

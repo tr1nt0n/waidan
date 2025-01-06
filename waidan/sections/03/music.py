@@ -331,7 +331,7 @@ trinton.make_music(
             abjad.BeamCount(left=3, right=1),
             abjad.BeamCount(left=1, right=3),
         ],
-        selector=trinton.select_leaves_by_index([18, 19 , 26, 27]),
+        selector=trinton.select_leaves_by_index([18, 19, 26, 27]),
     ),
     trinton.linear_attachment_command(
         attachments=[
