@@ -5,6 +5,8 @@ __pycache__/
 *.midi
 *.wav
 *.aiff
+*.aup3
+*.m4a
 *.mp3
 *.logicx
 *.aif
