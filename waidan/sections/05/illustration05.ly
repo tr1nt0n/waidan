@@ -1395,6 +1395,7 @@
                     \override Staff.Clef.stencil = #ly:text-interface::print
                     \override Staff.Clef.text = \stringing-clef
                     \set Staff.forceClef = ##t
+                    \revert Staff.StaffSymbol.line-positions
                     \clef "treble"
                     \afterGrace
                     <a' c''>4
@@ -2258,11 +2259,11 @@
                             \clef "bass"
                             <
                                 \tweak style #'la
-                                c,,
+                                c'
                                 \tweak style #'la
-                                d,,
+                                d'
                                 \tweak style #'la
-                                e,,
+                                e'
                             >16
                             \pp
                             - \tweak padding #6.5
@@ -2279,11 +2280,11 @@
                         \once \override Staff.Glissando.thickness = #8.25
                         <
                             \tweak style #'la
-                            c,,
+                            a
                             \tweak style #'la
-                            d,,
+                            b
                             \tweak style #'la
-                            e,,
+                            c'
                         >16
                         \p
                         \>
@@ -2294,11 +2295,11 @@
                             \once \override Staff.Glissando.thickness = #8.25
                             <
                                 \tweak style #'la
-                                c,,
+                                f
                                 \tweak style #'la
-                                d,,
+                                g
                                 \tweak style #'la
-                                e,,
+                                a
                             >16
                             [
                             r8
@@ -2307,11 +2308,11 @@
                             \once \override Staff.Glissando.thickness = #8.25
                             <
                                 \tweak style #'la
-                                c,,
+                                d
                                 \tweak style #'la
-                                d,,
+                                e
                                 \tweak style #'la
-                                e,,
+                                f
                             >16
                             \ppp
                             ]
@@ -2323,11 +2324,11 @@
                         \once \override Staff.Glissando.thickness = #8.25
                         <
                             \tweak style #'la
-                            c,,
+                            b,
                             \tweak style #'la
-                            d,,
+                            c
                             \tweak style #'la
-                            e,,
+                            d
                         >32
                         \p
                         r8..
@@ -2338,11 +2339,11 @@
                         \once \override Staff.Glissando.thickness = #8.25
                         <
                             \tweak style #'la
-                            c,,
+                            g,
                             \tweak style #'la
-                            d,,
+                            a,
                             \tweak style #'la
-                            e,,
+                            b,
                         >32
                         \<
                         \tweak text #tuplet-number::calc-fraction-text
@@ -2353,11 +2354,11 @@
                             \once \override Staff.Glissando.thickness = #8.25
                             <
                                 \tweak style #'la
-                                c,,
+                                e,
                                 \tweak style #'la
-                                d,,
+                                f,
                                 \tweak style #'la
-                                e,,
+                                g,
                             >32
                             - \tweak padding #3
                             ^ \markup \override #'(font-name . " Bodoni72 Book ") \override #'(style . "box") \override #'(box-padding . 0.5) \whiteout \fontsize #0 \box \line { Gran ON }
@@ -2368,11 +2369,11 @@
                             \once \override Staff.Glissando.thickness = #8.25
                             <
                                 \tweak style #'la
-                                c,,
+                                c,
                                 \tweak style #'la
-                                d,,
+                                d,
                                 \tweak style #'la
-                                e,,
+                                e,
                             >32
                             \mf
                             ]
@@ -2386,11 +2387,11 @@
                             \once \override Staff.Glissando.thickness = #8.25
                             <
                                 \tweak style #'la
-                                c,,
+                                a,,
                                 \tweak style #'la
-                                d,,
+                                b,,
                                 \tweak style #'la
-                                e,,
+                                c,
                             >32
                             \f
                             r8..
@@ -2404,11 +2405,11 @@
                             \once \override Staff.Glissando.thickness = #8.25
                             <
                                 \tweak style #'la
-                                c,,
+                                f,,
                                 \tweak style #'la
-                                d,,
+                                g,,
                                 \tweak style #'la
-                                e,,
+                                a,,
                             >32
                             \>
                         }

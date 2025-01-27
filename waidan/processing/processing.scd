@@ -67,8 +67,8 @@ SynthDef.new(
 
 (
 w = Window.new("ENV", Rect.new(
-	Window.screenBounds.width/2-100,
-	Window.screenBounds.height/2-100,
+	Window.screenBounds.width/1.5-100,
+	Window.screenBounds.height/1.5-100,
 	200,
 	200,
 )
@@ -198,40 +198,337 @@ SynthDef.new(\gran, {
 ~granGrp = Group.after(~recGrp);
 )
 
-// after setup, toggle on
+// granulator display on
+
+// envelope follower display on
 
 (
-b.zero;
-Synth(\mic, [\in, 0, \out, ~micBus], ~micGrp);
-Synth(\ptr, [\buf, b, \out, ~ptrBus], ~ptrGrp);
-Synth(\rec, [\ptrIn, ~ptrBus, \micIn, ~micBus, \buf, b], ~recGrp);
-~g = 5.collect({
-	arg n;
-	Synth(\gran, [
-	\amp, 0.15,
-	\buf, b,
-	\out, 0,
-	\atk, 1,
-	\rel, 1,
-	\gate, 1,
-	\sync, 1,
-	\dens, exprand(2, 100),
-	\baseDr, 0.8,
-	\durRand, 100,
-	\rate, 1,
-	\rateRand, 9/8,
-	\pan, 0,
-	\panRand, 0,
-	\grainEnv, -1,
-	\ptrBus, ~ptrBus,
-	\ptrSampleDelay, n.linlin(0,4,20000,s.sampleRate*2),
-	\ptrRandSamples, 10000,
-	\minPtrDelay, 1000,
-], ~granGrp);
-});
+w = Window.new("GRAN", Rect.new(
+	Window.screenBounds.width/4-375,
+	Window.screenBounds.height/4-150,
+	750,
+	300,
 )
+)
+.front
+.alwaysOnTop_(true);
 
-// ~g.set(\gate, 0);
+~vlaButton = Button.new(w, Rect(
+	50,
+	50,
+	100,
+	100,
+))
+.states_([
+	["VLA OFF", Color.black, Color.gray(0.8)],
+	["VLA ON", Color.white, Color(0.2,0.75,0.95)]
+])
+.action_({
+	arg obj;
+	if(
+		obj.value == 1,
+		{
 
-// toggle off
-~g.do({ arg n; n.set(\gate, 0) });
+			b.zero;
+			Synth(\mic, [0, 0, \out, ~micBus], ~micGrp);
+			Synth(\ptr, [\buf, b, \out, ~ptrBus], ~ptrGrp);
+			Synth(\rec, [\ptrIn, ~ptrBus, \micIn, ~micBus, \buf, b], ~recGrp);
+			~vlaG = 5.collect({
+				arg n;
+				Synth(\gran, [
+					\amp, 0.15,
+					\buf, b,
+					\out, 0,
+					\atk, 1,
+					\rel, 1,
+					\gate, 1,
+					\sync, 1,
+					\dens, exprand(2, 100),
+					\baseDr, 0.8,
+					\durRand, 100,
+					\rate, 1,
+					\rateRand, 9/8,
+					\pan, 0,
+					\panRand, 0,
+					\grainEnv, -1,
+					\ptrBus, ~ptrBus,
+					\ptrSampleDelay, n.linlin(0,4,20000,s.sampleRate*2),
+					\ptrRandSamples, 10000,
+					\minPtrDelay, 1000,
+				], ~granGrp);
+			});
+
+		},
+		{
+			~vlaG.do({ arg n; n.set(\gate, 0) });
+		},
+	);
+}
+);
+
+~saxButton = Button.new(w, Rect(
+	150,
+	50,
+	100,
+	100,
+))
+.states_([
+	["SAX OFF", Color.black, Color.gray(0.8)],
+	["SAX ON", Color.white, Color(0.2,0.75,0.95)]
+])
+.action_({
+	arg obj;
+	if(
+		obj.value == 1,
+		{
+
+			b.zero;
+			Synth(\mic, [1, 0, \out, ~micBus], ~micGrp);
+			Synth(\ptr, [\buf, b, \out, ~ptrBus], ~ptrGrp);
+			Synth(\rec, [\ptrIn, ~ptrBus, \micIn, ~micBus, \buf, b], ~recGrp);
+			~saxG = 5.collect({
+				arg n;
+				Synth(\gran, [
+					\amp, 0.15,
+					\buf, b,
+					\out, 0,
+					\atk, 1,
+					\rel, 1,
+					\gate, 1,
+					\sync, 1,
+					\dens, exprand(2, 100),
+					\baseDr, 0.8,
+					\durRand, 100,
+					\rate, 1,
+					\rateRand, 9/8,
+					\pan, 0,
+					\panRand, 0,
+					\grainEnv, -1,
+					\ptrBus, ~ptrBus,
+					\ptrSampleDelay, n.linlin(0,4,20000,s.sampleRate*2),
+					\ptrRandSamples, 10000,
+					\minPtrDelay, 1000,
+				], ~granGrp);
+			});
+
+		},
+		{
+			~saxG.do({ arg n; n.set(\gate, 0) });
+		},
+	);
+}
+);
+
+~celloButton = Button.new(w, Rect(
+	250,
+	50,
+	100,
+	100,
+))
+.states_([
+	["CELLO OFF", Color.black, Color.gray(0.8)],
+	["CELLO ON", Color.white, Color(0.2,0.75,0.95)]
+])
+.action_({
+	arg obj;
+	if(
+		obj.value == 1,
+		{
+
+			b.zero;
+			Synth(\mic, [2, 0, \out, ~micBus], ~micGrp);
+			Synth(\ptr, [\buf, b, \out, ~ptrBus], ~ptrGrp);
+			Synth(\rec, [\ptrIn, ~ptrBus, \micIn, ~micBus, \buf, b], ~recGrp);
+			~celloG = 5.collect({
+				arg n;
+				Synth(\gran, [
+					\amp, 0.15,
+					\buf, b,
+					\out, 0,
+					\atk, 1,
+					\rel, 1,
+					\gate, 1,
+					\sync, 1,
+					\dens, exprand(2, 100),
+					\baseDr, 0.8,
+					\durRand, 100,
+					\rate, 1,
+					\rateRand, 9/8,
+					\pan, 0,
+					\panRand, 0,
+					\grainEnv, -1,
+					\ptrBus, ~ptrBus,
+					\ptrSampleDelay, n.linlin(0,4,20000,s.sampleRate*2),
+					\ptrRandSamples, 10000,
+					\minPtrDelay, 1000,
+				], ~granGrp);
+			});
+
+		},
+		{
+			~celloG.do({ arg n; n.set(\gate, 0) });
+		},
+	);
+}
+);
+
+~harpButton = Button.new(w, Rect(
+	350,
+	50,
+	100,
+	100,
+))
+.states_([
+	["HARP OFF", Color.black, Color.gray(0.8)],
+	["HARP ON", Color.white, Color(0.2,0.75,0.95)]
+])
+.action_({
+	arg obj;
+	if(
+		obj.value == 1,
+		{
+
+			b.zero;
+			Synth(\mic, [3, 0, \out, ~micBus], ~micGrp);
+			Synth(\ptr, [\buf, b, \out, ~ptrBus], ~ptrGrp);
+			Synth(\rec, [\ptrIn, ~ptrBus, \micIn, ~micBus, \buf, b], ~recGrp);
+			~harpG = 5.collect({
+				arg n;
+				Synth(\gran, [
+					\amp, 0.15,
+					\buf, b,
+					\out, 0,
+					\atk, 1,
+					\rel, 1,
+					\gate, 1,
+					\sync, 1,
+					\dens, exprand(2, 100),
+					\baseDr, 0.8,
+					\durRand, 100,
+					\rate, 1,
+					\rateRand, 9/8,
+					\pan, 0,
+					\panRand, 0,
+					\grainEnv, -1,
+					\ptrBus, ~ptrBus,
+					\ptrSampleDelay, n.linlin(0,4,20000,s.sampleRate*2),
+					\ptrRandSamples, 10000,
+					\minPtrDelay, 1000,
+				], ~granGrp);
+			});
+
+		},
+		{
+			~harpG.do({ arg n; n.set(\gate, 0) });
+		},
+	);
+}
+);
+
+~accordionButton = Button.new(w, Rect(
+	450,
+	50,
+	100,
+	100,
+))
+.states_([
+	["ACC OFF", Color.black, Color.gray(0.8)],
+	["ACC ON", Color.white, Color(0.2,0.75,0.95)]
+])
+.action_({
+	arg obj;
+	if(
+		obj.value == 1,
+		{
+
+			b.zero;
+			Synth(\mic, [4, 0, \out, ~micBus], ~micGrp);
+			Synth(\ptr, [\buf, b, \out, ~ptrBus], ~ptrGrp);
+			Synth(\rec, [\ptrIn, ~ptrBus, \micIn, ~micBus, \buf, b], ~recGrp);
+			~accG = 5.collect({
+				arg n;
+				Synth(\gran, [
+					\amp, 0.15,
+					\buf, b,
+					\out, 0,
+					\atk, 1,
+					\rel, 1,
+					\gate, 1,
+					\sync, 1,
+					\dens, exprand(2, 100),
+					\baseDr, 0.8,
+					\durRand, 100,
+					\rate, 1,
+					\rateRand, 9/8,
+					\pan, 0,
+					\panRand, 0,
+					\grainEnv, -1,
+					\ptrBus, ~ptrBus,
+					\ptrSampleDelay, n.linlin(0,4,20000,s.sampleRate*2),
+					\ptrRandSamples, 10000,
+					\minPtrDelay, 1000,
+				], ~granGrp);
+			});
+
+		},
+		{
+			~accG.do({ arg n; n.set(\gate, 0) });
+		},
+	);
+}
+);
+
+~pianoButton = Button.new(w, Rect(
+	550,
+	50,
+	100,
+	100,
+))
+.states_([
+	["PNO OFF", Color.black, Color.gray(0.8)],
+	["PNO ON", Color.white, Color(0.2,0.75,0.95)]
+])
+.action_({
+	arg obj;
+	if(
+		obj.value == 1,
+		{
+
+			b.zero;
+			Synth(\mic, [5, 0, \out, ~micBus], ~micGrp);
+			Synth(\ptr, [\buf, b, \out, ~ptrBus], ~ptrGrp);
+			Synth(\rec, [\ptrIn, ~ptrBus, \micIn, ~micBus, \buf, b], ~recGrp);
+			~pnoG = 5.collect({
+				arg n;
+				Synth(\gran, [
+					\amp, 0.15,
+					\buf, b,
+					\out, 0,
+					\atk, 1,
+					\rel, 1,
+					\gate, 1,
+					\sync, 1,
+					\dens, exprand(2, 100),
+					\baseDr, 0.8,
+					\durRand, 100,
+					\rate, 1,
+					\rateRand, 9/8,
+					\pan, 0,
+					\panRand, 0,
+					\grainEnv, -1,
+					\ptrBus, ~ptrBus,
+					\ptrSampleDelay, n.linlin(0,4,20000,s.sampleRate*2),
+					\ptrRandSamples, 10000,
+					\minPtrDelay, 1000,
+				], ~granGrp);
+			});
+
+		},
+		{
+			~pnoG.do({ arg n; n.set(\gate, 0) });
+		},
+	);
+}
+);
+
+)

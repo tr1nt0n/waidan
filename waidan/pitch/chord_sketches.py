@@ -260,11 +260,11 @@ trinton.make_music(
 # print(leaf_frequency)
 # print("")
 
-# trinton.make_sc_file(
-#     score=score,
-#     tempo=((1, 4), 60),
-#     current_directory="/Users/trintonprater/scores/waidan/waidan/pitch",
-# )
+trinton.make_sc_file(
+    score=score,
+    tempo=((1, 4), 60),
+    current_directory="/Users/trintonprater/scores/waidan/waidan/pitch",
+)
 
 # show file
 
